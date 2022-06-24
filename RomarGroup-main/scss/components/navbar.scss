@@ -1,0 +1,35 @@
+header {
+    border-bottom: solid 5px #e23d39;
+    border-top: solid 5px #148c74;
+    padding: 30px;
+    margin-bottom: 100px !important;
+    background: linear-gradient(300deg, #d4d4d4 0%, #e9e8e8 25%, #f5f5f5 50%, #e9e8e8 75%, #b6b6b6 100%);
+}
+
+.dropdown-alinear {
+    justify-content: end !important;
+}
+
+.dropdown-color {
+    color: #000 !important;
+}
+
+.dropdown-color:hover {
+    color: #e23d39 !important;
+}
+
+.social{
+    list-style: none !important;
+}
+
+.fa-phone{
+    color: $blanco;
+}
+
+.fa-whatsapp{
+    color: $blanco;
+}
+
+.fa-envelope{
+    color: $blanco;
+}
