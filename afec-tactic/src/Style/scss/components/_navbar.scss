@@ -1,0 +1,26 @@
+.navbar-bg{
+    background-color: transparent;
+}
+
+.navbar-container{
+    margin: 0 250px !important;
+}
+
+.navbar-link{
+    font-family: 'Jumper Font BlackItalic';
+    color: $white !important;
+    font-size: 25px !important;
+}
+
+.navbar-link:hover{
+    color: $blue !important;
+}
+
+.navbar-link:active{
+    color: $blue !important;
+}
+
+.logo{
+    position: relative;
+    top: 80px;
+}

@@ -1,0 +1,27 @@
+.login-card{
+    margin-top: 100px !important;
+    background-color: $dark-blue !important;
+    border: 5px solid $white !important;
+    color: $white !important;
+    font-family: "Jumper Font Thin";
+    font-size: 14px !important;
+}
+
+.card-login-title{
+    font-family: "Jumper Font BlackItalic";
+}
+
+.btn-login{
+    background-color: $blue !important;
+    color: $darkest-blue !important;
+    width: 100% !important;
+    font-size: 16px;
+}
+
+.login-input{
+    font-size: 14px !important;
+}
+
+.login-link{
+    color: $blue !important;
+}

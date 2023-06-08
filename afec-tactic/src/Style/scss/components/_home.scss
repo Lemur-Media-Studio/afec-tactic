@@ -1,0 +1,25 @@
+body{
+    background-image: url("../../img/background.jpg");
+    background-size: cover;
+}
+
+.home-container{
+    margin-top: 50px !important;
+}
+
+.home-title{
+    font-family: 'Jumper Font BlackItalic';
+    color: $white;
+}
+
+.home-button{
+    background-color: $blue !important;
+    font-family: 'Jumper Font BlackItalic' !important;
+    color: $darkest-blue !important;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.blue-word{
+    color: $blue !important;
+}

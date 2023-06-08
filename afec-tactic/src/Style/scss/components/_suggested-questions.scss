@@ -1,0 +1,10 @@
+.suggested-questions-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Jumper Font Thin" !important;
+    color: $white !important;
+}

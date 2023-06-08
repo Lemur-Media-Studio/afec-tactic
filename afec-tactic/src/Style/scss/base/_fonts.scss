@@ -1,0 +1,17 @@
+$font-path: "../.././Fonts/";
+
+@font-face {
+    font-family: 'Jumper Font BlackItalic';
+    src: url('#{$font-path}JumperFont/JumperPERSONALUSEONLY-BlackItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+
+@font-face {
+    font-family: 'Jumper Font Thin';
+    src: url('#{$font-path}JumperFont/JumperPERSONALUSEONLY-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+

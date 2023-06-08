@@ -1,0 +1,59 @@
+.questions-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Jumper Font Thin" !important;
+    color: $white !important;
+}
+
+.question-title{
+    font-family: "Jumper Font BlackItalic" !important;
+    color: $white !important;
+    border-bottom: 3px $blue solid;
+    width: 50%;
+}
+
+.question-font{
+    font-family: "Jumper Font BlackItalic" !important;
+    color: $white !important;
+}
+
+.answers-btn{
+    background-color: $blue !important;
+    border: 1px solid $dark-blue !important;
+    margin-top: 50px;
+    padding: 15px !important;
+    font-size: 16px !important;
+}
+
+.answers-btn:hover{
+    background-color: $blue-hover !important;
+}
+
+.answers-btn:active{
+    background-color: $blue-active !important;
+}
+
+.subanswers-btn{
+    border: 1px solid $dark-blue !important;
+    margin-top: 50px;
+    padding: 10px;
+    font-size: 16px !important;
+}
+
+.subanswers-btn:hover{
+    background-color: $blue-hover !important;
+}
+
+.subanswers-btn:active{
+    background-color: $blue-active !important;
+}
+
+.checkbox-questions{
+    display: flex !important;
+    justify-content: end !important;
+    text-align: left !important;
+}

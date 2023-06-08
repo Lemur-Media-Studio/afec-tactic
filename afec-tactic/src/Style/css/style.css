@@ -1,0 +1,166 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@font-face {
+  font-family: "Jumper Font BlackItalic";
+  src: url("../.././Fonts/JumperFont/JumperPERSONALUSEONLY-BlackItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Jumper Font Thin";
+  src: url("../.././Fonts/JumperFont/JumperPERSONALUSEONLY-Thin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+body {
+  background-image: url("../../img/background.jpg");
+  background-size: cover;
+}
+
+.home-container {
+  margin-top: 50px !important;
+}
+
+.home-title {
+  font-family: "Jumper Font BlackItalic";
+  color: #fff;
+}
+
+.home-button {
+  background-color: #006cff !important;
+  font-family: "Jumper Font BlackItalic" !important;
+  color: #090d2c !important;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.blue-word {
+  color: #006cff !important;
+}
+
+.navbar-bg {
+  background-color: transparent;
+}
+
+.navbar-container {
+  margin: 0 250px !important;
+}
+
+.navbar-link {
+  font-family: "Jumper Font BlackItalic";
+  color: #fff !important;
+  font-size: 25px !important;
+}
+
+.navbar-link:hover {
+  color: #006cff !important;
+}
+
+.navbar-link:active {
+  color: #006cff !important;
+}
+
+.logo {
+  position: relative;
+  top: 80px;
+}
+
+.login-card {
+  margin-top: 100px !important;
+  background-color: #10224a !important;
+  border: 5px solid #fff !important;
+  color: #fff !important;
+  font-family: "Jumper Font Thin";
+  font-size: 14px !important;
+}
+
+.card-login-title {
+  font-family: "Jumper Font BlackItalic";
+}
+
+.btn-login {
+  background-color: #006cff !important;
+  color: #090d2c !important;
+  width: 100% !important;
+  font-size: 16px;
+}
+
+.login-input {
+  font-size: 14px !important;
+}
+
+.login-link {
+  color: #006cff !important;
+}
+
+.questions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  text-align: center;
+  font-family: "Jumper Font Thin" !important;
+  color: #fff !important;
+}
+
+.question-title {
+  font-family: "Jumper Font BlackItalic" !important;
+  color: #fff !important;
+  border-bottom: 3px #006cff solid;
+  width: 50%;
+}
+
+.question-font {
+  font-family: "Jumper Font BlackItalic" !important;
+  color: #fff !important;
+}
+
+.answers-btn {
+  background-color: #006cff !important;
+  border: 1px solid #10224a !important;
+  margin-top: 50px;
+  padding: 15px !important;
+  font-size: 16px !important;
+}
+
+.answers-btn:hover {
+  background-color: #0056cc !important;
+}
+
+.answers-btn:active {
+  background-color: #4091ff !important;
+}
+
+.subanswers-btn {
+  border: 1px solid #10224a !important;
+  margin-top: 50px;
+  padding: 10px;
+  font-size: 16px !important;
+}
+
+.subanswers-btn:hover {
+  background-color: #0056cc !important;
+}
+
+.subanswers-btn:active {
+  background-color: #4091ff !important;
+}
+
+.checkbox-questions {
+  display: flex !important;
+  justify-content: end !important;
+  text-align: left !important;
+}
+
+.suggested-questions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  text-align: center;
+  font-family: "Jumper Font Thin" !important;
+  color: #fff !important;
+}
+
+/*# sourceMappingURL=style.css.map */
