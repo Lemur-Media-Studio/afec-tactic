@@ -11,6 +11,12 @@
   font-weight: normal;
   font-style: italic;
 }
+@font-face {
+  font-family: "Jumper Font Bold";
+  src: url("../.././Fonts/JumperFont/JumperPERSONALUSEONLY-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
 body {
   background-image: url("../../img/background.jpg");
   background-size: cover;
@@ -62,6 +68,38 @@ body {
 .logo {
   position: relative;
   top: 80px;
+}
+
+.footer {
+  background-color: #006cff !important;
+  margin-top: 100px !important;
+  padding: 50px !important;
+}
+
+.footer-title {
+  font-family: "Jumper Font Bold";
+  border-bottom: #fff 1px solid !important;
+  font-size: 22px !important;
+  width: 18%;
+  padding-bottom: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.footer-list {
+  list-style: none !important;
+  font-weight: "Jumper Font Thin";
+  font-size: 18px !important;
+}
+
+.footer-social {
+  list-style: none !important;
+  display: flex !important;
+  font-size: 20px !important;
+}
+
+.footer-end {
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
 .login-card {

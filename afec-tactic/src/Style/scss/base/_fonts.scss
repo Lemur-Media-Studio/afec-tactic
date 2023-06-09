@@ -13,5 +13,12 @@ $font-path: "../.././Fonts/";
     font-weight: normal;
     font-style: italic;
   }
+
+  @font-face {
+    font-family: 'Jumper Font Bold';
+    src: url('#{$font-path}JumperFont/JumperPERSONALUSEONLY-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
   
 
