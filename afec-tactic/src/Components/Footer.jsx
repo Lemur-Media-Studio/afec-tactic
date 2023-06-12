@@ -1,5 +1,7 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
 import { BsTwitter, BsInstagram, BsFacebook, BsYoutube, BsLinkedin } from "react-icons/bs";
@@ -37,12 +39,12 @@ function Footer(){
                             <Col>
                                 <ul>
                                     <h3 className="footer-title">¡Síguenos!</h3>
-                                    <div className="footer-social">
-                                        <li><BsTwitter /></li>
-                                        <li className="mx-2"><BsInstagram /></li>
-                                        <li><BsFacebook /></li>
-                                        <li className="mx-2"><BsYoutube /></li>
-                                        <li><BsLinkedin /></li>
+                                    <div className="footer-social-container">
+                                        <li className="footer-social"><BsTwitter /></li>
+                                        <li className="mx-3 footer-social"><BsInstagram /></li>
+                                        <li className="footer-social"><BsFacebook/></li>
+                                        <li className="mx-3 footer-social"><BsYoutube /></li>
+                                        <li className="footer-social"><BsLinkedin /></li>
                                     </div>
                                 </ul>
                             </Col>
@@ -51,29 +53,18 @@ function Footer(){
                 </footer>
 
                 <section className="footer-end">
-                    <Container>
-                        <Row>
-                            <Col>
-                                <p className="footer-end-p">Copyright © 2023 AFEC Football Academy. Todos los derechos reservados.</p>
-                            </Col>
-
-                            <Col>
-                                <p className="footer-end-p">Términos y Condiciones</p>
-                            </Col>
-
-                            <Col>
-                                <p className="footer-end-p">Aviso Legal</p>
-                            </Col>
-
-                            <Col>
-                                <p className="footer-end-p">Política de cookies</p>
-                            </Col>
-
-                            <Col>
-                                <p className="footer-end-p">Política de privacidad</p>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <Navbar className="navbar-bg container" expand="lg">
+                            <Navbar.Brand className="footer-copyright">Copyright © 2023 AFEC Football Academy. Todos los derechos reservados.</Navbar.Brand>
+                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <Navbar.Collapse id="basic-navbar-nav">
+                                <Nav className="ms-auto">
+                                <Nav.Link as={Link} to='/' className="footer-end-link">Términos y Condiciones</Nav.Link>
+                                <Nav.Link as={Link} to='/' className="footer-end-link">Aviso Legal</Nav.Link>
+                                <Nav.Link as={Link} to='/' className="footer-end-link">Política de Cookies</Nav.Link>
+                                <Nav.Link as={Link} to='/' className="footer-end-link">Politica de privacidad</Nav.Link>
+                                </Nav>
+                            </Navbar.Collapse>
+                    </Navbar>
                 </section>
             </>
         )

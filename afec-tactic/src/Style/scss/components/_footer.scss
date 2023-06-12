@@ -6,6 +6,7 @@
 
 .footer-title{
     font-family: "Bold";
+    color: $darkest-blue !important;
     border-bottom: $white 1px solid !important;
     font-size: 22px !important;
     width: 18%;
@@ -19,13 +20,41 @@
     font-size: 18px !important;
 }
 
-.footer-social{
+.footer-social-container{
     list-style: none !important;
     display: flex !important;
+}
+
+.footer-social{
     font-size: 20px !important;
+    color: $darkest-blue !important;
+    padding: 0px !important;
+    cursor: pointer !important;
+}
+
+.footer-social:hover{
+    color: $white !important;
 }
 
 .footer-end{
     background-color: $black !important;
+    padding: 10px !important;
+}
+
+.footer-copyright{
     color: $white !important;
+    font-family: "Regular";
+    font-size: 14px !important;
+}
+
+.footer-end-link{
+    color: $white !important;
+    font-family: "Regular" !important;
+    font-size: 14px !important;
+    border-right: $white solid 1px !important;
+    text-align: center !important;
+}
+
+.footer-end-link:last-of-type{
+    border-right: none !important;
 }
