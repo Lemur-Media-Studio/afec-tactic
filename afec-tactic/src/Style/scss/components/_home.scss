@@ -8,13 +8,14 @@ body{
 }
 
 .home-title{
-    font-family: 'Jumper Font BlackItalic';
+    font-family: 'Black Italic' !important;
     color: $white;
 }
 
 .home-button{
     background-color: $blue !important;
-    font-family: 'Jumper Font BlackItalic' !important;
+    font-family: 'Regular' !important;
+    font-size: 16px !important;
     color: $darkest-blue !important;
     padding: 15px;
     border-radius: 20px;

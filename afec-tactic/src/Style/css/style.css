@@ -1,19 +1,25 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @font-face {
-  font-family: "Jumper Font BlackItalic";
-  src: url("../.././Fonts/JumperFont/JumperPERSONALUSEONLY-BlackItalic.ttf") format("truetype");
+  font-family: "Black Italic";
+  src: url("../.././Fonts/InterTight/InterTight-BlackItalic.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: "Jumper Font Thin";
-  src: url("../.././Fonts/JumperFont/JumperPERSONALUSEONLY-Thin.ttf") format("truetype");
+  font-family: "Thin";
+  src: url("../.././Fonts/InterTight/InterTight-Thin.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: "Jumper Font Bold";
-  src: url("../.././Fonts/JumperFont/JumperPERSONALUSEONLY-Bold.ttf") format("truetype");
+  font-family: "Bold";
+  src: url("../.././Fonts/InterTight/InterTight-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Regular";
+  src: url("../.././Fonts/InterTight/InterTight-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
 }
@@ -27,13 +33,14 @@ body {
 }
 
 .home-title {
-  font-family: "Jumper Font BlackItalic";
+  font-family: "Black Italic" !important;
   color: #fff;
 }
 
 .home-button {
   background-color: #006cff !important;
-  font-family: "Jumper Font BlackItalic" !important;
+  font-family: "Regular" !important;
+  font-size: 16px !important;
   color: #090d2c !important;
   padding: 15px;
   border-radius: 20px;
@@ -52,7 +59,7 @@ body {
 }
 
 .navbar-link {
-  font-family: "Jumper Font BlackItalic";
+  font-family: "Black Italic";
   color: #fff !important;
   font-size: 25px !important;
 }
@@ -77,7 +84,7 @@ body {
 }
 
 .footer-title {
-  font-family: "Jumper Font Bold";
+  font-family: "Bold";
   border-bottom: #fff 1px solid !important;
   font-size: 22px !important;
   width: 18%;
@@ -87,7 +94,7 @@ body {
 
 .footer-list {
   list-style: none !important;
-  font-weight: "Jumper Font Thin";
+  font-weight: "Regular" !important;
   font-size: 18px !important;
 }
 
@@ -107,12 +114,12 @@ body {
   background-color: #10224a !important;
   border: 5px solid #fff !important;
   color: #fff !important;
-  font-family: "Jumper Font Thin";
+  font-family: "Regular";
   font-size: 14px !important;
 }
 
 .card-login-title {
-  font-family: "Jumper Font BlackItalic";
+  font-family: "Black Italic";
 }
 
 .btn-login {
@@ -137,19 +144,19 @@ body {
   justify-content: center;
   margin-top: 100px;
   text-align: center;
-  font-family: "Jumper Font Thin" !important;
+  font-family: "Regular" !important;
   color: #fff !important;
 }
 
 .question-title {
-  font-family: "Jumper Font BlackItalic" !important;
+  font-family: "Black Italic" !important;
   color: #fff !important;
   border-bottom: 3px #006cff solid;
   width: 50%;
 }
 
 .question-font {
-  font-family: "Jumper Font BlackItalic" !important;
+  font-family: "Black Italic" !important;
   color: #fff !important;
 }
 
@@ -197,7 +204,7 @@ body {
   justify-content: center;
   margin-top: 100px;
   text-align: center;
-  font-family: "Jumper Font Thin" !important;
+  font-family: "Regular" !important;
   color: #fff !important;
 }
 
