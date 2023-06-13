@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, ButtonGroup, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Answers } from '../../utils/Answers';
+import { Answers } from '../../../utils/Answers';
 
 function SixthQuestion() {
 
@@ -15,7 +15,7 @@ function SixthQuestion() {
         <h3 className="question-font">¿Tipo de tarea?</h3>
         <ButtonGroup className="align-items-center row container" name="question6" defaultValue={0}>
         {Answers[5].map((option) => (
-              <Button className="answers-btn col-2" as={Link} to='/question7' value={option.answer}>
+              <Button className="answers-btn col-2" as={Link} to='/form1-question7' value={option.answer}>
                 {option.answer}
               </Button>
             ))}
@@ -23,8 +23,8 @@ function SixthQuestion() {
       </div>
 
       <div className='mt-5'>
-          <Link as={Link} to='/question5' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to='/question7' className='mx-2 question-link'>Siguiente pregunta</Link>
+          <Link as={Link} to='/form1-question5' className='mx-2 question-link'>Anterior pregunta</Link>
+          <Link as={Link} to='/form1-question7' className='mx-2 question-link'>Siguiente pregunta</Link>
       </div>
 
     </Container>

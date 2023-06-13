@@ -1,60 +1,38 @@
-export const Answers = [
-    [
-        {
-            answer: "Momento con balón",
-            value: 1,
-            id: "tbg-radio-1"
-        },
-        {
-            answer: "Momento sin balón",
-            value: 2,
-            id: "tbg-radio-2"
-        },
-        {
-            answer: "Transición ataque – defensa",
-            value: 3,
-            id: "tbg-radio-3"
-        },
-        {
-            answer: "Transición defensa - ataque",
-            value: 4,
-            id: "tbg-radio-4"
-        }
-    ],
+export const AnswersQ2 = [
 
     [
         {
             answer: "Salida de balón",
-            to: '/form1-q2-salida-de-balon',
+            to: '/form2-q2-salida-de-balon',
             id: "tbg-radio-5"
         },
         {
             answer: "Juego en campo contrario",
-            to: '/form1-q2-juego-campo-contrario',
+            to: '/form2-q2-juego-campo-contrario',
         },
         {
             answer: "Ataque última línea",
-            to: '/form1-q2-ataque-ultima-linea',
+            to: '/form2-q2-ataque-ultima-linea',
         },
         {
             answer: "Tras recuperación",
-            to: '/form1-q2-tras-recuperacion',
+            to: '/form2-q2-tras-recuperacion',
         },
         {
             answer: "Presión bloque alto",
-            to: '/form1-q2-presion-bloque-alto',
+            to: '/form2-q2-presion-bloque-alto',
         },
         {
             answer: "Bloque medio",
-            to: '/form1-q2-bloque-medio',
+            to: '/form2-q2-bloque-medio',
         },
         {
             answer: "Defensa de área",
-            to: '/form1-q2-defensa-de-area',
+            to: '/form2-q2-defensa-de-area',
         },
         {
             answer: "Tras Pérdida",
-            to: '/form1-q2-tras-perdida',
+            to: '/form2-q2-tras-perdida',
         },
     ],
 

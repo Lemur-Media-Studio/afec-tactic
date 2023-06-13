@@ -5,6 +5,8 @@ import NavBar from './Components/NavBar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Public from './Routes/Public';
 import Footer from './Components/Footer';
+import FQRoutes from './Routes/FQRoutes';
+import SQRoutes from './Routes/SQRoutes';
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
       <Router>
         <NavBar />
         <Public />
-        <Footer />
+        <FQRoutes />
+        <SQRoutes />
       </Router>
 
     </div>

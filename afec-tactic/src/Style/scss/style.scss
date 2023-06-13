@@ -7,3 +7,9 @@
 @import "./components/login";
 @import "./components/questions";
 @import "./components/suggested-questions";
+@import "./components/star";
+
+body{
+    background-image: url("../../img/background.jpg");
+    background-size: cover;
+}

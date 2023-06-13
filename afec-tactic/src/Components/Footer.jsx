@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
-import { BsTwitter, BsInstagram, BsFacebook, BsYoutube, BsLinkedin } from "react-icons/bs";
+import { BsTwitter, BsInstagram, BsFacebook, BsYoutube, BsLinkedin, BsAt, BsFillTelephoneFill } from "react-icons/bs";
 
 
 function Footer(){
@@ -15,24 +15,22 @@ function Footer(){
                     <Container>
                         <Row>
                             <Col>
-                                <img src={require('../img/logo-afectactic.png')} alt="Logo AFEC Tactic" height="200" />
+                                <a href="/"><img src={require('../img/logo-afectactic.png')} alt="Logo AFEC Tactic" height="200" /></a>
                             </Col>
 
                             <Col>
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Sitemap</h3>
-                                    <li>Inicio</li>
-                                    <li>Empleo</li>
-                                    <li>Opiniones</li>
-                                    <li>Mi cuenta</li>
+                                    <li><a href="/" className="footer-link">Inicio</a></li>
+                                    <li><a href="/login" className="footer-link">Ingresar</a></li>
                                 </ul>
                             </Col>
 
                             <Col>
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Contacto</h3>
-                                    <li>Email</li>
-                                    <li>Teléfono</li>
+                                    <li><BsAt className="footer-contact-at" /> info@afecfa.es </li>
+                                    <li><BsFillTelephoneFill className="footer-contact" /> +34 661 232 683</li>
                                 </ul>
                             </Col>
 
@@ -40,11 +38,11 @@ function Footer(){
                                 <ul>
                                     <h3 className="footer-title">¡Síguenos!</h3>
                                     <div className="footer-social-container">
-                                        <li className="footer-social"><BsTwitter /></li>
-                                        <li className="mx-3 footer-social"><BsInstagram /></li>
-                                        <li className="footer-social"><BsFacebook/></li>
-                                        <li className="mx-3 footer-social"><BsYoutube /></li>
-                                        <li className="footer-social"><BsLinkedin /></li>
+                                        <li className="footer-social"><a href="https://twitter.com/afecfa" target="_blank" rel="noopener noreferrer" className="footer-link"><BsTwitter /></a></li>
+                                        <li className="mx-3 footer-social"><a href="https://www.instagram.com/afecfa/" target="_blank" rel="noopener noreferrer" className="footer-link"><BsInstagram /></a></li>
+                                        <li className="footer-social"><a href="https://www.facebook.com/afecfootballacademy" target="_blank" rel="noopener noreferrer" className="footer-link"><BsFacebook/></a></li>
+                                        <li className="mx-3 footer-social"><a href="https://www.youtube.com/channel/UC71lMKSOjJyFQb0OgZPyMlQ" target="_blank" rel="noopener noreferrer" className="footer-link"><BsYoutube /></a></li>
+                                        <li className="footer-social"><a href="https://es.linkedin.com/school/afec-football-academy/" target="_blank" rel="noopener noreferrer" className="footer-link"><BsLinkedin /></a></li>
                                     </div>
                                 </ul>
                             </Col>

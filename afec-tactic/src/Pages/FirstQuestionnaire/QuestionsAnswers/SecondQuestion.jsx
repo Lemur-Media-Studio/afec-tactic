@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Button, ButtonGroup, CardGroup, Container, NavLink } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Answers } from '../../utils/Answers';
+import { Answers } from '../../../utils/Answers';
 
 function SecondQuestion() {
 
@@ -24,8 +24,8 @@ function SecondQuestion() {
       </div>
         
         <div className='mt-5'>
-          <Link as={Link} to='/question1' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to='/question3' className='mx-2 question-link'>Siguiente pregunta</Link>
+          <Link as={Link} to='/form1-question1' className='mx-2 question-link'>Anterior pregunta</Link>
+          <Link as={Link} to='/form1-question3' className='mx-2 question-link'>Siguiente pregunta</Link>
         </div>
 
     </Container>

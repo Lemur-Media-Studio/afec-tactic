@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 
-function SuggestedSession() {
+function SQSuggestedSession() {
 
   return (
 
@@ -15,4 +15,4 @@ function SuggestedSession() {
   );
 }
 
-export default SuggestedSession;
+export default SQSuggestedSession;

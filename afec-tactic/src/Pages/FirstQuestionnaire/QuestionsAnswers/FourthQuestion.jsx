@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Answers } from '../../utils/Answers';
+import { Answers } from '../../../utils/Answers';
 
 function FourthQuestion() {
 
@@ -46,14 +46,14 @@ function FourthQuestion() {
             ))}
         </div>
 
-        <Button className="answers-btn" as={Link} to='/question5'>Enviar y avanzar</Button>
+        <Button className="answers-btn" as={Link} to='/form1-question5'>Enviar y avanzar</Button>
       </div>
 
 
 
       <div className='mt-5'>
-          <Link as={Link} to='/question3' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to='/question5' className='mx-2 question-link'>Siguiente pregunta</Link>
+          <Link as={Link} to='/form1-question3' className='mx-2 question-link'>Anterior pregunta</Link>
+          <Link as={Link} to='/form1-question5' className='mx-2 question-link'>Siguiente pregunta</Link>
       </div>
 
     </Container>

@@ -1,22 +1,22 @@
 import React from 'react'
-import { useState } from 'react';
 import { Button, ButtonGroup, Container, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function PresionBloqueAlto() {
+function FifthQuestion() {
 
-const [subquestion, setSubquestion] = useState("")
+  const [subquestion, setSubquestion] = useState("")
 
-const subanswersJuegoLanzado = () => {
+  const subanswersJuegoLanzado = () => {
       setSubquestion(    
           <ButtonGroup>
-                <Button className="answers-btn" as={Link} to='/question3'>
+                <Button className="answers-btn" as={Link} to='/form2-question6'>
                     Juego asociativo
                 </Button>
-                <Button className="answers-btn" as={Link} to='/question3'>
+                <Button className="answers-btn" as={Link} to='/form2-question6'>
                     Juego vertical
                 </Button>
-                <Button className="answers-btn" as={Link} to='/question3'>
+                <Button className="answers-btn" as={Link} to='/form2-question6'>
                     Juego directo
                 </Button>
           </ButtonGroup>
@@ -26,13 +26,13 @@ const subanswersJuegoLanzado = () => {
 const subanswersReinicio = () => {
     setSubquestion(    
         <ButtonGroup>
-              <Button className="answers-btn" as={Link} to='/question3'>
+              <Button className="answers-btn" as={Link} to='/form2-question6'>
                   Orientada
               </Button>
-              <Button className="answers-btn" as={Link} to='/question3'>
+              <Button className="answers-btn" as={Link} to='/form2-question6'>
                   Zonal
               </Button>
-              <Button className="answers-btn" as={Link} to='/question3'>
+              <Button className="answers-btn" as={Link} to='/form2-question6'>
                   Total
               </Button>
         </ButtonGroup>
@@ -43,11 +43,11 @@ const subanswersReinicio = () => {
 
     <Container className="questions-container">
 
-        <h1 className="question-title">PRESIÓN BLOQUE ALTO</h1>
+      <h1 className="question-title">QUINTA PREGUNTA</h1>
 
-        <div>
-            <h3 className="question-font">Selecciona una opción</h3>
-            <ToggleButtonGroup type="radio" name="options" defaultValue={0}>
+      <div>
+        <h3 className="question-font">¿Cómo planteaste el partido en Presión Bloque Alto?</h3>
+        <ToggleButtonGroup type="radio" name="options" defaultValue={0}>
                 <ToggleButton id="tbg-radio-1" value={1} className="subanswers-btn" onClick={subanswersReinicio}>
                     Reinicio
                 </ToggleButton>
@@ -61,14 +61,14 @@ const subanswersReinicio = () => {
         <div>
             {subquestion}
         </div>
-        
-        <div className='mt-5'>
-            <Link as={Link} to='/question2' className='mx-2 question-link'>Anterior pregunta</Link>
-            <Link as={Link} to='/question3' className='mx-2 question-link'>Siguiente pregunta</Link>
-        </div>
+
+      <div className='mt-5'>
+          <Link as={Link} to='/form2-question4' className='mx-2 question-link'>Anterior pregunta</Link>
+          <Link as={Link} to='/form2-question6' className='mx-2 question-link'>Siguiente pregunta</Link>
+      </div>
 
     </Container>
   );
 }
 
-export default PresionBloqueAlto
+export default FifthQuestion;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, ButtonGroup, Container, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Answers } from '../../utils/Answers';
+import { Answers } from '../../../utils/Answers';
 
 function NinethQuestion() {
 
@@ -22,10 +22,10 @@ function NinethQuestion() {
         </ToggleButtonGroup>
       </div>
 
-      <Button className="answers-btn" as={Link} to='/suggested-session'>Enviar y finalizar</Button>
+      <Button className="answers-btn" as={Link} to='/form1-suggested-session'>Enviar y finalizar</Button>
 
       <div className='mt-5'>
-          <Link as={Link} to='/question8' className='mx-2 question-link'>Anterior pregunta</Link>
+          <Link as={Link} to='/form1-question8' className='mx-2 question-link'>Anterior pregunta</Link>
       </div>
 
     </Container>
