@@ -8,14 +8,6 @@ import SeventhQuestion from '../Pages/SecondQuestionnaire/QuestionsAnswers/Seven
 import SecondQuestion from '../Pages/SecondQuestionnaire/QuestionsAnswers/SecondQuestion'
 import SixthQuestion from '../Pages/SecondQuestionnaire/QuestionsAnswers/SixthQuestion'
 import ThirdQuestion from '../Pages/SecondQuestionnaire/QuestionsAnswers/ThirdQuestion'
-import AtaqueUltimaLinea from '../Pages/SecondQuestionnaire/Subquestions/AtaqueUltimaLinea'
-import BloqueMedio from '../Pages/SecondQuestionnaire/Subquestions/BloqueMedio'
-import DefensaDeArea from '../Pages/SecondQuestionnaire/Subquestions/DefensaDeArea'
-import JuegoCampoContrario from '../Pages/SecondQuestionnaire/Subquestions/JuegoCampoContrario'
-import PresionBloqueAlto from '../Pages/SecondQuestionnaire/Subquestions/PresionBloqueAlto'
-import SalidaDeBalon from '../Pages/SecondQuestionnaire/Subquestions/SalidaDeBalon'
-import TrasPerdida from '../Pages/SecondQuestionnaire/Subquestions/TrasPerdida'
-import TrasRecuperacion from '../Pages/SecondQuestionnaire/Subquestions/TrasRecuperacion'
 import SQSuggestedSession from '../Pages/SecondQuestionnaire/SQSuggestedSession'
 import FirstQuestion from '../Pages/SecondQuestionnaire/QuestionsAnswers/FirstQuestion'
 import TenthQuestion from '../Pages/SecondQuestionnaire/QuestionsAnswers/TenthQuestion'
@@ -30,14 +22,6 @@ function SQRoutes(){
         <Routes>
             <Route path='/form2-question1' element={<FirstQuestion />} />
             <Route path='/form2-question2' element={<SecondQuestion />} />
-            <Route path='/form2-q2-salida-de-balon' element={<SalidaDeBalon />} />
-            <Route path='/form2-q2-juego-campo-contrario' element={<JuegoCampoContrario />} />
-            <Route path='/form2-q2-ataque-ultima-linea' element={<AtaqueUltimaLinea />} />
-            <Route path='/form2-q2-tras-recuperacion' element={<TrasRecuperacion />} />
-            <Route path='/form2-q2-presion-bloque-alto' element={<PresionBloqueAlto />} />
-            <Route path='/form2-q2-bloque-medio' element={<BloqueMedio />} />
-            <Route path='/form2-q2-defensa-de-area' element={<DefensaDeArea />} />
-            <Route path='/form2-q2-tras-perdida' element={<TrasPerdida />} />
             <Route path='/form2-question3' element={<ThirdQuestion />} />
             <Route path='/form2-question4' element={<FourthQuestion />} />
             <Route path='/form2-question5' element={<FifthQuestion />} />
