@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { Answers } from '../../../utils/Answers';
 
 function NinethQuestion() {
+  function mandoRespuesta(Q9) {
+    const respuestas = { Q9 }
+    console.log(respuestas)
+    localStorage.setItem('A-Q9', JSON.stringify(respuestas))
+  }
 
   return (
 
@@ -15,9 +20,9 @@ function NinethQuestion() {
         <h3 className="question-font">¿Igualdad?</h3>
         <ToggleButtonGroup type="radio" name="options" defaultValue={0}>
         {Answers[8].map((option) => (
-              <ToggleButton id={option.id} value={option.value} className="subanswers-btn" value={option.answer}>
+              <Button id={option.id} className="subanswers-btn" onClick={(e) => mandoRespuesta(e.target.value)} value={option.answer}>
                 {option.answer}
-              </ToggleButton>
+              </Button>
             ))}
         </ToggleButtonGroup>
       </div>
