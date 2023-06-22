@@ -4,7 +4,7 @@ import EighthQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/EighthQ
 import FifthQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/FifthQuestion'
 import FourthQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/FourthQuestion'
 import NinethQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/NinethQuestion'
-import SeventhQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/QuestionSeventh'
+import SeventhQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/SeventhQuestion'
 import SecondQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/SecondQuestion'
 import SixthQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/SixthQuestion'
 import ThirdQuestion from '../Pages/FirstQuestionnaire/QuestionsAnswers/ThirdQuestion'

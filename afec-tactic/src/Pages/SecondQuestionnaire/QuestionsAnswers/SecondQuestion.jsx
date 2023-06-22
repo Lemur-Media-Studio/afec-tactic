@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, ButtonGroup, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Q2Header from '../../../Components/Q2Header';
 import { Subquestions } from '../../../utils/Subquestions';
 
 function SecondQuestion() {
 
+  const [selectedBtn, setSelectedBtn] = useState(null);
+
   return (
+
+    <>
+
+    <Q2Header />
 
     <Container className="questions-container">
 
@@ -14,13 +21,27 @@ function SecondQuestion() {
       <div>
             <h3 className="question-font">¿Cómo planteaste el partido en Juego Campo Contrario?</h3>
             <ButtonGroup  name="question1" defaultValue={0}>
-                {Subquestions[1].map((option) => (
-                <Button className="answers-btn" as={Link} to='/form2-question3' value={option.answer}>
-                    {option.answer}
-                </Button>
-            ))}
-            </ButtonGroup>
-        </div>
+                  {Subquestions[1].map((option, index) => (
+                  <Button key={index} className="answers-btn" value={option.answer}
+                  onClick={(e) => {
+                      setSelectedBtn(index);
+                  }}
+                  style={{
+                      backgroundColor: '#006cff;',
+                      border: selectedBtn === index ? '2px solid #fff' : '1px solid #10224a',
+                      marginTop: '50px',
+                      padding: '15px',
+                      fontSize: '16px',
+                  }} >
+                      {option.answer}
+                  </Button>
+              ))}
+              </ButtonGroup>
+  
+              <div>
+                  <Button className="nextq-btn" to='/form2-question3' as={Link} >Siguiente pregunta</Button>
+              </div>
+       </div>
         
         <div className='mt-5'>
           <Link as={Link} to='/form2-question1' className='mx-2 question-link'>Anterior pregunta</Link>
@@ -28,6 +49,8 @@ function SecondQuestion() {
         </div>
 
     </Container>
+
+    </>
   );
 }
 

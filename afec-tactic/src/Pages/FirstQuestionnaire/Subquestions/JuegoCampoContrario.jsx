@@ -1,33 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, ButtonGroup, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import QHeader from '../../../Components/QHeader';
 import { Subquestions } from '../../../utils/Subquestions';
 
 function JuegoCampoContrario() {
 
-  return (
+    const [selectedBtn, setSelectedBtn] = useState(null);
 
-    <Container className="questions-container">
+    return (
 
-        <h1 className="question-title">JUEGO CAMPO CONTRARIO</h1>
+      <>
 
-        <div>
-            <h3 className="question-font">Selecciona una opción</h3>
-            <ButtonGroup  name="question1" defaultValue={0}>
-                {Subquestions[1].map((option) => (
-                <Button className="answers-btn" as={Link} to='/form1-question3' value={option.answer}>
-                    {option.answer}
-                </Button>
-            ))}
-            </ButtonGroup>
-        </div>
-        
-        <div className='mt-5'>
-            <Link as={Link} to='/form1-question2' className='mx-2 question-link'>Anterior pregunta</Link>
-            <Link as={Link} to='/form1-question3' className='mx-2 question-link'>Siguiente pregunta</Link>
-        </div>
+      <QHeader />  
+  
+      <Container className="questions-container">
+  
+          <h1 className="question-title">ATAQUE ÚLTIMA LÍNEA</h1>
+  
+          <div>
+              <h3 className="question-font">Selecciona una opción</h3>
+              <ButtonGroup  name="question1" defaultValue={0}>
+                  {Subquestions[1].map((option, index) => (
+                  <Button key={index} className="answers-btn" value={option.answer}
+                  onClick={(e) => {
+                      setSelectedBtn(index);
+                  }}
+                  style={{
+                      backgroundColor: '#006cff;',
+                      border: selectedBtn === index ? '2px solid #fff' : '1px solid #10224a',
+                      marginTop: '50px',
+                      padding: '15px',
+                      fontSize: '16px',
+                  }} >
+                      {option.answer}
+                  </Button>
+              ))}
+              </ButtonGroup>
+  
+              <div>
+                  <Button className="nextq-btn" to='/form1-question3' as={Link} >Siguiente pregunta</Button>
+              </div>
+          </div>
+          
+          <div className='mt-5'>
+              <Link as={Link} to='/form1-question2' className='mx-2 question-link'>Anterior pregunta</Link>
+              <Link as={Link} to='/form1-question3' className='mx-2 question-link'>Siguiente pregunta</Link>
+          </div>
+  
+      </Container>
 
-    </Container>
+      </>
   );
 }
 

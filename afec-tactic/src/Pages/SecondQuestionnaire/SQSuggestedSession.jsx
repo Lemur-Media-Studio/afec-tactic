@@ -1,9 +1,14 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
+import Q2Header from '../../Components/Q2Header';
 
 function SQSuggestedSession() {
 
   return (
+
+    <>
+
+    <Q2Header />
 
     <Container className="suggested-questions-container">
 
@@ -12,6 +17,8 @@ function SQSuggestedSession() {
       
 
     </Container>
+
+    </>
   );
 }
 

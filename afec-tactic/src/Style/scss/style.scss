@@ -8,8 +8,13 @@
 @import "./components/questions";
 @import "./components/suggested-questions";
 @import "./components/star";
+@import "./components/qheader";
 
 body{
     background-image: url("../../img/background.jpg");
     background-size: cover;
+}
+
+ul{
+    list-style: none !important;
 }

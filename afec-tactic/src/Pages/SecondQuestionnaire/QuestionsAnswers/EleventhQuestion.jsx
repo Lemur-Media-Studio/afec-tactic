@@ -1,11 +1,16 @@
 import React from 'react'
 import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Q2Header from '../../../Components/Q2Header';
 import StarRating from '../../../Components/StarRaiting';
 
 function EleventhQuestion() {
 
   return (
+    
+    <>
+
+    <Q2Header />
 
     <Container className="questions-container">
 
@@ -14,7 +19,7 @@ function EleventhQuestion() {
       <div>
         <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las transiciones ataque-defensa?</h3>
         <StarRating />
-        <Button className="answers-btn" as={Link} to='/form2-question12'>Enviar y avanzar</Button>
+        <Button className="nextq-btn" as={Link} to='/form2-question12'>Enviar y avanzar</Button>
       </div>
 
 
@@ -24,6 +29,8 @@ function EleventhQuestion() {
       </div>
 
     </Container>
+
+    </>
   );
 }
 

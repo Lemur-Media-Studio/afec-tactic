@@ -14,19 +14,12 @@
     color: $white !important;
     border-bottom: 3px $blue solid;
     width: 50%;
+    font-size: 40px !important;
 }
 
 .question-font{
     font-family: "Black Italic" !important;
     color: $white !important;
-}
-
-.answers-btn{
-    background-color: $blue !important;
-    border: 1px solid $dark-blue !important;
-    margin-top: 50px;
-    padding: 15px !important;
-    font-size: 16px !important;
 }
 
 .answers-btn:hover{
@@ -52,8 +45,64 @@
     background-color: $blue-active !important;
 }
 
+.nextq-btn{
+    background-color: $dark-blue !important;
+    border: 2px solid $blue !important;
+    margin-top: 50px;
+    padding: 10px 100px !important;
+    font-size: 16px !important;
+    font-family: Regular;
+}
+
+.nextq-btn:hover{
+    background-color: $darkest-blue !important;
+}
+
+.nextq-btn:active{
+    background-color: $blue !important;
+}
+
 .checkbox-questions{
     display: flex !important;
     justify-content: end !important;
     text-align: left !important;
+}
+
+.chooseq-btn{
+    background-color: $blue !important;
+    border-radius: 20px !important;
+    padding: 15px!important;
+    font-size: 12px !important;
+    font-family: "Bold";
+    color: $white !important;
+}
+
+.chooseq-btn:hover{
+    background-color: $blue-hover !important;
+}
+
+.chooseq-card{
+    background-color: $dark-blue;
+    border: 1px $blue solid;
+    border-radius: 10px !important;
+}
+
+.chooseq-row{
+    margin-top: 50px !important;
+    background-color: transparent !important;
+
+}
+
+.chooseq-title{
+    font-family: "Bold" !important;
+    text-align: center !important;
+    color: $white !important;
+    font-size: 26px !important;
+}
+
+.chooseq-p{
+    font-family: "Regular" !important;
+    text-align: center !important;
+    color: $white !important;
+    padding: 20px !important;
 }

@@ -13,7 +13,6 @@ function App() {
     <div className="App">
 
       <Router>
-        <NavBar />
         <Public />
         <FQRoutes />
         <SQRoutes />

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Answers } from '../../../utils/Answers';
+import QHeader from '../../../Components/QHeader';
 
 function ThirdQuestion() {
 
@@ -33,6 +34,10 @@ function ThirdQuestion() {
 
   return (
 
+    <>
+
+    <QHeader />
+
     <Container className="questions-container">
 
       <h1 className="question-title">TERCERA PREGUNTA</h1>
@@ -55,7 +60,7 @@ function ThirdQuestion() {
           ))}
         </div>
 
-        <Button className="answers-btn" as={Link} to='/form1-question4'>Enviar y avanzar</Button>
+        <Button className="nextq-btn" as={Link} to='/form1-question4'>Enviar y avanzar</Button>
       </div>
 
 
@@ -66,6 +71,8 @@ function ThirdQuestion() {
       </div>
 
     </Container>
+
+    </>
   );
 }
 

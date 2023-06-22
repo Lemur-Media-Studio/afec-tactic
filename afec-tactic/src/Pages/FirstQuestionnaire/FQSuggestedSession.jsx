@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
+import QHeader from '../../Components/QHeader';
 
 function FQSuggestedSession() {
   const a1 = JSON.parse(localStorage.getItem('A-Q1'))
@@ -24,6 +25,11 @@ function FQSuggestedSession() {
   const a9 = JSON.parse(localStorage.getItem('A-Q9'))
   const a9list = Object.values(a9)
   return (
+
+    <>
+
+    <QHeader />
+
     <Container className="suggested-questions-container">
       <h1 className="question-title">SESIÓN DE ENTRENAMIENTO SUGERIDA</h1>
       <small>Resp1: {a1list}</small>
@@ -36,6 +42,8 @@ function FQSuggestedSession() {
       <small>Resp8: {a8list}</small>
       <small>Resp9: {a9list}</small>
     </Container>
+
+    </>
   );
 }
 

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import QHeader from '../../../Components/QHeader';
 import { Answers } from '../../../utils/Answers';
 
-function SixthQuestion() {
-  function mandoRespuesta(Q6) {
-    const respuestas = { Q6 }
+function SeventhQuestion() {
+  function mandoRespuesta(Q7) {
+    const respuestas = { Q7 }
     console.log(respuestas)
-    localStorage.setItem('A-Q6', JSON.stringify(respuestas))
+    localStorage.setItem('A-Q7', JSON.stringify(respuestas))
   }
 
   const [selectedBtn, setSelectedBtn] = useState(null);
@@ -21,12 +21,12 @@ function SixthQuestion() {
 
     <Container className="questions-container">
 
-      <h1 className="question-title">SEXTA PREGUNTA</h1>
+      <h1 className="question-title">SÉPTIMA PREGUNTA</h1>
 
       <div>
-        <h3 className="question-font">¿Tipo de tarea?</h3>
+        <h3 className="question-font">¿Tipo de espacios?</h3>
         <ButtonGroup name="question1" defaultValue={0}>
-          {Answers[5].map((option, index) => (
+          {Answers[6].map((option, index) => (
             <Button key={index} className="answers-btn" to='/form1-question2' value={option.answer}
             onClick={(e) => {
               mandoRespuesta(e.target.value);
@@ -45,12 +45,12 @@ function SixthQuestion() {
         </ButtonGroup>
       </div>
       <div>
-          <Button className="nextq-btn" to='/form1-question7' as={Link} >Siguiente pregunta</Button>
+          <Button className="nextq-btn" to='/form1-question8' as={Link} >Siguiente pregunta</Button>
         </div>
 
       <div className='mt-5'>
-          <Link as={Link} to='/form1-question5' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to='/form1-question7' className='mx-2 question-link'>Siguiente pregunta</Link>
+          <Link as={Link} to='/form1-question6' className='mx-2 question-link'>Anterior pregunta</Link>
+          <Link as={Link} to='/form1-question8' className='mx-2 question-link'>Siguiente pregunta</Link>
       </div>
 
     </Container>
@@ -59,4 +59,4 @@ function SixthQuestion() {
   );
 }
 
-export default SixthQuestion;
+export default SeventhQuestion;

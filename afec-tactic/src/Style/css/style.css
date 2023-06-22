@@ -185,19 +185,12 @@
   color: #fff !important;
   border-bottom: 3px #006cff solid;
   width: 50%;
+  font-size: 40px !important;
 }
 
 .question-font {
   font-family: "Black Italic" !important;
   color: #fff !important;
-}
-
-.answers-btn {
-  background-color: #006cff !important;
-  border: 1px solid #10224a !important;
-  margin-top: 50px;
-  padding: 15px !important;
-  font-size: 16px !important;
 }
 
 .answers-btn:hover {
@@ -223,10 +216,65 @@
   background-color: #4091ff !important;
 }
 
+.nextq-btn {
+  background-color: #10224a !important;
+  border: 2px solid #006cff !important;
+  margin-top: 50px;
+  padding: 10px 100px !important;
+  font-size: 16px !important;
+  font-family: Regular;
+}
+
+.nextq-btn:hover {
+  background-color: #090d2c !important;
+}
+
+.nextq-btn:active {
+  background-color: #006cff !important;
+}
+
 .checkbox-questions {
   display: flex !important;
   justify-content: end !important;
   text-align: left !important;
+}
+
+.chooseq-btn {
+  background-color: #006cff !important;
+  border-radius: 20px !important;
+  padding: 15px !important;
+  font-size: 12px !important;
+  font-family: "Bold";
+  color: #fff !important;
+}
+
+.chooseq-btn:hover {
+  background-color: #0056cc !important;
+}
+
+.chooseq-card {
+  background-color: #10224a;
+  border: 1px #006cff solid;
+  border-radius: 10px !important;
+}
+
+.chooseq-row {
+  margin-top: 50px !important;
+  background-color: transparent !important;
+}
+
+.chooseq-title {
+  font-family: "Bold" !important;
+  text-align: center !important;
+  color: #fff !important;
+  font-size: 26px !important;
+}
+
+.chooseq-p {
+  font-family: "Regular" !important;
+  text-align: center !important;
+  color: #fff !important;
+  padding: 20px !important;
 }
 
 .suggested-questions-container {
@@ -259,9 +307,25 @@
   font-size: 25px !important;
 }
 
+.qheader-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.qheader-title {
+  font-family: "Bold" !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
 body {
   background-image: url("../../img/background.jpg");
   background-size: cover;
+}
+
+ul {
+  list-style: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -232,10 +232,10 @@ export const Answers = [
 
     [
         {
-            answer: "Sí",
+            answer: "Con porterías",
         },
         {
-            answer: "No",
+            answer: "Sin porterías",
         },
     ],
 
