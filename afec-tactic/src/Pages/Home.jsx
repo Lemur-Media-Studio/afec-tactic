@@ -16,7 +16,7 @@ function Home(){
                 <Row className="justify-content-center align-items-center">
                     <Col />
                     <Col>
-                        <h1 className="home-title">LA APP PARA <span className="blue-word">ENTRENADORES</span> DE FÚTBOL</h1>
+                        <h1 className="home-title">LA IA PARA <span className="blue-word">ENTRENADORES</span> DE FÚTBOL</h1>
                         <Button className="home-button">Prueba tu primera semana gratis</Button>
                     </Col>
 
