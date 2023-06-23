@@ -7,6 +7,11 @@ const SalidaDeBalon = () => {
 
   const [selectedBtn, setSelectedBtn] = useState(null);
   const [selectedBtnSubanswer, setSelectedBtnSubanswer] = useState(null);
+  function mandoRespuesta(Q2) {
+    const respuestas = { Q2 }
+    console.log(respuestas)
+    localStorage.setItem('A-Q2', JSON.stringify(respuestas))
+  }
 
   return (
 
@@ -37,7 +42,8 @@ const SalidaDeBalon = () => {
           </Button>
 
           <Button
-            onClick={() => {
+            onClick={(e) => {
+              mandoRespuesta(e.target.value);
               setSelectedBtn(2);
               setSelectedBtnSubanswer(null); // Juego lanzado seleccionado, reinicia selectedBtnSubanswer
             }}

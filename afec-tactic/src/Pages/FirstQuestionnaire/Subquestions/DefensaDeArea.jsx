@@ -7,7 +7,11 @@ import { Subquestions } from '../../../utils/Subquestions';
 function DefensaDeArea() {
 
     const [selectedBtn, setSelectedBtn] = useState(null);
-
+    function mandoRespuesta(Q2) {
+        const respuestas = { Q2 }
+        console.log(respuestas)
+        localStorage.setItem('A-Q2', JSON.stringify(respuestas))
+      }
     return (
 
       <>
@@ -24,6 +28,7 @@ function DefensaDeArea() {
                   {Subquestions[5].map((option, index) => (
                   <Button key={index} className="answers-btn" value={option.answer}
                   onClick={(e) => {
+                    mandoRespuesta(e.target.value);
                       setSelectedBtn(index);
                   }}
                   style={{

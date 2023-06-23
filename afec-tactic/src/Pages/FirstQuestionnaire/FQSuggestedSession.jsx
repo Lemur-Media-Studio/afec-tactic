@@ -9,11 +9,11 @@ function FQSuggestedSession() {
   const a2list = Object.values(a2)
   const a3 = JSON.parse(localStorage.getItem('A-Q3'))
   const a3list = Object.values(a3)
-  /*
-  //comento da error
-  const a4 = JSON.parse(localStorage.getItem('A-Q4'))
+  
+  
+  const a4 = JSON.parse(localStorage.getItem('CH1-Q4'))
   const a4list = Object.values(a4)
-  */
+  
   const a5 = JSON.parse(localStorage.getItem('A-Q5'))
   const a5list = Object.values(a5)
   const a6 = JSON.parse(localStorage.getItem('A-Q6'))
@@ -35,7 +35,7 @@ function FQSuggestedSession() {
       <small>Resp1: {a1list}</small>
       <small>Resp2: {a2list}</small>
       <small>Resp3: {a3list}</small>
-      <small>Resp5: ERROR</small>
+      <small>Resp4: {a4list}</small>
       <small>Resp5: {a5list}</small>
       <small>Resp6: {a6list}</small>
       <small>Resp7: {a7list}</small>

@@ -8,13 +8,19 @@ function FourthQuestion() {
     const [selectedOptions, setSelectedOptions] = useState([])
 
     /* Handle Checkbox */
-    const handleOptionChange = (optionId) => {
+    const handleOptionChange = (optionId, a) => {
         if (selectedOptions.includes(optionId)) {
           setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
         } else {
           if (selectedOptions.length < 2) {
             setSelectedOptions([...selectedOptions, optionId]);
+        
+              const respuestas = {a}
+              console.log(respuestas)
+              localStorage.setItem('CH1-Q4', JSON.stringify(respuestas))
+            
           }
+
         }
       };
 
@@ -43,8 +49,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="percepcion"
                 label="Percepción"
+                value="Percepción"
                 checked={selectedOptions.includes(1)}
-                onChange={() => handleOptionChange(1)}
+                onChange={(e) => handleOptionChange(1, e.target.value)}
                 disabled={isOptionDisabled(1)}
               />
 
@@ -53,8 +60,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="pase"
                 label="Pase"
+                value="Pase"
                 checked={selectedOptions.includes(2)}
-                onChange={() => handleOptionChange(2)}
+                onChange={(e) => handleOptionChange(2, e.target.value)}
                 disabled={isOptionDisabled(2)}
               />
 
@@ -63,8 +71,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="control"
                 label="Control"
+                value="Control"
                 checked={selectedOptions.includes(3)}
-                onChange={() => handleOptionChange(3)}
+                onChange={(e) => handleOptionChange(3, e.target.value)}
                 disabled={isOptionDisabled(3)}
               />
 
@@ -72,9 +81,10 @@ function FourthQuestion() {
                 key="conduccion"
                 type="checkbox"
                 id="conduccion"
+                value="Conducción"
                 label="Conducción"
                 checked={selectedOptions.includes(4)}
-                onChange={() => handleOptionChange(4)}
+                onChange={(e) => handleOptionChange(4, e.target.value)}
                 disabled={isOptionDisabled(4)}
               />
 
@@ -83,8 +93,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="tiro"
                 label="Tiro"
+                value="Tiro"
                 checked={selectedOptions.includes(5)}
-                onChange={() => handleOptionChange(5)}
+                onChange={(e) => handleOptionChange(5, e.target.value)}
                 disabled={isOptionDisabled(5)}
               />
 
@@ -93,8 +104,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="perfiles"
                 label="Perfiles"
+                value="Perfiles"
                 checked={selectedOptions.includes(6)}
-                onChange={() => handleOptionChange(6)}
+                onChange={(e) => handleOptionChange(6, e.target.value)}
                 disabled={isOptionDisabled(6)}
               />
 
@@ -103,8 +115,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="trayectoria"
                 label="Trayectoria"
+                value="Trayectoria"
                 checked={selectedOptions.includes(7)}
-                onChange={() => handleOptionChange(7)}
+                onChange={(e) => handleOptionChange(7, e.target.value)}
                 disabled={isOptionDisabled(7)}
               />
 
@@ -113,8 +126,9 @@ function FourthQuestion() {
                 type="checkbox"
                 id="distancias"
                 label="Distancias"
+                value="Distancias"
                 checked={selectedOptions.includes(8)}
-                onChange={() => handleOptionChange(8)}
+                onChange={(e) => handleOptionChange(8, e.target.value)}
                 disabled={isOptionDisabled(8)}
               />
 
