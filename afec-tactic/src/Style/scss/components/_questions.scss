@@ -85,6 +85,13 @@
     background-color: $dark-blue;
     border: 1px $blue solid;
     border-radius: 10px !important;
+    height: 20rem !important;
+}
+
+.chooseq-card-header{
+    font-family: "Regular" !important;
+    color: $white !important;
+    background-color: $blue !important;
 }
 
 .chooseq-row{

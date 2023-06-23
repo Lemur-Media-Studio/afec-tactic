@@ -24,6 +24,12 @@
   color: #fff;
 }
 
+.home-subtitle {
+  font-family: "Black Italic" !important;
+  color: #fff !important;
+  margin-top: 50px !important;
+}
+
 .home-button {
   background-color: #006cff !important;
   font-family: "Regular" !important;
@@ -35,6 +41,72 @@
 
 .blue-word {
   color: #006cff !important;
+}
+
+.home-sectionblue-container {
+  background-color: #10224a !important;
+  padding: 150px 0;
+  -webkit-mask: radial-gradient(var(--r1, 160%) var(--r2, 68.15%) at bottom, #fff 79.5%, transparent 80%) bottom left, radial-gradient(var(--r1, 160%) var(--r2, 68.15%) at top, transparent 79.5%, #fff 80%) bottom center, radial-gradient(var(--r1, 160%) var(--r2, 68.15%) at bottom, #fff 79.5%, transparent 80%) bottom right;
+  mask: radial-gradient(var(--r1, 160%) var(--r2, 68.15%) at bottom, #fff 79.5%, transparent 80%) bottom left, radial-gradient(var(--r1, 160%) var(--r2, 68.15%) at top, transparent 79.5%, #fff 80%) bottom center, radial-gradient(var(--r1, 160%) var(--r2, 68.15%) at bottom, #fff 79.5%, transparent 80%) top right;
+  -webkit-mask-size: 100% 160%;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100% 180%;
+  mask-repeat: no-repeat;
+}
+
+.home-p {
+  color: #fff !important;
+  font-family: "Bold" !important;
+  font-size: 25px !important;
+}
+
+.home-grid {
+  margin: 0px 250px 0 250px !important;
+  padding-top: 100px !important;
+}
+
+.home-trainingsession-container {
+  background-color: #090d2c !important;
+  padding-bottom: 150px !important;
+  -webkit-mask: radial-gradient(var(--r1, 100%) var(--r2, 100%) at top, #fff 100%, transparent 100%), radial-gradient(var(--r1, 100%) var(--r2, 100%) at bottom, transparent 100%, #fff 100%), radial-gradient(var(--r1, 100%) var(--r2, 100%) at top, #fff 100%, transparent 100%);
+  mask: radial-gradient(var(--r1, 100%) var(--r2, 100%) at top, #fff 100%, transparent 100%), radial-gradient(var(--r1, 100%) var(--r2, 100%) at bottom, transparent 100%, #fff 100%), radial-gradient(var(--r1, 100%) var(--r2, 100%) at top, #fff 100%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.home-training-first-row {
+  margin-top: 100px !important;
+}
+
+.home-testimonials-container {
+  background-color: #10224a !important;
+  margin-top: -200px;
+  margin-bottom: -100px !important;
+  padding-bottom: 150px !important;
+  z-index: -1 !important;
+}
+
+.home-subtitle-testimonials {
+  font-family: "Black Italic" !important;
+  color: #fff !important;
+  margin-top: 50px !important;
+  margin-top: 200px !important;
+}
+
+.home-carousel {
+  margin-top: 200px !important;
+  text-align: center !important;
+}
+
+.home-carousel-title {
+  font-family: "Bold" !important;
+  color: #fff !important;
+  margin-top: 50px !important;
+  text-align: center !important;
+  position: relative !important;
+  bottom: 60px !important;
 }
 
 .navbar-bg {
@@ -256,6 +328,13 @@
   background-color: #10224a;
   border: 1px #006cff solid;
   border-radius: 10px !important;
+  height: 20rem !important;
+}
+
+.chooseq-card-header {
+  font-family: "Regular" !important;
+  color: #fff !important;
+  background-color: #006cff !important;
 }
 
 .chooseq-row {
