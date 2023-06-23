@@ -7,7 +7,7 @@ function FQSuggestedSession() {
   const a1list = Object.values(a1)
   const a2 = JSON.parse(localStorage.getItem('A-Q2'))
   const a2list = Object.values(a2)
-  const a3 = JSON.parse(localStorage.getItem('A-Q3'))
+  const a3 = JSON.parse(localStorage.getItem('CH1-Q3'))
   const a3list = Object.values(a3)
   
   
