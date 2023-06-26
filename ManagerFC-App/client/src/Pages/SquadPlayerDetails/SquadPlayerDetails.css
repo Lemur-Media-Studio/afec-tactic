@@ -1,0 +1,53 @@
+.playerinfo-container{
+    color: rgba(255, 255, 255, 0.425) !important;
+    margin-top: 32px !important;
+}
+
+.spdetails-title{
+    background-color: #190e43;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    font-size: 22px !important;
+    font-weight: lighter !important;
+    padding: 3px !important;
+}
+
+li{
+    color: #fff !important;
+}
+
+.playerName-h1{
+    margin: -5px 0 !important;
+}
+
+.playerPos-h3{
+    margin: 0 5px !important;
+}
+
+.social-link{
+    text-decoration: none !important;
+    color: #9b0181 !important;
+}
+
+.p-inc{
+    color: #fff !important;
+}
+
+.li-inc{
+    list-style: circle !important;
+    margin-top: 15px !important;
+}
+
+.playerName-h1{
+    font-family: "Inter", sans-serif !important;
+}
+
+.playerPos-h3{
+    font-family: "Inter", sans-serif !important;
+}
+
+.btn-social{
+    color: #9b0181 !important;
+    fill: #9b0181 !important;
+    margin-right: 5px !important;
+}
