@@ -19,7 +19,7 @@ function Home(){
                         <Col />
                         <Col>
                             <h1 className="home-title">LA IA PARA <span className="blue-word">ENTRENADORES</span> DE FÚTBOL</h1>
-                            <Button className="home-button" as={Link} to='/form1-question1'>Prueba tu primera semana gratis</Button>
+                            <Button className="home-button" as={Link} to='/choose-questionnaire'>Prueba tu primera semana gratis</Button>
                         </Col>
 
                         <Col><img src={require('../img/devices.png')} alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>
@@ -31,7 +31,7 @@ function Home(){
         <section className="home-sectionblue-container">
             <Container className="text-center">
                 <h2 className="home-subtitle mx-auto">TACTIC elabora sesiones de entrenamiento <br /> <span className="blue-word">adaptadas 100%</span> a tus objetivos</h2>
-                <Button className="home-button mt-5" as={Link} to='/form1-question1'>Comienza con tu prueba de 7 días gratis</Button>
+                <Button className="home-button mt-5" as={Link} to='/choose-questionnaire'>Comienza con tu prueba de 7 días gratis</Button>
             </Container>
         </section>
 

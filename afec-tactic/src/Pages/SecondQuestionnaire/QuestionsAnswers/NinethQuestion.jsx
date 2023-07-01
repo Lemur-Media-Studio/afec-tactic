@@ -6,6 +6,11 @@ import StarRating from '../../../Components/StarRaiting';
 
 function NinethQuestion() {
 
+  const sendAnswer = (Q9) => {
+    const answer = {Q9}
+    localStorage.setItem('B-Q9', JSON.stringify(answer))
+  }
+
   return (
 
     <>
@@ -18,7 +23,7 @@ function NinethQuestion() {
 
       <div>
         <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en los momentos con balón?</h3>
-        <StarRating />
+        <StarRating sendAnswer={sendAnswer} />
         <Button className="nextq-btn" as={Link} to='/form2-question10'>Enviar y avanzar</Button>
       </div>
 

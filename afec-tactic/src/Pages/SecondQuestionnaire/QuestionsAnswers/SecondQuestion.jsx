@@ -8,6 +8,11 @@ function SecondQuestion() {
 
   const [selectedBtn, setSelectedBtn] = useState(null);
 
+  const sendAnswer = (Q2) => {
+    const answer = {Q2}
+    localStorage.setItem('B-Q2', JSON.stringify(answer))
+  }
+
   return (
 
     <>
@@ -24,7 +29,8 @@ function SecondQuestion() {
                   {Subquestions[1].map((option, index) => (
                   <Button key={index} className="answers-btn" value={option.answer}
                   onClick={(e) => {
-                      setSelectedBtn(index);
+                    sendAnswer(e.target.value);
+                    setSelectedBtn(index);
                   }}
                   style={{
                       backgroundColor: '#006cff;',

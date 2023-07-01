@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const StarRating = () => {
+function StarRating({sendAnswer}){
 
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
@@ -17,7 +17,7 @@ const StarRating = () => {
               id="star-rating"
               key={index}
               className={index <= (hover || rating) ? "on" : "off"}
-              onClick={() => setRating(index)}
+              onClick={(e) => {setRating(index); sendAnswer(index===1?"Muy mala":index===2?"Mala":index===3?"Buena":index===4?"Muy buena":"Excelente")}}
               onMouseEnter={() => setHover(index)}
               onMouseLeave={() => setHover(rating)}
             >
