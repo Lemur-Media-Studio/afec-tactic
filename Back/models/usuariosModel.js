@@ -7,7 +7,7 @@ const MainSchema = new Schema({
         type: String,
         trim: true
     },
-    mail:{
+    user:{
         type: String,
         unique: true,
         required: [true,"El campo usuario es obligatorio"]
