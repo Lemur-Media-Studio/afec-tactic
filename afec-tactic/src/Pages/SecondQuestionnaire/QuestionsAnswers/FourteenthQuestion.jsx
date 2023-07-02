@@ -6,6 +6,11 @@ import StarRating from '../../../Components/StarRaiting';
 
 function FourteenthQuestion() {
 
+  const sendAnswer = (Q14) => {
+    const answer = {Q14}
+    localStorage.setItem('B-Q14', JSON.stringify(answer))
+  }
+
   return (
 
     <>
@@ -18,7 +23,7 @@ function FourteenthQuestion() {
 
       <div>
         <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las ABP ofensivas?</h3>
-        <StarRating />
+        <StarRating sendAnswer={sendAnswer} />
         <Button className="nextq-btn" as={Link} to='/form2-suggested-session'>Enviar y finalizar</Button>
       </div>
 

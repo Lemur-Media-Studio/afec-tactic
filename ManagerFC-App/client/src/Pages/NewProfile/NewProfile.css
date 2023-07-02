@@ -1,0 +1,10 @@
+.custom-menu-paper {
+    background-color: rgb(25, 14, 67) !important;
+    padding: 0px 8px !important;
+    border: rgb(55, 24, 97) 2px solid !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+  

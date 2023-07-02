@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+body {
+  text-align: center;
+  background: linear-gradient(102deg, #555555 1%, #202020 3%, #121212 6%, #101010 70%, rgba(8, 3, 17, 0.952) 20%);
+  background-attachment: fixed !important;
+}
+
+h1{
+  color: #fff !important;
+}
+
+h2{
+  color: #fff !important;
+  font-size: 30px !important;
+  margin-top: 80px !important;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-title{
+  font-size: 40px !important;
+  font-family: 'Inter', sans-serif;
+  font-style: italic !important;
+  margin-top: 150px;
+}
+
+.table-players{
+  background-color: rgba(8, 3, 17, 0.204) !important;
+}
+
+.MuiTableCell-head{
+  border-bottom: rgba(105, 105, 105, 0.425) 1px solid !important;
+  background-color: rgba(8, 3, 17, 0.404);
+}
+
+.MuiTableCell-body{
+  border-bottom: rgba(105, 105, 105, 0.425) 1px solid !important;
+}
+
+.player-name-table{
+  text-decoration: none;
+}
+
+.player-name-table:hover{
+  text-decoration: underline;
+}

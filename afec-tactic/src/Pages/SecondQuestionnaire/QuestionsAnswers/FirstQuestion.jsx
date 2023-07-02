@@ -10,6 +10,11 @@ function FirstQuestion() {
   const [selectedBtn, setSelectedBtn] = useState(null);
   const [selectedBtnSubanswer, setSelectedBtnSubanswer] = useState(null);
 
+  const sendAnswer = (Q1) => {
+    const answer = {Q1}
+    localStorage.setItem('B-Q1', JSON.stringify(answer))
+  }
+
   return (
 
     <>
@@ -60,7 +65,9 @@ function FirstQuestion() {
       {selectedBtn === 1 && (
         <ButtonGroup>
           <Button
-            onClick={() => {
+            value="Reinicio - Juego asociativo"
+            onClick={(e) => {
+              sendAnswer(e.target.value);
               setSelectedBtnSubanswer(10);
             }}
             style={{
@@ -75,7 +82,9 @@ function FirstQuestion() {
           </Button>
           
           <Button
-            onClick={() => {
+            value="Reinicio - Juego vertical"
+            onClick={(e) => {
+              sendAnswer(e.target.value);
               setSelectedBtnSubanswer(11);
             }}
             style={{
@@ -90,7 +99,9 @@ function FirstQuestion() {
           </Button>
 
           <Button
-            onClick={() => {
+            value="Reinicio - Juego directo"
+            onClick={(e) => {
+              sendAnswer(e.target.value);
               setSelectedBtnSubanswer(12);
             }}
             style={{
@@ -110,7 +121,9 @@ function FirstQuestion() {
       {selectedBtn === 2 && (
         <ButtonGroup>
           <Button
-            onClick={() => {
+            value="Juego lanzado asociativo"
+            onClick={(e) => {
+              sendAnswer(e.target.value);
               setSelectedBtnSubanswer(13);
             }}
             style={{
@@ -125,7 +138,9 @@ function FirstQuestion() {
           </Button>
 
           <Button
-            onClick={() => {
+            value="Juego lanzado vertical"
+            onClick={(e) => {
+              sendAnswer(e.target.value);
               setSelectedBtnSubanswer(14);
             }}
             style={{
@@ -140,7 +155,9 @@ function FirstQuestion() {
           </Button>
 
           <Button
-            onClick={() => {
+            value="Juego lanzado directo"
+            onClick={(e) => {
+              sendAnswer(e.target.value);
               setSelectedBtnSubanswer(15);
             }}
             style={{

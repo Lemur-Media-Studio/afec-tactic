@@ -9,6 +9,11 @@ function FifthQuestion() {
   const [selectedBtn, setSelectedBtn] = useState(null);
   const [selectedBtnSubanswer, setSelectedBtnSubanswer] = useState(null);
 
+  const sendAnswer = (Q5) => {
+    const answer = {Q5}
+    localStorage.setItem('B-Q5', JSON.stringify(answer))
+  }
+
   return (
 
     <>
@@ -59,7 +64,9 @@ function FifthQuestion() {
         {selectedBtn === 1 && (
           <ButtonGroup>
             <Button
-              onClick={() => {
+              value="Reinicio - Orientada"
+              onClick={(e) => {
+                sendAnswer(e.target.value);
                 setSelectedBtnSubanswer(10);
               }}
               style={{
@@ -74,7 +81,9 @@ function FifthQuestion() {
             </Button>
             
             <Button
-              onClick={() => {
+              value="Reinicio - Zonal"
+              onClick={(e) => {
+                sendAnswer(e.target.value);
                 setSelectedBtnSubanswer(11);
               }}
               style={{
@@ -89,7 +98,9 @@ function FifthQuestion() {
             </Button>
   
             <Button
-              onClick={() => {
+              value="Reinicio - Total"
+              onClick={(e) => {
+                sendAnswer(e.target.value);
                 setSelectedBtnSubanswer(12);
               }}
               style={{
@@ -109,7 +120,9 @@ function FifthQuestion() {
         {selectedBtn === 2 && (
           <ButtonGroup>
             <Button
-              onClick={() => {
+              value="Juego asociativo en bloque alto"
+              onClick={(e) => {
+                sendAnswer(e.target.value);
                 setSelectedBtnSubanswer(13);
               }}
               style={{
@@ -124,7 +137,9 @@ function FifthQuestion() {
             </Button>
   
             <Button
-              onClick={() => {
+              value="Juego vertical en bloque alto"
+              onClick={(e) => {
+                sendAnswer(e.target.value);
                 setSelectedBtnSubanswer(14);
               }}
               style={{
@@ -139,7 +154,9 @@ function FifthQuestion() {
             </Button>
   
             <Button
-              onClick={() => {
+              value="Juego directo en bloque alto"
+              onClick={(e) => {
+                sendAnswer(e.target.value);
                 setSelectedBtnSubanswer(15);
               }}
               style={{

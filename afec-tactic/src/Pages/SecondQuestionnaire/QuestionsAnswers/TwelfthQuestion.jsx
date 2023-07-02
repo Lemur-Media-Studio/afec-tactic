@@ -6,6 +6,11 @@ import StarRating from '../../../Components/StarRaiting';
 
 function TwelfthQuestion() {
 
+  const sendAnswer = (Q12) => {
+    const answer = {Q12}
+    localStorage.setItem('B-Q12', JSON.stringify(answer))
+  }
+
   return (
 
     <>
@@ -18,7 +23,7 @@ function TwelfthQuestion() {
 
       <div>
         <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las transiciones defensa-ataque?</h3>
-        <StarRating />
+        <StarRating sendAnswer={sendAnswer} />
         <Button className="nextq-btn" as={Link} to='/form2-question13'>Enviar y avanzar</Button>
       </div>
 
