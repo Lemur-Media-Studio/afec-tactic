@@ -7,7 +7,7 @@ module.exports = {
     create: async function(req, res, next) {
         //lANZAR EXCEPCIONES
         try{
-            let data = await mainModel.create({name:req.body.name,user:req.body.user,password:req.body.password})
+            let data = await mainModel.create({name:req.body.name,mail:req.body.user,password:req.body.password})
 
             res.status(201).json(data)
         }catch(e){
