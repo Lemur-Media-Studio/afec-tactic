@@ -7,6 +7,10 @@ const MainSchema = new Schema({
         type: String,
         trim: true
     },
+    surname:{
+        type: String,
+        trim: true
+    },
     user:{
         type: String,
         unique: true,
