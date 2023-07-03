@@ -5,6 +5,7 @@ import { Button, Container } from "react-bootstrap";
 import { useState } from "react";
 import AlertCustom from "../Components/AlertCustom";
 import { useNavigate } from "react-router-dom";
+import FormPopover from "../Components/FormPopover";
 
 function SignUp(){
 
@@ -12,49 +13,61 @@ function SignUp(){
     const [surname, setSurname] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [repeatPassword, setRepeatPassword] = useState("")
     const [alert, setAlert] = useState({color: "", text: ""})
     const [emailAlert, setEmailAlert] = useState({className: "", text: ""})
     const [requiredField, setRequiredField] = useState({className: "", text: ""})
+    const [alertPassword, setAlertPassword] = useState({className: "", text: ""})
+    const [alertCharacters, setAlertCharacters] = useState({className:"", text:""})
     const navigate = useNavigate()
 
     const submit = async (e) => {
         e.preventDefault();
 
-        try {
-            const response = await fetch('https://afecapp.onrender.com/usuarios/registro', {
-             method: 'POST',
-             headers: {
-               'Content-Type': 'application/json'
-               },
-               body: JSON.stringify({
-                name: name,
-                surname: surname,
-                user: email,
-                password: password,
-               })
-             });
-             const data = await response.json();
-
-             console.log(data);
-
-             if(data.code === 11000){
-                setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
-                setEmailAlert({className: 'error-alert-login', text: '---EMAIL EN USO---'});
-             }else if(data.msg === "usuarios validation failed: password: Path `password` is required." || 
-             data.msg === "usuarios validation failed: user: El campo usuario es obligatorio"){
-                setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
-                setRequiredField({className: 'error-alert-login', text:"--CAMPO OBLIGATORIO--"})
-             }else{
-                 setAlert({color: "yellow", text:`Bienvenido, ${name}. Gracias por regisrtarte. Aguarda que serás redirigido.`})
-                 setTimeout(() => {
-                     navigate ("/login")
-                 },2000)
-             }
-             
-           } catch(error) {
-            console.log(error)
-            } 
-
+        if(password !== repeatPassword){
+            setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
+            setAlertPassword({className: 'error-alert-login', text:"--LAS CONTRASEÑAS NO COINCIDEN--"})
+        }else{
+            try {
+                const response = await fetch('https://afecapp.onrender.com/usuarios/registro', {
+                 method: 'POST',
+                 headers: {
+                   'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify({
+                    name: name,
+                    surname: surname,
+                    user: email,
+                    password: password,
+                   })
+                 });
+                 const data = await response.json();
+    
+                 console.log(data);
+    
+                 if(data.code === 11000){
+                    setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
+                    setEmailAlert({className: 'error-alert-login', text: '---EMAIL EN USO---'});
+                 }else if(data.msg === "usuarios validation failed: password: Path `password` is required." || 
+                 data.msg === "usuarios validation failed: user: El campo usuario es obligatorio"){
+                    setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
+                    setRequiredField({className: 'error-alert-login', text:"--CAMPO OBLIGATORIO--"})
+                 }else if(data.msg === "usuarios validation failed: name: Name should be between 3 and 50 characters" ||
+                 data.msg === "usuarios validation failed: surname: Name should be between 3 and 50 characters" ||
+                 data.msg === "usuarios validation failed: password: Password should be between 6 and 20 characters"){
+                    setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
+                    setAlertCharacters({className: 'error-alert-login', text:"--SE REQUIEREN ENTRE 6 Y 20 CARACTERES--"})
+                 }else{
+                     setAlert({color: "yellow", text:`Bienvenido, ${name}. Gracias por regisrtarte. Aguarda que serás redirigido.`})
+                     setTimeout(() => {
+                         navigate ("/login")
+                     },2000)
+                 }
+                 
+               } catch(error) {
+                console.log(error)
+                } 
+        }
     }
 
     return(
@@ -69,24 +82,38 @@ function SignUp(){
                 <Card.Text>
                     <Form onSubmit={submit}>
                         <Form.Group className="mb-3" controlId="formGroupEmail">
-                            <Form.Label>Nombre</Form.Label>
+                            <Form.Label className="login-label">Nombre <FormPopover text={"Se permiten entre 3 y 50 caracteres alfanuméricos."} />
+                            {(name.length < 3 || name.length > 50) && <span className={alertCharacters.className}>{alertCharacters.text}</span>}                            
+                            </Form.Label>
                             <Form.Control type="text" className="login-input" onChange={(e) => setName(e.target.value)}/>
                         </Form.Group>
 
                          <Form.Group className="mb-3" controlId="formGroupEmail">
-                            <Form.Label>Apellido</Form.Label>
+                            <Form.Label className="login-label">Apellido <FormPopover text={"Se permiten entre 3 y 50 caracteres alfanuméricos."} />
+                            {(surname.length < 3 || surname.length > 50) && <span className={alertCharacters.className}>{alertCharacters.text}</span>}
+                            </Form.Label>
                             <Form.Control type="text" className="login-input" onChange={(e) => setSurname(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formGroupEmail">
-                            <Form.Label>Correo electrónico <span className={emailAlert.className}>{emailAlert.text}</span>
+                            <Form.Label className="login-label">Correo electrónico <FormPopover text={"El campo no puede quedar vacío. Estructura: ejemplo@email.com"} />
+                            <span className={emailAlert.className}>{emailAlert.text}</span>
                             {email==="" && <span className={requiredField.className}>{requiredField.text}</span>}</Form.Label> 
                             <Form.Control type="email" className="login-input" onChange={(e) => setEmail(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formGroupPassword">
-                            <Form.Label>Contraseña {password==="" && <span className={requiredField.className}>{requiredField.text}</span>}</Form.Label>
+                            <Form.Label className="login-label">Contraseña <FormPopover text={"Entre 6 y 20 caracteres."} />
+                            {password==="" && <span className={requiredField.className}>{requiredField.text}</span>}
+                            <span className={alertPassword.className}>{alertPassword.text}</span>
+                            {(password.length < 3 || password.length > 50) && <span className={alertCharacters.className}>{alertCharacters.text}</span>}
+                            </Form.Label>
                             <Form.Control type="password" className="login-input" onChange={(e) => setPassword(e.target.value)} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formGroupPassword">
+                            <Form.Label className="login-label">Repetir contraseña <span className={alertPassword.className}>{alertPassword.text}</span></Form.Label>
+                            <Form.Control type="password" className="login-input" onChange={(e) => setRepeatPassword(e.target.value)} />
                         </Form.Group>
 
                         <Button className="btn-login" type="submit">

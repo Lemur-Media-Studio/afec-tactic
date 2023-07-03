@@ -6,11 +6,25 @@ import { Button, Carousel } from "react-bootstrap";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { useEffect } from "react";
+import MainLoading from "../Components/MainLoading";
 
 function Home(){
 
+    const[isLoading, setIsLoading] = useState(true)
+
+    useEffect(
+        () => {
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 2000)
+        }
+    )
+
     return(
         <>
+        <MainLoading loading={isLoading}>
         <section className="bg-ia">
             <NavBar />
             
@@ -116,6 +130,7 @@ function Home(){
 
 
         <Footer />
+        </MainLoading>
       </>
     )
 }

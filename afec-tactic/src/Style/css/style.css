@@ -411,6 +411,48 @@
   font-size: 20px !important;
 }
 
+.loading-container {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+}
+
+.loading-container img {
+  height: 50px;
+  animation: loader-logo 2000ms infinite;
+}
+
+@keyframes loader-logo {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.popover-btn {
+  border: 0.8px solid #fff;
+  border-radius: 30px;
+  font-size: 8px;
+  padding: 0px 4px;
+  background-color: transparent !important;
+  margin-left: 3px;
+  margin-right: 3px;
+  font-family: "Regular";
+  position: relative;
+  bottom: 5px;
+}
+
+.popover-btn:hover {
+  border: 1px solid #fff;
+}
+
 body {
   background-image: url("../../img/background.jpg");
   background-size: 100% !important;
