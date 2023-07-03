@@ -214,9 +214,8 @@
 }
 
 .login-card {
-  margin-top: 100px !important;
-  background-color: #10224a !important;
-  border: 5px solid #fff !important;
+  margin-top: 50px !important;
+  background-color: transparent !important;
   color: #fff !important;
   font-family: "Regular";
   font-size: 14px !important;
@@ -224,6 +223,7 @@
 
 .card-login-title {
   font-family: "Black Italic";
+  font-size: 30px !important;
 }
 
 .btn-login {
@@ -235,10 +235,23 @@
 
 .login-input {
   font-size: 14px !important;
+  background-color: #090d2c !important;
+  color: #fff !important;
 }
 
 .login-link {
   color: #006cff !important;
+}
+
+.error-alert-login {
+  font-size: 14px !important;
+  font-family: "Regular";
+  color: red !important;
+}
+
+.row-align-login {
+  display: flex !important;
+  align-items: center !important;
 }
 
 .questions-container {

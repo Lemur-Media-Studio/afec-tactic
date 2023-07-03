@@ -12,8 +12,14 @@ function FirstQuestion() {
 
   const sendAnswer = (Q1) => {
     const answer = {Q1}
-    localStorage.setItem('B-Q1', JSON.stringify(answer))
+    if(Q1 !== ""){
+      localStorage.setItem('B-Q1', JSON.stringify(answer))
+    }else{
+      
+    }
   }
+
+  console.log(selectedBtn)
 
   return (
 
@@ -175,7 +181,7 @@ function FirstQuestion() {
       )}
 
       <div>
-        <Button className="nextq-btn" to='/form2-question2' as={Link} >Siguiente pregunta</Button>
+        <Button className="nextq-btn" to={selectedBtn===1 || selectedBtn===2 ? '/form2-question2' : ''} as={Link} >Siguiente pregunta</Button>
       </div>
 
     </Container>

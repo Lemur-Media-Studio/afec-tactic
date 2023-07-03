@@ -1,7 +1,6 @@
 .login-card{
-    margin-top: 100px !important;
-    background-color: $dark-blue !important;
-    border: 5px solid $white !important;
+    margin-top: 50px !important;
+    background-color: transparent !important;
     color: $white !important;
     font-family: "Regular";
     font-size: 14px !important;
@@ -9,6 +8,7 @@
 
 .card-login-title{
     font-family: "Black Italic";
+    font-size: 30px !important;
 }
 
 .btn-login{
@@ -20,8 +20,21 @@
 
 .login-input{
     font-size: 14px !important;
+    background-color: $darkest-blue !important;
+    color: $white !important;
 }
 
 .login-link{
     color: $blue !important;
+}
+
+.error-alert-login{
+    font-size: 14px !important;
+    font-family: "Regular";
+    color: red !important;
+}
+
+.row-align-login{
+    display: flex !important;
+    align-items: center !important;
 }
