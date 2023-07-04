@@ -11,6 +11,9 @@ function TwelfthQuestion() {
     localStorage.setItem('B-Q12', JSON.stringify(answer))
   }
 
+  const route = '/form2-question13'
+  const prevRoute = '/form2-question11'
+
   return (
 
     <>
@@ -21,17 +24,9 @@ function TwelfthQuestion() {
 
       <h1 className="question-title">DECIMOSEGUNDA PREGUNTA</h1>
 
-      <div>
-        <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las transiciones defensa-ataque?</h3>
-        <StarRating sendAnswer={sendAnswer} />
-        <Button className="nextq-btn" as={Link} to='/form2-question13'>Enviar y avanzar</Button>
-      </div>
+      <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las transiciones defensa-ataque?</h3>
 
-
-      <div className='mt-5'>
-          <Link as={Link} to='/form2-question11' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to='/form2-question13' className='mx-2 question-link'>Siguiente pregunta</Link>
-      </div>
+      <StarRating sendAnswer={sendAnswer} route={route} prevRoute={prevRoute} />
 
     </Container>
 

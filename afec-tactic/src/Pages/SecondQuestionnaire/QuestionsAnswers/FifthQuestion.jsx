@@ -3,15 +3,21 @@ import { Button, ButtonGroup, Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Q2Header from '../../../Components/Q2Header';
+import AlertCustom from '../../../Components/AlertCustom';
 
 function FifthQuestion() {
 
   const [selectedBtn, setSelectedBtn] = useState(null);
   const [selectedBtnSubanswer, setSelectedBtnSubanswer] = useState(null);
+  const [alert, setAlert] = useState({color:"", text: ""})
 
   const sendAnswer = (Q5) => {
     const answer = {Q5}
     localStorage.setItem('B-Q5', JSON.stringify(answer))
+  }
+
+  const showAlert = () => {
+    setAlert({color:"yellow", text:"Debes seleccionar una opción"})
   }
 
   return (
@@ -173,13 +179,25 @@ function FifthQuestion() {
         )}
   
         <div>
-          <Button className="nextq-btn" to='/form2-question6' as={Link} >Siguiente pregunta</Button>
+          <Button className="nextq-btn mb-3" as={Link} 
+          to={selectedBtnSubanswer===null ? "#" : '/form2-question6'}
+          onClick={showAlert}
+          >
+            Siguiente pregunta
+          </Button>
         </div>
 
-      <div className='mt-5'>
-          <Link as={Link} to='/form2-question4' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to='/form2-question6' className='mx-2 question-link'>Siguiente pregunta</Link>
-      </div>
+        <AlertCustom {...alert} />
+
+        <div className='mt-5'>
+            <Link as={Link} to='/form2-question4' className='mx-2 question-link'>Anterior pregunta</Link>
+            <Link as={Link} to={selectedBtnSubanswer===null ? "#" : '/form2-question6'} 
+              onClick={showAlert}
+              className='mx-2 question-link'
+            >
+              Siguiente pregunta
+            </Link>
+        </div>
 
     </Container>
 

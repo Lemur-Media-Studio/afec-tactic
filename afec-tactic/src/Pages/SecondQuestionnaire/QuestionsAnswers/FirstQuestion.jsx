@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Button, ButtonGroup, Container, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import AlertCustom from '../../../Components/AlertCustom';
 import Q2Header from '../../../Components/Q2Header';
 import { Subquestions } from '../../../utils/Subquestions';
 
@@ -9,14 +10,17 @@ function FirstQuestion() {
 
   const [selectedBtn, setSelectedBtn] = useState(null);
   const [selectedBtnSubanswer, setSelectedBtnSubanswer] = useState(null);
+  const [alert, setAlert] = useState({color:"", text:""})
 
   const sendAnswer = (Q1) => {
     const answer = {Q1}
     if(Q1 !== ""){
       localStorage.setItem('B-Q1', JSON.stringify(answer))
-    }else{
-      
     }
+  }
+
+  const showAlert = () => {
+      setAlert({color:'yellow', text:'Debes seleccionar una opción'})
   }
 
   console.log(selectedBtn)
@@ -176,13 +180,19 @@ function FirstQuestion() {
           >
             Juego lanzado directo
           </Button>
-          {/* Otros botones de Juego lanzado */}
         </ButtonGroup>
       )}
 
       <div>
-        <Button className="nextq-btn" to={selectedBtn===1 || selectedBtn===2 ? '/form2-question2' : ''} as={Link} >Siguiente pregunta</Button>
+        <Button className="nextq-btn mb-3" as={Link}
+        to={selectedBtnSubanswer===null || selectedBtnSubanswer===null ? '' : '/form2-question2'} 
+        onClick={showAlert}
+        >
+          Siguiente pregunta
+        </Button>
       </div>
+
+      <AlertCustom {...alert} />
 
     </Container>
 

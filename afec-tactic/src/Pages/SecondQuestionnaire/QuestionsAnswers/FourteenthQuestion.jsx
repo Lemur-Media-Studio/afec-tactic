@@ -11,6 +11,10 @@ function FourteenthQuestion() {
     localStorage.setItem('B-Q14', JSON.stringify(answer))
   }
 
+  const route = '/form2-suggested-session'
+  const prevRoute = '/form2-question13'
+  const qTitle = 'DECIMOCUARTA PREGUNTA'
+
   return (
 
     <>
@@ -19,18 +23,11 @@ function FourteenthQuestion() {
 
     <Container className="questions-container">
 
-      <h1 className="question-title">DECIMOCUARTA PREGUNTA</h1>
+      <h1 className="question-title">{qTitle}</h1>
 
-      <div>
-        <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las ABP ofensivas?</h3>
-        <StarRating sendAnswer={sendAnswer} />
-        <Button className="nextq-btn" as={Link} to='/form2-suggested-session'>Enviar y finalizar</Button>
-      </div>
+      <h3 className="question-font mb-5">¿Qué nota le das a tu equipo en las ABP ofensivas?</h3>
 
-
-      <div className='mt-5'>
-          <Link as={Link} to='/form2-question13' className='mx-2 question-link'>Anterior pregunta</Link>
-      </div>
+      <StarRating sendAnswer={sendAnswer} route={route} qTitle={qTitle} prevRoute={prevRoute} />
 
     </Container>
 
