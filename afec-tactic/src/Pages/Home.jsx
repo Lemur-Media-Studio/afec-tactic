@@ -124,7 +124,9 @@ function Home(){
     useEffect(
         () => {
             if(children){
-                setIsLoading(false)
+                setTimeout(() => {
+                    setIsLoading(false);
+                }, 3000);        
             }
         }
     )
