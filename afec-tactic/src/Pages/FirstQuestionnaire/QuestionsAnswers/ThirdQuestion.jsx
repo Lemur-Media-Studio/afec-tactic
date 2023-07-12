@@ -3,10 +3,12 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Answers } from '../../../utils/Answers';
 import QHeader from '../../../Components/QHeader';
+import AlertCustom from '../../../Components/AlertCustom';
 
 function ThirdQuestion() {
 
   const [selectedOptions, setSelectedOptions] = useState([])
+  const [alert, setAlert] = useState({color: "", text: ""})
 
   /* Handle Checkbox */
   const handleOptionChange = (optionId, optionAnswer) => {
@@ -29,8 +31,9 @@ function ThirdQuestion() {
   const isOptionDisabled = (optionId) =>
     selectedOptions.length === 2 && !selectedOptions.includes(optionId);
 
-
-
+  const showAlert = () => {
+    setAlert({color:'yellow', text:'Debes seleccionar una opción'})
+  }
 
   return (
 
@@ -60,14 +63,22 @@ function ThirdQuestion() {
           ))}
         </div>
 
-        <Button className="nextq-btn" as={Link} to='/form1-question4'>Enviar y avanzar</Button>
+        <Button 
+            className="nextq-btn mb-3" as={Link}
+            to={selectedOptions.length === 0 ? '' : '/form1-question4'} 
+            onClick={showAlert}
+            >
+            Siguiente pregunta
+        </Button>
       </div>
 
-
+      {selectedOptions.length === 0 &&
+        <AlertCustom {...alert} />
+      }
 
       <div className='mt-5'>
         <Link as={Link} to='/form1-question2' className='mx-2 question-link'>Anterior pregunta</Link>
-        <Link as={Link} to='/form1-question4' className='mx-2 question-link'>Siguiente pregunta</Link>
+        <Link as={Link} to={selectedOptions.length === 0 ? '' : '/form1-question4'} className='mx-2 question-link'>Siguiente pregunta</Link>
       </div>
 
     </Container>

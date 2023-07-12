@@ -8,11 +8,94 @@
 }
 
 .loading-container img{
-    height: 50px;
+    height: 250px;
     animation: loader-logo 2000ms  infinite;
 }
 
-@keyframes loader-logo {
+.loading-p{
+  font-family: 'Regular';
+  font-size: 22px;
+  color: $dark-blue;
+  margin-top: -50px;
+  text-shadow:
+  0 0 7px $white,
+  0 0 10px $white,
+  0 0 21px $white,
+  0 0 42px $blue,
+  0 0 82px $blue,
+  0 0 92px $blue,
+  0 0 102px $blue,
+  0 0 151px $blue;
+  padding: 5px;
+  animation: shadow 2s infinite;
+}
+
+@keyframes shadow {
+  0% {
+    text-shadow:
+      0 0 7px $white,
+      0 0 10px $white,
+      0 0 21px $white,
+      0 0 42px $blue,
+      0 0 82px $blue,
+      0 0 92px $blue,
+      0 0 102px $blue,
+      0 0 151px $blue;
+  }
+  25% {
+    text-shadow:
+      0.5px 0 7px $white,
+      0.5px 0 10px $white,
+      0.5px 0 21px $white,
+      0.5px 0 42px $blue,
+      0.5px 0 82px $blue,
+      0.5px 0 92px $blue,
+      0.5px 0 102px $blue,
+      0.5px 0 151px $blue;
+  }
+  50% {
+    text-shadow:
+      1px 0 7px $white,
+      1px 0 10px $white,
+      1px 0 21px $white,
+      1px 0 42px $blue,
+      1px 0 82px $blue,
+      1px 0 92px $blue,
+      1px 0 102px $blue,
+      1px 0 151px $blue;
+  }
+  75% {
+    text-shadow:
+      1px 0 7px $white,
+      1px 0 10px $white,
+      1px 0 21px $white,
+      1px 0 42px $blue,
+      1px 0 82px $blue,
+      1px 0 92px $blue,
+      1px 0 102px $blue,
+      1px 0 151px $blue;
+  }
+  100% {
+    text-shadow:
+      0.5px 0 7px $white,
+      0.5px 0 10px $white,
+      0.5px 0 21px $white,
+      0.5px 0 42px $blue,
+      0.5px 0 82px $blue,
+      0.5px 0 92px $blue,
+      0.5px 0 102px $blue,
+      0.5px 0 151px $blue;
+  }
+
+
+}
+
+/* 20%, 24%, 55% {        
+    text-shadow: 2px 2px 2px $blue;
+}   */  
+
+
+/* @keyframes loader-logo {
     0%{
         transform: scale(0);
       }
@@ -22,7 +105,7 @@
       100%{
         transform: scale(0);
       }
-  }
+  } */
 
 .spinner-loader{
     margin-left: 5px;

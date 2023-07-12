@@ -5,8 +5,12 @@ import { Answers } from '../../../utils/Answers';
 import { useState } from 'react';
 import NavBar from '../../../Components/NavBar';
 import QHeader from '../../../Components/QHeader';
+import AlertCustom from '../../../Components/AlertCustom';
 
 function FirstQuestion() {
+
+  const [selectedBtn, setSelectedBtn] = useState(null);
+  const [alert, setAlert] = useState({color: "", text: ""})
 
   function mandoRespuesta(Q1) {
     const respuestas = { Q1 }
@@ -14,7 +18,9 @@ function FirstQuestion() {
     localStorage.setItem('A-Q1', JSON.stringify(respuestas))
   }
 
-  const [selectedBtn, setSelectedBtn] = useState(null);
+  const showAlert = () => {
+    setAlert({color:'yellow', text:'Debes seleccionar una opción'})
+  }
 
   return (
 
@@ -47,10 +53,20 @@ function FirstQuestion() {
           ))}
         </ButtonGroup>
         <div>
-          <Button className="nextq-btn" to='/form1-question2' as={Link} >Siguiente pregunta</Button>
+          <Button 
+          className="nextq-btn mb-3" as={Link}
+          to={selectedBtn===null ? '' : '/form1-question2'} 
+          onClick={showAlert}
+          >
+            Siguiente pregunta
+          </Button>
         </div>
 
       </div>
+
+      {selectedBtn===null &&
+        <AlertCustom {...alert} />
+      }
 
     </Container>
 

@@ -60,7 +60,9 @@ function ThirdQuestion() {
             </div>
         </div>
         
-        <AlertCustom {...alert} />
+        {selectedBtn===null &&
+         <AlertCustom {...alert} />
+        }
 
         <div className='mt-5'>
             <Link as={Link} to='/form2-question2' className='mx-2 question-link'>Anterior pregunta</Link>

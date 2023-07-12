@@ -187,7 +187,9 @@ function FifthQuestion() {
           </Button>
         </div>
 
-        <AlertCustom {...alert} />
+        {selectedBtnSubanswer===null &&
+          <AlertCustom {...alert} />
+        }
 
         <div className='mt-5'>
             <Link as={Link} to='/form2-question4' className='mx-2 question-link'>Anterior pregunta</Link>

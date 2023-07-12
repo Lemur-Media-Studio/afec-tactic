@@ -15,7 +15,7 @@ function StarRating({sendAnswer, route, qTitle, prevRoute}){
     const handleShow = () => setShow(true);
 
     const showAlert = () => {
-      setAlert({color:"yellow", text:"Debes seleccionar una opción"})
+      setAlert({color:"yellow", text:"Debes ingresar una calificación"})
     }
 
     console.log(rating)
@@ -45,12 +45,14 @@ function StarRating({sendAnswer, route, qTitle, prevRoute}){
 
       <Button className="nextq-btn mb-3" as={Link} 
       to={rating && qTitle!=="DECIMOCUARTA PREGUNTA" ? route : '#'}
-      onClick={showAlert, qTitle==="DECIMOCUARTA PREGUNTA" ? handleShow : ""}
+      onClick={qTitle==="DECIMOCUARTA PREGUNTA" && rating ? handleShow : showAlert}
       >
         {qTitle!=="DECIMOCUARTA PREGUNTA" ? "Enviar y avanzar" : "Enviar y finalizar"}
       </Button>
 
-      <AlertCustom {...alert} />
+      {!rating &&
+        <AlertCustom {...alert} />
+      }
 
       <div className='mt-5'>
           <Link as={Link} to={prevRoute} className='mx-2 question-link'>Anterior pregunta</Link>

@@ -5,7 +5,8 @@ function MainLoading({children, loading}){
     if(loading){
         return(
             <Spinner className="loading-container" animation="" role="status">
-                <img src={require('../img/logo-afectactic.png')} alt="" />
+                <img src={require('../img/loading-ia3-unscreen.gif')} alt="Loading IA" />
+                <p className='loading-p'>Loading</p>
             </Spinner>
         )
     }else{

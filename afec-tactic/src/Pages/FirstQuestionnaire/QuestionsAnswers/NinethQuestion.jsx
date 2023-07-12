@@ -1,17 +1,29 @@
 import React, { useState } from 'react'
-import { Button, ButtonGroup, Container } from 'react-bootstrap';
+import { Button, ButtonGroup, Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import AlertCustom from '../../../Components/AlertCustom';
 import QHeader from '../../../Components/QHeader';
 import { Answers } from '../../../utils/Answers';
 
 function NinethQuestion() {
+
+  const [selectedBtn, setSelectedBtn] = useState(null);
+  const [alert, setAlert] = useState({color: "", text: ""})
+  const [hover, setHover] = useState(0);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   function mandoRespuesta(Q9) {
     const respuestas = { Q9 }
     console.log(respuestas)
     localStorage.setItem('A-Q9', JSON.stringify(respuestas))
   }
 
-  const [selectedBtn, setSelectedBtn] = useState(null);
+  const showAlert = () => {
+    setAlert({color:'yellow', text:'Debes seleccionar una opción'})
+  }
 
   return (
 
@@ -45,13 +57,35 @@ function NinethQuestion() {
         </ButtonGroup>
       </div>
 
-      <Button className="nextq-btn" as={Link} to='/form1-suggested-session'>Enviar y finalizar</Button>
+      <Button className="nextq-btn mb-3" onClick={selectedBtn === null ? showAlert : handleShow}>Enviar y finalizar</Button>
+
+      {selectedBtn===null &&
+        <AlertCustom {...alert} />
+      }
 
       <div className='mt-5'>
           <Link as={Link} to='/form1-question8' className='mx-2 question-link'>Anterior pregunta</Link>
       </div>
 
     </Container>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header className='modal-header' closeButton>
+          <Modal.Title>Fin del cuestionario 1</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='modal-body'>Felicitaciones, acabas de completar el cuestionario 1. Si quieres cambiar alguna respuesta, selecciona "Seguir editando". Por favor,
+        ten en cuenta que si decides enviar y finalizar, obtendrás tu sesión de entrenamiento y ya no podrás volver a editar tus opciones. Para obtener una sesión distinta,
+        deberás completar un nuevo cuestionario.
+        </Modal.Body>
+        <Modal.Footer className='modal-footer'>
+          <Button variant="secondary" onClick={handleClose}>
+            Seguir editando
+          </Button>
+          <Button variant="primary" onClick={handleClose} as={Link} to='/form1-suggested-session'>
+            Enviar y finalizar
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
     </>
   );

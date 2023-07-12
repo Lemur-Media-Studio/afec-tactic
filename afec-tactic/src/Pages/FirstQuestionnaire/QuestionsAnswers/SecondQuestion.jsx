@@ -50,7 +50,6 @@ function SecondQuestion() {
 
       <div className='mt-5'>
         <Link as={Link} to='/form1-question1' className='mx-2 question-link'>Anterior pregunta</Link>
-        <Link as={Link} to='/form1-question3' className='mx-2 question-link'>Siguiente pregunta</Link>
       </div>
 
     </Container>
