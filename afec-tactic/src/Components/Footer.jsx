@@ -14,11 +14,11 @@ function Footer(){
                 <footer className="footer">
                     <Container>
                         <Row>
-                            <Col>
-                                <a href="/"><img src={require('../img/logo-afectactic.png')} alt="Logo AFEC Tactic" height="200" /></a>
+                            <Col xs={6} xl={3}>
+                                <a href="/"><img src={require('../img/logo-afectactic.png')} alt="Logo AFEC Tactic" className='logo-footer' height="200" /></a>
                             </Col>
 
-                            <Col>
+                            <Col xs={6} xl={3}>
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Sitemap</h3>
                                     <li><a href="/" className="footer-link">Inicio</a></li>
@@ -26,7 +26,7 @@ function Footer(){
                                 </ul>
                             </Col>
 
-                            <Col>
+                            <Col xs={6} xl={3} className="mt-5 mt-xl-0">
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Contacto</h3>
                                     <li><BsAt className="footer-contact-at" /> info@afecfa.es </li>
@@ -34,7 +34,7 @@ function Footer(){
                                 </ul>
                             </Col>
 
-                            <Col>
+                            <Col xs={6} xl={3} className="mt-5 mt-xl-0">
                                 <ul>
                                     <h3 className="footer-title">¡Síguenos!</h3>
                                     <div className="footer-social-container">
@@ -53,15 +53,14 @@ function Footer(){
                 <section className="footer-end">
                     <Navbar className="navbar-bg container" expand="lg">
                             <Navbar.Brand className="footer-copyright">Copyright © 2023 AFEC Football Academy. Todos los derechos reservados.</Navbar.Brand>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                <Nav className="ms-auto">
+
+                            <Nav className="ms-auto footer-legal">
                                 <Nav.Link as={Link} to='/' className="footer-end-link">Términos y Condiciones</Nav.Link>
                                 <Nav.Link as={Link} to='/' className="footer-end-link">Aviso Legal</Nav.Link>
                                 <Nav.Link as={Link} to='/' className="footer-end-link">Política de Cookies</Nav.Link>
                                 <Nav.Link as={Link} to='/' className="footer-end-link">Politica de privacidad</Nav.Link>
-                                </Nav>
-                            </Navbar.Collapse>
+                            </Nav>
+
                     </Navbar>
                 </section>
             </>

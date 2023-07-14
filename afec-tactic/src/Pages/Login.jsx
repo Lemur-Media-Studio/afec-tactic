@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-
-
 function Login(){
+
+    useEffect(() => {
+        document.title = 'Iniciar sesión';
+    
+        return () => {
+          document.title = 'AFEC Tactic';
+        };
+      }, []);
 
     return(
 

@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Button, Row, Col, Card, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import NavBar from '../Components/NavBar';
 
 function ChooseQuestionnaire() {
+
+  useEffect(() => {
+    document.title = 'Seleccione el cuestionario';
+
+    return () => {
+      document.title = 'AFEC Tactic';
+    };
+  }, []);
 
   return (
 

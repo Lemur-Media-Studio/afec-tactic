@@ -74,3 +74,25 @@
 .footer-end-link:last-of-type{
     border-right: none !important;
 }
+
+@media only screen and (max-width: 1000px){
+    .logo-footer{
+        position: static;
+        top: 0;
+        height: 150px;
+    }
+
+    .footer-legal{
+        margin: 20px auto;
+    }
+
+    .footer-end-link{
+        border-right: none !important;
+        border-bottom: $white solid 1px !important;
+    }
+
+    .footer-end-link:last-of-type{
+        border-bottom: none !important;
+    }
+    
+}

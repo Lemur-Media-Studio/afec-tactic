@@ -9,6 +9,10 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { useEffect } from "react";
 import MainLoading from "../Components/MainLoading";
+import Testimonials from "../Components/Testimonials";
+import ZoomIn from "../Components/Animations/ZoomIn";
+import FadeInLeft from "../Components/Animations/FadeInLeft";
+import FadeInRight from "../Components/Animations/FadeInRight";
 
 function Home(){
 
@@ -16,20 +20,23 @@ function Home(){
 
     const children = <>
                         <section className="bg-ia">
+
                             <NavBar />
                             
-                            <Container fluid="md" className="home-container">
-                                    <Row className="justify-content-center align-items-center">
-                                        <Col />
-                                        <Col>
+                            <ZoomIn>
+                            <Container fluid="md" className="home-container row-mobile-center">
+                                    <Row className="mx-auto align-items-center">
+                                        <Col className="d-none d-md-block" />
+                                        <Col xs={12} md={4}>
                                             <h1 className="home-title">LA IA PARA <span className="blue-word">ENTRENADORES</span> DE FÚTBOL</h1>
                                             <Button className="home-button" as={Link} to='/choose-questionnaire'>Prueba tu primera semana gratis</Button>
                                         </Col>
 
-                                        <Col><img src={require('../img/devices.png')} alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>
-                                        <Col />
+                                        <Col xs={12} md={4}><img src={require('../img/devices.png')} className="img-mobile-home" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>
+                                        <Col className="d-none d-md-block" />
                                     </Row>
                             </Container>
+                            </ZoomIn>
                         </section>
 
                         <section className="home-sectionblue-container">
@@ -45,41 +52,42 @@ function Home(){
                                 <Container>
                                 
                                 <h2 className="home-subtitle text-center mx-auto">TÚ SESIÓN DE ENTRENAMIENTO <br /> EN 3 PASOS</h2>
-                                <Row className="home-training-first-row justify-content-center align-items-center">
-                                    
-                                    <Col>
-                                        <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
-                                    </Col>
+                                <FadeInLeft>
+                                    <Row className="home-training-first-row justify-content-center align-items-center">
+                                        <Col>
+                                            <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" className="img-mobile-ipad-home" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
+                                        </Col>
 
-                                    <Col>
-                                        <p className="home-p">1. Escoge uno de los cuestionarios</p>
-                                    </Col>
-                                    
-                                </Row>
+                                        <Col>
+                                            <p className="home-p">1. Escoge uno de los cuestionarios</p>
+                                        </Col>
+                                    </Row>
+                                </FadeInLeft>
 
-                                <Row className="mt-5 justify-content-center align-items-center">
-                                    
-                                    <Col>
-                                        <p className="home-p">2. Responde a TACTIC todas las preguntas</p>
-                                    </Col>
+                                <FadeInRight>
+                                    <Row className="mt-5 justify-content-center align-items-center">
+                                        <Col>
+                                            <p className="home-p">2. Responde a TACTIC todas las preguntas</p>
+                                        </Col>
 
-                                    <Col>
-                                        <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
-                                    </Col>
-                                    
-                                </Row>
+                                        <Col>
+                                            <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" className="img-mobile-ipad-home" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
+                                        </Col>
+                                    </Row>
+                                </FadeInRight>
 
-                                <Row className="mt-5 justify-content-center align-items-center">
-                                    
-                                    <Col>
-                                        <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
-                                    </Col>
+                                <FadeInLeft>
+                                    <Row className="mt-5 justify-content-center align-items-center">
+                                        <Col>
+                                            <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" className="img-mobile-ipad-home" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
+                                        </Col>
 
-                                    <Col>
-                                        <p className="home-p">3. Guarda tú sesión de entrenamiento (vídeos e imágenes explicativas)</p>
-                                    </Col>
-                                    
-                                </Row>
+                                        <Col>
+                                            <p className="home-p">3. Guarda tú sesión de entrenamiento (vídeos e imágenes explicativas)</p>
+                                        </Col>                                    
+                                    </Row>
+                                </FadeInLeft>
+
                                 </Container>
                             </div>
                         </section>
@@ -90,32 +98,11 @@ function Home(){
                                 <Container>
                                 
                                 <h2 className="home-subtitle-testimonials text-center mx-auto">TESTIMONIOS</h2>
+                                              
+                                <Testimonials />
 
-                {/*                 <Carousel className="home-carousel">
-
-                                        <Carousel.Item>
-                                            <h2 className="home-carousel-title">TESTIMONIO 1</h2>
-                                            <h3>First slide label</h3>
-                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-
-                                            </Carousel.Item>
-
-                                            <Carousel.Item>
-                                            <h2 className="home-carousel-title">TESTIMONIO 2</h2>
-                                            <h3>First slide label</h3>
-                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                            </Carousel.Item>
-
-                                            <Carousel.Item>
-                                            <h2 className="home-carousel-title">TESTIMONIO 3</h2>
-                                            <h3>First slide label</h3>
-                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                        </Carousel.Item>
-
-                                </Carousel>
-                                */}
                                 </Container>
-                            </div>
+                                </div>
                         </section>
 
                         <Footer />    
@@ -130,6 +117,14 @@ function Home(){
             }
         }
     )
+
+    useEffect(() => {
+        document.title = 'AFEC Tactic - Home';
+    
+        return () => {
+          document.title = 'AFEC Tactic';
+        };
+      }, []);
 
     return(
         <>

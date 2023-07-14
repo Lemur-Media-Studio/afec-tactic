@@ -41,7 +41,6 @@
   -webkit-mask-repeat:no-repeat;
   mask-size:100% 180%;
   mask-repeat:no-repeat;
-
 }
 
 .home-p{
@@ -103,4 +102,56 @@
     text-align: center !important;
     position: relative !important;
     bottom: 60px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    
+    .img-mobile-home{
+        height: 200px;
+    }
+
+    .home-trainingsession-container{
+        background-color: $darkest-blue !important;
+        padding-bottom: 200px !important;
+        -webkit-mask:
+        none !important;
+      mask:
+        none !important;
+        mask-size:none;
+        mask-repeat:none;
+    }
+
+    .home-grid{
+        margin: 0px 50px 0 50px !important;
+        padding-top: 100px !important;
+    }
+
+    .row-mobile-center{
+        text-align: center;
+    }
+
+    .home-button{
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+
+    .img-mobile-ipad-home{
+        height: 100px;
+    }
+
+    .home-p{
+        font-size: 18px !important;
+    }
+
+    .home-subtitle{
+        margin-top: 0px !important;
+    }
+
+    .home-testimonials-container{
+        margin-top: -100px;
+    }
+
+    .home-subtitle-testimonials{
+        margin-top: 0px !important;
+    }
 }

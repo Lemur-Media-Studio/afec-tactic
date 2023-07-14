@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { Button, Container, Spinner } from "react-bootstrap";
@@ -23,6 +23,14 @@ function SignUp(){
     const [alertCharacters, setAlertCharacters] = useState({className:"", text:""})
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        document.title = 'Registrarse';
+    
+        return () => {
+          document.title = 'AFEC Tactic';
+        };
+      }, []);
 
     const submit = async (e) => {
         
