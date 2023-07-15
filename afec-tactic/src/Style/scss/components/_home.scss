@@ -104,7 +104,7 @@
     bottom: 60px !important;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 767px) {
     
     .img-mobile-home{
         height: 200px;
@@ -153,5 +153,74 @@
 
     .home-subtitle-testimonials{
         margin-top: 0px !important;
+    }
+
+    .home-p{
+        color: $white !important;
+        font-family: "Regular" !important;
+        font-size: 12px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+    .img-mobile-home{
+        height: 200px;
+    }
+
+    .home-sectionblue-container{
+        background-color: $dark-blue !important;
+        padding: 150px 0 100px 0;
+    }
+
+    .home-trainingsession-container{
+        background-color: $darkest-blue !important;
+        padding-bottom: 200px !important;
+        -webkit-mask:
+        none !important;
+      mask:
+        none !important;
+        mask-size:none;
+        mask-repeat:none;
+    }
+
+    .home-grid{
+        margin: 0px 150px 0 150px !important;
+        padding-top: 100px !important;
+    }
+
+    .row-mobile-center{
+        text-align: center;
+    }
+
+    .home-button{
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+
+    .img-mobile-ipad-home{
+        height: 100px;
+    }
+
+    .home-p{
+        font-size: 18px !important;
+    }
+
+    .home-subtitle{
+        margin-top: 0px !important;
+    }
+
+    .home-testimonials-container{
+        margin-top: -100px;
+    }
+
+    .home-subtitle-testimonials{
+        margin-top: 0px !important;
+    }
+
+    .home-p{
+        color: $white !important;
+        font-family: "Regular" !important;
+        font-size: 12px !important;
     }
 }

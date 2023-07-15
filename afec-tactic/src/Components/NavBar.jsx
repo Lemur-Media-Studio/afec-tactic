@@ -20,20 +20,17 @@ function NavBar(){
 
     return(
         <FallDown>
-            <Navbar className="navbar-bg" expand="lg">
+            <Navbar className="navbar-bg d-flex justify-content-center mt-5 mt-lg-none" expand="md">
                 <Container className="navbar-container">
-                    <div className="d-flex">
-                        <Navbar.Brand as={Link} to='/'><img src={require('../img/logo-afectactic.png')} className="logo" alt="Logo AFEC Tactic" height="140" /></Navbar.Brand>
-                    </div>
 
-                    <Navbar.Collapse id="basic-navbar-nav d-none d-xl-block">
+                    <Navbar.Brand as={Link} to='/'><img src={require('../img/logo-afectactic.png')} className="logo" alt="Logo AFEC Tactic" height="140" /></Navbar.Brand>
+
                         <Nav className="ms-auto d-none d-md-flex">
                             <Nav.Link as={Link} to='/' className="navbar-link">INICIO</Nav.Link>
                             <Nav.Link as={Link} to='/login' className="navbar-link">INGRESAR</Nav.Link>
                         </Nav>
-                    </Navbar.Collapse>
 
-                    <div className="d-block align-items-center d-xl-none">
+                    <div className="d-block align-items-center d-md-none">
                         <Button variant="primary" onClick={handleShow} className="canvas-nav-btn">
                             <RiMenu5Fill />
                         </Button>

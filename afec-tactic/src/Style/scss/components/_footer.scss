@@ -40,6 +40,7 @@
 .footer-social-container{
     list-style: none !important;
     display: flex !important;
+    flex-wrap: wrap !important;
 }
 
 .footer-social{
@@ -75,11 +76,46 @@
     border-right: none !important;
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 767px){
+    
+    .footer{
+        background-color: $blue !important;
+        margin-top: 100px !important;
+        padding: 50px 10px !important;
+    }
+
+    .footer-title{
+        font-size: 18px !important;
+    }
+
     .logo-footer{
-        position: static;
-        top: 0;
-        height: 150px;
+        position: relative;
+        left: 20px !important;
+        height: 120px;
+    }
+
+    .footer-contact{
+        font-size: 12px !important;
+    }
+    
+    .footer-contact-at{
+        font-size: 15px !important;
+    }
+    
+    .footer-social-container{
+        list-style: none !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .footer-social{
+        font-size: 12px !important;
+        color: $darkest-blue !important;
+        padding: 0px !important;
+    }
+
+    .footer-link{
+        font-size: 12px;
     }
 
     .footer-legal{
@@ -89,10 +125,77 @@
     .footer-end-link{
         border-right: none !important;
         border-bottom: $white solid 1px !important;
+        font-size: 12px !important;
     }
 
     .footer-end-link:last-of-type{
         border-bottom: none !important;
     }
     
+    .footer-copyright{
+        font-size: 10px !important;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    
+    .footer{
+        background-color: $blue !important;
+        margin-top: 100px !important;
+        padding: 50px 10px !important;
+    }
+
+    .footer-title{
+        font-size: 18px !important;
+    }
+
+    .logo-footer{
+        position: relative;
+        left: 20px !important;
+        height: 120px;
+    }
+
+    .footer-contact{
+        font-size: 12px !important;
+    }
+    
+    .footer-contact-at{
+        font-size: 15px !important;
+    }
+    
+    .footer-social-container{
+        list-style: none !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .footer-social{
+        font-size: 12px !important;
+        color: $darkest-blue !important;
+        padding: 0px !important;
+    }
+
+    .footer-link{
+        font-size: 12px;
+    }
+
+    .footer-legal{
+        margin: 20px auto;
+    }
+
+    .footer-end-link{
+        border-right: none !important;
+        border-bottom: $white solid 1px !important;
+        font-size: 12px !important;
+    }
+
+    .footer-end-link:last-of-type{
+        border-bottom: none !important;
+    }
+    
+    .footer-copyright{
+        font-size: 10px !important;
+        margin: 0 auto;
+    }
 }

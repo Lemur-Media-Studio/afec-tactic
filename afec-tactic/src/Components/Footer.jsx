@@ -14,11 +14,11 @@ function Footer(){
                 <footer className="footer">
                     <Container>
                         <Row>
-                            <Col xs={6} xl={3}>
+                            <Col xs={6} md={3}>
                                 <a href="/"><img src={require('../img/logo-afectactic.png')} alt="Logo AFEC Tactic" className='logo-footer' height="200" /></a>
                             </Col>
 
-                            <Col xs={6} xl={3}>
+                            <Col xs={6} md={3}>
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Sitemap</h3>
                                     <li><a href="/" className="footer-link">Inicio</a></li>
@@ -26,15 +26,15 @@ function Footer(){
                                 </ul>
                             </Col>
 
-                            <Col xs={6} xl={3} className="mt-5 mt-xl-0">
+                            <Col xs={6} md={3} className="mt-5 mt-md-0">
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Contacto</h3>
-                                    <li><BsAt className="footer-contact-at" /> info@afecfa.es </li>
-                                    <li><BsFillTelephoneFill className="footer-contact" /> +34 661 232 683</li>
+                                    <li className="footer-link"><BsAt className="footer-contact-at" /> info@afecfa.es </li>
+                                    <li className="footer-link"><BsFillTelephoneFill className="footer-contact" /> +34 661 232 683</li>
                                 </ul>
                             </Col>
 
-                            <Col xs={6} xl={3} className="mt-5 mt-xl-0">
+                            <Col xs={6} md={3} className="mt-5 mt-md-0">
                                 <ul>
                                     <h3 className="footer-title">¡Síguenos!</h3>
                                     <div className="footer-social-container">

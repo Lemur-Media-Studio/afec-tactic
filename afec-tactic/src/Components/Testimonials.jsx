@@ -9,7 +9,7 @@ import ZoomIn from "./Animations/ZoomIn";
 
 function Testimonials(){
     return(    
-        <MDBContainer className="py-5">
+        <MDBContainer className="py-5 testimonials-container">
         <MDBRow className="d-flex justify-content-center">
         <MDBCol md="10" xl="8" className="text-center">
             <p className="mb-4 pb-2 mb-md-5 pb-md-0 p-testimonials">
@@ -17,9 +17,9 @@ function Testimonials(){
             </p>
         </MDBCol>
         </MDBRow>
-        <ZoomIn>
         <MDBRow className="text-center">
             <MDBCol md="4" className="mb-5 mb-md-0">
+                <ZoomIn>
                 <div className="d-flex justify-content-center mb-4">
                 <img
                     src="https://imagenes.elpais.com/resizer/aLgNPhpEET_piZtSB7wzOeLq4B0=/980x980/cloudfront-eu-central-1.images.arcpublishing.com/prisa/LRANCB25RBMURRSIPBI6QKNMDM.jpg"
@@ -54,8 +54,11 @@ function Testimonials(){
                     <MDBIcon fas icon="star" size="sm" className="text-warning" />
                 </li>
                 </MDBTypography>
+                </ZoomIn>
             </MDBCol>
+
             <MDBCol md="4" className="mb-5 mb-md-0">
+                <ZoomIn>
                 <div className="d-flex justify-content-center mb-4">
                 <img
                     src="https://fotografias.lasexta.com/clipping/cmsimages01/2022/08/13/8A3BB204-3A27-4D39-8A0C-C0F1BAEDE890/carlo-ancelotti-entrenador-real-madrid_104.jpg?crop=858,858,x241,y0&width=1200&height=1200&optimize=low&format=webply"
@@ -91,8 +94,11 @@ function Testimonials(){
                     <MDBIcon fas icon="star" size="sm" className="text-warning" />
                 </li>
                 </MDBTypography>
+                </ZoomIn>
             </MDBCol>
+
             <MDBCol md="4" className="mb-5 mb-md-0">
+                <ZoomIn>
                 <div className="d-flex justify-content-center mb-4">
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9dPxDQEbkO6NAyBV4k6MFV0S_w9azz32AAQ&usqp=CAU"
@@ -128,9 +134,9 @@ function Testimonials(){
                     <MDBIcon fas icon="star" size="sm" className="text-warning" />
                 </li>
                 </MDBTypography>
+                </ZoomIn>
             </MDBCol>
             </MDBRow>
-            </ZoomIn>
         </MDBContainer>
     )
 }

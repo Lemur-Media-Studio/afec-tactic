@@ -27,12 +27,12 @@ function Home(){
                             <Container fluid="md" className="home-container row-mobile-center">
                                     <Row className="mx-auto align-items-center">
                                         <Col className="d-none d-md-block" />
-                                        <Col xs={12} md={4}>
+                                        <Col xs={12} lg={4}>
                                             <h1 className="home-title">LA IA PARA <span className="blue-word">ENTRENADORES</span> DE FÚTBOL</h1>
                                             <Button className="home-button" as={Link} to='/choose-questionnaire'>Prueba tu primera semana gratis</Button>
                                         </Col>
 
-                                        <Col xs={12} md={4}><img src={require('../img/devices.png')} className="img-mobile-home" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>
+                                        <Col xs={12} lg={4}><img src={require('../img/devices.png')} className="img-mobile-home" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>
                                         <Col className="d-none d-md-block" />
                                     </Row>
                             </Container>
@@ -93,7 +93,7 @@ function Home(){
                         </section>
 
                         <section className="home-testimonials-container">
-                            <div className="home-grid">
+                            <div className="home-grid-testimonials">
 
                                 <Container>
                                 
