@@ -7,19 +7,19 @@ import FallDown from "./Animations/FallDown";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Col, Row } from "react-bootstrap";
 import { RiMenu5Fill } from "react-icons/ri";
 
 
 function NavBar(){
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return(
+        
         <FallDown>
+
             <Navbar className="navbar-bg d-flex justify-content-center mt-5 mt-lg-none" expand="md">
                 <Container className="navbar-container">
 
@@ -47,6 +47,7 @@ function NavBar(){
 
                 </Container>
             </Navbar>
+
         </FallDown>
     )
 }

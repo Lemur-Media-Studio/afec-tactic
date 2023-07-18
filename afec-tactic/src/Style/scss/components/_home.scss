@@ -160,9 +160,14 @@
         font-family: "Regular" !important;
         font-size: 12px !important;
     }
+
+    .home-button{
+        font-size: 12px !important;
+        padding: 12px;
+    }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px){
+@media only screen and (min-width: 768px) and (max-width: 1199px){
 
     .img-mobile-home{
         height: 200px;
@@ -222,5 +227,10 @@
         color: $white !important;
         font-family: "Regular" !important;
         font-size: 12px !important;
+    }
+
+    .home-button{
+        font-size: 12px !important;
+        padding: 12px;
     }
 }

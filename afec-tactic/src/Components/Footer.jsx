@@ -51,7 +51,7 @@ function Footer(){
                 </footer>
 
                 <section className="footer-end">
-                    <Navbar className="navbar-bg container" expand="lg">
+                    <Navbar className="container" expand="lg">
                             <Navbar.Brand className="footer-copyright">Copyright © 2023 AFEC Football Academy. Todos los derechos reservados.</Navbar.Brand>
 
                             <Nav className="ms-auto footer-legal">
