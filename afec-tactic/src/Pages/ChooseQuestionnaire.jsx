@@ -17,10 +17,10 @@ function ChooseQuestionnaire() {
 
     <Container className="suggested-questions-container">
 
-      <h1 className="question-title">SELECCIONE EL CUESTIONARIO</h1>
+      <h1 className="question-title text-center w-75">SELECCIONE EL CUESTIONARIO</h1>
 
-        <Row className="chooseq-row">
-          <Col>
+        <Row className="chooseq-row d-flex flex-wrap wrap">
+          <Col xs={12} md={6}>
               <Card className="text-center chooseq-card">
                 <Card.Header className="chooseq-card-header">Cuestionario 1</Card.Header>
                 <Card.Body>
@@ -34,8 +34,8 @@ function ChooseQuestionnaire() {
               </Card>
           </Col>
 
-          <Col>
-              <Card className="text-center chooseq-card">
+          <Col xs={12} md={6}>
+              <Card className="text-center chooseq-card mt-5 mt-md-0">
                 <Card.Header className="chooseq-card-header">Cuestionario 2</Card.Header>
                 <Card.Body>
                   <Card.Title className='chooseq-title'>PLAN DE PARTIDO</Card.Title>

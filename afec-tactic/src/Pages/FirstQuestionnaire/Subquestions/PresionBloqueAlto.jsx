@@ -71,6 +71,7 @@ function PresionBloqueAlto() {
         {selectedBtn === 1 && (
           <ButtonGroup>
             <Button
+              className="answers-btn"
               onClick={(e) => {
                 mandoRespuesta(e.target.value);
                 setSelectedBtnSubanswer(10);
@@ -88,6 +89,7 @@ function PresionBloqueAlto() {
             </Button>
             
             <Button
+              className="answers-btn"
               onClick={(e) => {
                 mandoRespuesta(e.target.value);
                 setSelectedBtnSubanswer(11);
@@ -105,6 +107,7 @@ function PresionBloqueAlto() {
             </Button>
   
             <Button
+              className="answers-btn"
               onClick={(e) => {
                 mandoRespuesta(e.target.value);
                 setSelectedBtnSubanswer(12);
@@ -127,6 +130,7 @@ function PresionBloqueAlto() {
         {selectedBtn === 2 && (
           <ButtonGroup>
             <Button
+              className="answers-btn"
               onClick={(e) => {
                 mandoRespuesta(e.target.value);
                 setSelectedBtnSubanswer(13);
@@ -144,6 +148,7 @@ function PresionBloqueAlto() {
             </Button>
   
             <Button
+              className="answers-btn"
               onClick={(e) => {
                 mandoRespuesta(e.target.value);
                 setSelectedBtnSubanswer(14);
@@ -161,6 +166,7 @@ function PresionBloqueAlto() {
             </Button>
   
             <Button
+              className="answers-btn"
               onClick={(e) => {
                 mandoRespuesta(e.target.value);
                 setSelectedBtnSubanswer(15);

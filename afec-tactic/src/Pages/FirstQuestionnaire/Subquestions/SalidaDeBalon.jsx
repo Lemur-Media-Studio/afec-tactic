@@ -70,6 +70,7 @@ const SalidaDeBalon = () => {
       {selectedBtn === 1 && (
         <ButtonGroup>
           <Button
+            className="answers-btn"
             onClick={() => {
               setSelectedBtnSubanswer(10);
             }}
@@ -85,6 +86,7 @@ const SalidaDeBalon = () => {
           </Button>
           
           <Button
+            className="answers-btn"
             onClick={() => {
               setSelectedBtnSubanswer(11);
             }}
@@ -100,6 +102,7 @@ const SalidaDeBalon = () => {
           </Button>
 
           <Button
+            className="answers-btn"
             onClick={() => {
               setSelectedBtnSubanswer(12);
             }}
@@ -120,6 +123,7 @@ const SalidaDeBalon = () => {
       {selectedBtn === 2 && (
         <ButtonGroup>
           <Button
+            className="answers-btn"
             onClick={() => {
               setSelectedBtnSubanswer(13);
             }}
@@ -135,6 +139,7 @@ const SalidaDeBalon = () => {
           </Button>
 
           <Button
+            className="answers-btn"
             onClick={() => {
               setSelectedBtnSubanswer(14);
             }}
@@ -150,6 +155,7 @@ const SalidaDeBalon = () => {
           </Button>
 
           <Button
+            className="answers-btn"
             onClick={() => {
               setSelectedBtnSubanswer(15);
             }}

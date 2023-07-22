@@ -126,6 +126,7 @@ function FifthQuestion() {
         {selectedBtn === 2 && (
           <ButtonGroup>
             <Button
+              className="answers-btn"
               value="Juego asociativo en bloque alto"
               onClick={(e) => {
                 sendAnswer(e.target.value);
@@ -143,6 +144,7 @@ function FifthQuestion() {
             </Button>
   
             <Button
+              className="answers-btn"
               value="Juego vertical en bloque alto"
               onClick={(e) => {
                 sendAnswer(e.target.value);
@@ -160,6 +162,7 @@ function FifthQuestion() {
             </Button>
   
             <Button
+              className="answers-btn"
               value="Juego directo en bloque alto"
               onClick={(e) => {
                 sendAnswer(e.target.value);

@@ -578,6 +578,11 @@
   height: 1rem;
 }
 
+@media only screen and (max-width: 767px) {
+  .login-card {
+    width: 22rem !important;
+  }
+}
 .questions-container {
   display: flex;
   flex-direction: column;
@@ -665,7 +670,7 @@
   background-color: #10224a;
   border: 1px #006cff solid;
   border-radius: 10px !important;
-  height: 20rem !important;
+  height: 100% !important;
 }
 
 .chooseq-card-header {
@@ -714,6 +719,88 @@
   border-color: #090d2c !important;
 }
 
+.qheader-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.qheader-title {
+  font-family: "Bold" !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .questions-container {
+    margin-top: 50px;
+  }
+
+  .question-title {
+    width: 50%;
+    font-size: 30px !important;
+  }
+
+  .qheader-title {
+    font-family: "Bold" !important;
+    color: #fff !important;
+    font-size: 18px !important;
+  }
+
+  .qheader-logo {
+    height: 100px;
+  }
+
+  .btn-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-top: 50px !important;
+  }
+
+  .answers-btn {
+    font-size: 14px !important;
+    margin-top: 10px !important;
+  }
+
+  .subanswers-btn {
+    font-size: 14px !important;
+    margin-top: 10px !important;
+  }
+
+  .nextq-btn {
+    padding: 10px 100px !important;
+    font-size: 14px !important;
+  }
+
+  .chooseq-card-header {
+    font-size: 16px !important;
+    text-align: center !important;
+  }
+
+  .chooseq-title {
+    font-size: 18px !important;
+  }
+
+  .chooseq-p {
+    padding: 14px !important;
+  }
+
+  .chooseq-btn {
+    font-size: 10px !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .btn-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-top: 50px !important;
+  }
+
+  .answers-btn {
+    font-size: 14px !important;
+    margin-top: 10px !important;
+  }
+}
 .suggested-questions-container {
   display: flex;
   flex-direction: column;
@@ -742,18 +829,6 @@
 
 .star {
   font-size: 25px !important;
-}
-
-.qheader-container {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-}
-
-.qheader-title {
-  font-family: "Bold" !important;
-  color: #fff !important;
-  font-size: 20px !important;
 }
 
 .loading-container {

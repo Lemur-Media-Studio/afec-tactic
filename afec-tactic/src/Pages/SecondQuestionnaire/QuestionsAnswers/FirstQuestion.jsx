@@ -73,6 +73,7 @@ function FirstQuestion() {
         <ButtonGroup>
           <Button
             value="Reinicio - Juego asociativo"
+            className="answers-btn"
             onClick={(e) => {
               sendAnswer(e.target.value);
               setSelectedBtnSubanswer(10);
@@ -89,6 +90,7 @@ function FirstQuestion() {
           </Button>
           
           <Button
+            className="answers-btn"
             value="Reinicio - Juego vertical"
             onClick={(e) => {
               sendAnswer(e.target.value);
@@ -106,6 +108,7 @@ function FirstQuestion() {
           </Button>
 
           <Button
+            className="answers-btn"
             value="Reinicio - Juego directo"
             onClick={(e) => {
               sendAnswer(e.target.value);
