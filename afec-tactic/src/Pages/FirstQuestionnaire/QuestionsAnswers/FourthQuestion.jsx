@@ -1,33 +1,38 @@
 import React, { useState } from 'react'
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AlertCustom from '../../../Components/AlertCustom';
 import QHeader from '../../../Components/QHeader';
+import { Form1Q4 } from '../../../utils/Form1Q4';
 
 function FourthQuestion() {
 
     const [selectedOptions, setSelectedOptions] = useState([])
     const [alert, setAlert] = useState({color: "", text: ""})
 
-    /* Handle Checkbox */
-    const handleOptionChange = (optionId, a) => {
-        if (selectedOptions.includes(optionId)) {
-          setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
-        } else {
-          if (selectedOptions.length < 2) {
-            setSelectedOptions([...selectedOptions, optionId]);
-        
-              const respuestas = {a}
-              console.log(respuestas)
-              localStorage.setItem('CH1-Q4', JSON.stringify(respuestas))
-            
-          }
+    const answer1 = JSON.parse(localStorage.getItem('A-Q1'))
+    const a1list = Object.values(answer1)
 
+    /* Handle Checkbox */
+    const handleOptionChange = (optionId, optionAnswer) => {
+
+      if (selectedOptions.includes(optionId)) {
+        setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
+      } else {
+        if (selectedOptions.length <= 9) {
+          const check1Q4 = { optionAnswer }
+          localStorage.setItem('CH1-Q4', JSON.stringify(check1Q4))
+          if (selectedOptions.length < 10) {
+            const check2Q4 = { optionAnswer }
+            localStorage.setItem('CH2-Q4', JSON.stringify(check2Q4))
+            setSelectedOptions([...selectedOptions, optionId]);
+          }
         }
-      };
+      }
+    };
 
     const isOptionDisabled = (optionId) =>
-    selectedOptions.length === 2 && !selectedOptions.includes(optionId);
+    selectedOptions.length === 10 && !selectedOptions.includes(optionId);
 
     const showAlert = () => {
       setAlert({color:'yellow', text:'Debes seleccionar una opción'})
@@ -45,99 +50,41 @@ function FourthQuestion() {
 
       <div className="checkbox-questions-container">
         <h3 className="question-font">¿Cuál es el contenido a nivel micro?</h3>
-        <h4>(Máximo dos opciones)</h4>
+        <h4>(Máximo diez opciones)</h4>
 
-        <div className="mb-3 mt-5 row container checkbox-questions">
-
-                <Form.Check className="col-5"// prettier-ignore
-                key="percepcion"
-                type="checkbox"
-                id="percepcion"
-                label="Percepción"
-                value="Percepción"
-                checked={selectedOptions.includes(1)}
-                onChange={(e) => handleOptionChange(1, e.target.value)}
-                disabled={isOptionDisabled(1)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="pase"
-                type="checkbox"
-                id="pase"
-                label="Pase"
-                value="Pase"
-                checked={selectedOptions.includes(2)}
-                onChange={(e) => handleOptionChange(2, e.target.value)}
-                disabled={isOptionDisabled(2)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="control"
-                type="checkbox"
-                id="control"
-                label="Control"
-                value="Control"
-                checked={selectedOptions.includes(3)}
-                onChange={(e) => handleOptionChange(3, e.target.value)}
-                disabled={isOptionDisabled(3)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="conduccion"
-                type="checkbox"
-                id="conduccion"
-                value="Conducción"
-                label="Conducción"
-                checked={selectedOptions.includes(4)}
-                onChange={(e) => handleOptionChange(4, e.target.value)}
-                disabled={isOptionDisabled(4)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="tiro"
-                type="checkbox"
-                id="tiro"
-                label="Tiro"
-                value="Tiro"
-                checked={selectedOptions.includes(5)}
-                onChange={(e) => handleOptionChange(5, e.target.value)}
-                disabled={isOptionDisabled(5)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="perfiles"
-                type="checkbox"
-                id="perfiles"
-                label="Perfiles"
-                value="Perfiles"
-                checked={selectedOptions.includes(6)}
-                onChange={(e) => handleOptionChange(6, e.target.value)}
-                disabled={isOptionDisabled(6)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="trayectoria"
-                type="checkbox"
-                id="trayectoria"
-                label="Trayectoria"
-                value="Trayectoria"
-                checked={selectedOptions.includes(7)}
-                onChange={(e) => handleOptionChange(7, e.target.value)}
-                disabled={isOptionDisabled(7)}
-              />
-
-              <Form.Check className="col-5"// prettier-ignore
-                key="distancias"
-                type="checkbox"
-                id="distancias"
-                label="Distancias"
-                value="Distancias"
-                checked={selectedOptions.includes(8)}
-                onChange={(e) => handleOptionChange(8, e.target.value)}
-                disabled={isOptionDisabled(8)}
-              />
-
+        { a1list == 'Momento con balón' &&
+          <div className="mb-3 mt-5 row checkbox-questions container">
+          {Form1Q4[0].map((option) => (
+              <Col key={option.id} className="col-4">
+                <Form.Check
+                  type="checkbox"
+                  id={`option-${option.id}`}
+                  label={option.answer}
+                  checked={selectedOptions.includes(option.id, option.answer)}
+                  onChange={() => handleOptionChange(option.id, option.answer)}
+                  disabled={isOptionDisabled(option.id)}
+                />
+              </Col>
+          ))}
         </div>
+        }
+
+        { a1list == 'Momento sin balón' &&
+          <div className="mb-3 mt-5 row checkbox-questions container">
+          {Form1Q4[1].map((option) => (
+              <Col key={option.id} className="col-4">
+                <Form.Check
+                  type="checkbox"
+                  id={`option-${option.id}`}
+                  label={option.answer}
+                  checked={selectedOptions.includes(option.id, option.answer)}
+                  onChange={() => handleOptionChange(option.id, option.answer)}
+                  disabled={isOptionDisabled(option.id)}
+                />
+              </Col>
+          ))}
+        </div>
+        }
 
         <Button 
             className="nextq-btn mb-3" as={Link}

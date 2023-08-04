@@ -10,16 +10,6 @@ export const Answers = [
             value: 2,
             id: "tbg-radio-2"
         },
-        {
-            answer: "Transición ataque – defensa",
-            value: 3,
-            id: "tbg-radio-3"
-        },
-        {
-            answer: "Transición defensa - ataque",
-            value: 4,
-            id: "tbg-radio-4"
-        }
     ],
 
     [
@@ -206,9 +196,6 @@ export const Answers = [
         },
         {
             answer: "Juegos de posición",
-        },
-        {
-            answer: "Juegos de progresión",
         },
         {
             answer: "Juegos de situación",

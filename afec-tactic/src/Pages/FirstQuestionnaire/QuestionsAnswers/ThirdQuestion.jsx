@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Answers } from '../../../utils/Answers';
 import QHeader from '../../../Components/QHeader';
 import AlertCustom from '../../../Components/AlertCustom';
+import { Form1Q3 } from '../../../utils/Form1Q3';
 
 function ThirdQuestion() {
 
   const [selectedOptions, setSelectedOptions] = useState([])
   const [alert, setAlert] = useState({color: "", text: ""})
+
+  const answer1 = JSON.parse(localStorage.getItem('A-Q1'))
+  const a1list = Object.values(answer1)
 
   /* Handle Checkbox */
   const handleOptionChange = (optionId, optionAnswer) => {
@@ -16,10 +19,10 @@ function ThirdQuestion() {
     if (selectedOptions.includes(optionId)) {
       setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
     } else {
-      if (selectedOptions.length <= 1) {
+      if (selectedOptions.length <= 9) {
         const check1Q3 = { optionAnswer }
         localStorage.setItem('CH1-Q3', JSON.stringify(check1Q3))
-        if (selectedOptions.length < 2) {
+        if (selectedOptions.length < 10) {
           const check2Q3 = { optionAnswer }
           localStorage.setItem('CH2-Q3', JSON.stringify(check2Q3))
           setSelectedOptions([...selectedOptions, optionId]);
@@ -29,7 +32,7 @@ function ThirdQuestion() {
   };
 
   const isOptionDisabled = (optionId) =>
-    selectedOptions.length === 2 && !selectedOptions.includes(optionId);
+    selectedOptions.length === 10 && !selectedOptions.includes(optionId);
 
   const showAlert = () => {
     setAlert({color:'yellow', text:'Debes seleccionar una opción'})
@@ -47,11 +50,12 @@ function ThirdQuestion() {
 
       <div className="checkbox-questions-container">
         <h3 className="question-font">¿Cuál es el contenido a nivel macro?</h3>
-        <h4>(Máximo dos opciones)</h4>
+        <h4>(Máximo diez opciones)</h4>
 
-        <div className="mb-3 mt-5 row container checkbox-questions">
-          {Answers[2].map((option) => (
-            <Form.Check className="col-5"// prettier-ignore
+        { a1list == 'Momento con balón' &&
+          <div className="mb-3 mt-5 row container checkbox-questions">
+          {Form1Q3[1].map((option) => (
+            <Form.Check className="col-4 mx-auto"// prettier-ignore
               key={option.id}
               type="checkbox"
               id={`option-${option.id}`}
@@ -62,6 +66,23 @@ function ThirdQuestion() {
             />
           ))}
         </div>
+        }
+
+        { a1list == 'Momento sin balón' &&
+          <div className="mb-3 mt-5 row container checkbox-questions">
+          {Form1Q3[0].map((option) => (
+            <Form.Check className="col-4"// prettier-ignore
+              key={option.id}
+              type="checkbox"
+              id={`option-${option.id}`}
+              label={option.answer}
+              checked={selectedOptions.includes(option.id, option.answer)}
+              onChange={() => handleOptionChange(option.id, option.answer)}
+              disabled={isOptionDisabled(option.id)}
+            />
+          ))}
+        </div>
+        }
 
         <Button 
             className="nextq-btn mb-3" as={Link}

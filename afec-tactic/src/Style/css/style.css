@@ -649,8 +649,19 @@
 
 .checkbox-questions {
   display: flex !important;
-  justify-content: end !important;
+  justify-content: center !important;
   text-align: left !important;
+}
+
+.form-check {
+  display: block;
+  padding-left: 135px;
+  text-indent: 5px;
+}
+
+.form-check-input {
+  float: left !important;
+  margin: none;
 }
 
 .chooseq-btn {
