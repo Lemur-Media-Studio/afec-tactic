@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import QHeader from '../../../Components/QHeader';
@@ -13,26 +13,30 @@ function ThirdQuestion() {
   const answer1 = JSON.parse(localStorage.getItem('A-Q1'))
   const a1list = Object.values(answer1)
 
-  /* Handle Checkbox */
-  const handleOptionChange = (optionId, optionAnswer) => {
+  useEffect(() => {
+    // Leer las opciones almacenadas en el localStorage y establecer el estado
+    const storedOptions = Object.keys(localStorage).filter((key) => key.startsWith('CH1-Q3-'));
+    setSelectedOptions(storedOptions.map((key) => parseInt(key.replace('CH1-Q3-', ''))));
+  }, []);
 
+  const handleOptionChange = (optionId, optionAnswer) => {
     if (selectedOptions.includes(optionId)) {
       setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
+      localStorage.removeItem(`CH1-Q3-${optionId}`);
+      localStorage.removeItem(`CH2-Q3-${optionId}`);
     } else {
-      if (selectedOptions.length <= 9) {
-        const check1Q3 = { optionAnswer }
-        localStorage.setItem('CH1-Q3', JSON.stringify(check1Q3))
-        if (selectedOptions.length < 10) {
-          const check2Q3 = { optionAnswer }
-          localStorage.setItem('CH2-Q3', JSON.stringify(check2Q3))
-          setSelectedOptions([...selectedOptions, optionId]);
-        }
+      if (selectedOptions.length < 15) {
+        setSelectedOptions([...selectedOptions, optionId]);
+        const check1Q3 = { optionAnswer };
+        localStorage.setItem(`CH1-Q3-${optionId}`, JSON.stringify(check1Q3));
+        const check2Q3 = { optionAnswer };
+        localStorage.setItem(`CH2-Q3-${optionId}`, JSON.stringify(check2Q3));
       }
     }
   };
 
   const isOptionDisabled = (optionId) =>
-    selectedOptions.length === 10 && !selectedOptions.includes(optionId);
+    selectedOptions.length === 5 && !selectedOptions.includes(optionId);
 
   const showAlert = () => {
     setAlert({color:'yellow', text:'Debes seleccionar una opción'})
@@ -50,7 +54,7 @@ function ThirdQuestion() {
 
       <div className="checkbox-questions-container">
         <h3 className="question-font">¿Cuál es el contenido a nivel macro?</h3>
-        <h4>(Máximo diez opciones)</h4>
+        <h4>(Máximo cinco opciones)</h4>
 
         { a1list == 'Momento con balón' &&
           <div className="mb-3 mt-5 row container checkbox-questions">

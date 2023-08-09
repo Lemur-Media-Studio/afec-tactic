@@ -458,7 +458,7 @@ export const Form1Q4 = [
             id: 55
         },
         {
-            answer: "Reconocer línea de pase entre poseedor - receptor",
+            answer: "Reconocer línea de pase",
             id: 56
         },
         {

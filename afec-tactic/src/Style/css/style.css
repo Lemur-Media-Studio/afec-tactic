@@ -592,6 +592,7 @@
   text-align: center;
   font-family: "Regular" !important;
   color: #fff !important;
+  margin-bottom: 100px;
 }
 
 .question-title {
@@ -649,14 +650,14 @@
 
 .checkbox-questions {
   display: flex !important;
-  justify-content: center !important;
+  justify-content: left !important;
   text-align: left !important;
+  font-size: 13px;
 }
 
 .form-check {
   display: block;
-  padding-left: 135px;
-  text-indent: 5px;
+  padding-left: 120px !important;
 }
 
 .form-check-input {
