@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Button, ButtonGroup, Container } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AlertCustom from '../../../Components/AlertCustom';
 import QHeader from '../../../Components/QHeader';
@@ -7,14 +7,33 @@ import { Answers } from '../../../utils/Answers';
 
 function FifthQuestion() {
 
-  const [selectedBtn, setSelectedBtn] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState([])
   const [alert, setAlert] = useState({color: "", text: ""})
 
-  function mandoRespuesta(Q5) {
-    const respuestas = { Q5 }
-    console.log(respuestas)
-    localStorage.setItem('A-Q5', JSON.stringify(respuestas))
-  }
+  useEffect(() => {
+    // Leer las opciones almacenadas en el localStorage y establecer el estado
+    const storedOptions = Object.keys(localStorage).filter((key) => key.startsWith('CH1-Q5-'));
+    setSelectedOptions(storedOptions.map((key) => parseInt(key.replace('CH1-Q5-', ''))));
+  }, []);
+
+  const handleOptionChange = (optionId, optionAnswer) => {
+    if (selectedOptions.includes(optionId)) {
+      setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
+      localStorage.removeItem(`CH1-Q5-${optionId}`);
+      localStorage.removeItem(`CH2-Q5-${optionId}`);
+    } else {
+      if (selectedOptions.length < 3) {
+        setSelectedOptions([...selectedOptions, optionId]);
+        const check1Q5 = { optionAnswer };
+        localStorage.setItem(`CH1-Q5-${optionId}`, JSON.stringify(check1Q5));
+        const check2Q5 = { optionAnswer };
+        localStorage.setItem(`CH2-Q5-${optionId}`, JSON.stringify(check2Q5));
+      }
+    }
+  };
+
+  const isOptionDisabled = (optionId) =>
+    selectedOptions.length === 3 && !selectedOptions.includes(optionId);
 
   const showAlert = () => {
     setAlert({color:'yellow', text:'Debes seleccionar una opción'})
@@ -32,28 +51,23 @@ function FifthQuestion() {
 
       <div>
         <h3 className="question-font">¿Momento del entrenamiento?</h3>
-        <ButtonGroup name="question1" defaultValue={0}>
-          {Answers[4].map((option, index) => (
-            <Button key={index} className="answers-btn" to='/form1-question2' value={option.answer}
-            onClick={(e) => {
-              mandoRespuesta(e.target.value);
-              setSelectedBtn(index);
-            }}
-            style={{
-              backgroundColor: '#006cff;',
-              border: selectedBtn === index ? '2px solid #fff' : '1px solid #10224a',
-              marginTop: '50px',
-              padding: '15px',
-              fontSize: '16px',
-            }}>
-              {option.answer}
-            </Button>
+        <div className="mb-3 mt-5 row">
+          {Answers[4].map((option) => (
+            <Form.Check className="col-4"// prettier-ignore
+              key={option.id}
+              type="checkbox"
+              id={`option-${option.id}`}
+              label={option.answer}
+              checked={selectedOptions.includes(option.id, option.answer)}
+              onChange={() => handleOptionChange(option.id, option.answer)}
+              disabled={isOptionDisabled(option.id)}
+            />
           ))}
-        </ButtonGroup>
+        </div>
         <div>
           <Button 
             className="nextq-btn mb-3" as={Link}
-            to={selectedBtn===null ? '' : '/form1-question6'} 
+            to={selectedOptions.length === 0 ? '' : '/form1-question6'} 
             onClick={showAlert}
             >
               Siguiente pregunta
@@ -61,13 +75,13 @@ function FifthQuestion() {
         </div>
       </div>
 
-      {selectedBtn===null &&
+      {selectedOptions.length === 0 &&
         <AlertCustom {...alert} />
       }
 
       <div className='mt-5'>
           <Link as={Link} to='/form1-question4' className='mx-2 question-link'>Anterior pregunta</Link>
-          <Link as={Link} to={selectedBtn===null ? '' : '/form1-question6'} className='mx-2 question-link'>Siguiente pregunta</Link>
+          <Link as={Link} to={selectedOptions.length === 0 ? '' : '/form1-question6'} className='mx-2 question-link'>Siguiente pregunta</Link>
       </div>
 
     </Container>

@@ -31,7 +31,7 @@ function EighthQuestion() {
       <h1 className="question-title">OCTAVA PREGUNTA</h1>
 
       <div>
-        <h3 className="question-font">¿Presencia de porterías?</h3>
+        <h3 className="question-font">¿Dirección?</h3>
         <ButtonGroup name="question1" defaultValue={0}>
           {Answers[7].map((option, index) => (
             <Button key={index} className="answers-btn" to='/form1-question2' value={option.answer}

@@ -169,42 +169,54 @@ export const Answers = [
     [
         {
             answer: "Parte inicial",
+            id: 1,
         },
         {
             answer: "Parte principal",
+            id: 2,
         },
         {
             answer: "Parte final",
+            id: 3,
         },
     ],
 
     [
         {
             answer: "Activación",
+            id: 1,
         },
         {
             answer: "Rueda de pases",
+            id: 2,
         },
         {
             answer: "Rondo",
+            id: 3,
         },
         {
             answer: "Juego de posesión",
+            id: 4,
         },
         {
             answer: "Duelos",
+            id: 5,
         },
         {
             answer: "Juegos de posición",
+            id: 6,
         },
         {
             answer: "Juegos de situación",
+            id: 7,
         },
         {
             answer: "Partidos",
+            id: 8,
         },
         {
             answer: "Finalizaciones",
+            id: 9,
         },
     ],
 
@@ -213,16 +225,22 @@ export const Answers = [
             answer: "Espacios amplios",
         },
         {
+            answer: "Espacios medios",
+        },
+        {
             answer: "Espacios reducidos",
         },
     ],
 
     [
         {
-            answer: "Con porterías",
+            answer: "Sí",
         },
         {
-            answer: "Sin porterías",
+            answer: "No",
+        },
+        {
+            answer: "Polarizada",
         },
     ],
 
