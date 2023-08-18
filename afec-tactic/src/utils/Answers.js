@@ -183,39 +183,39 @@ export const Answers = [
 
     [
         {
-            answer: "Activación",
+            answer1: "Activación",
             id: 1,
         },
         {
-            answer: "Rueda de pases",
+            answer1: "Rueda de pases",
             id: 2,
         },
         {
-            answer: "Rondo",
+            answer2: "Rondo",
             id: 3,
         },
         {
-            answer: "Juego de posesión",
+            answer2: "Juego de posesión",
             id: 4,
         },
         {
-            answer: "Duelos",
+            answer2: "Juegos de posición",
             id: 5,
         },
         {
-            answer: "Juegos de posición",
+            answer2: "Juegos de situación",
             id: 6,
         },
         {
-            answer: "Juegos de situación",
+            answer3: "Partidos",
             id: 7,
         },
         {
-            answer: "Partidos",
+            answer3: "Finalizaciones",
             id: 8,
         },
         {
-            answer: "Finalizaciones",
+            answer3: "Duelos",
             id: 9,
         },
     ],

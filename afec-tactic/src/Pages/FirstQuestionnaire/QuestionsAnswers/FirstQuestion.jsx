@@ -3,7 +3,6 @@ import { Button, ButtonGroup, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Answers } from '../../../utils/Answers';
 import { useState } from 'react';
-import NavBar from '../../../Components/NavBar';
 import QHeader from '../../../Components/QHeader';
 import AlertCustom from '../../../Components/AlertCustom';
 

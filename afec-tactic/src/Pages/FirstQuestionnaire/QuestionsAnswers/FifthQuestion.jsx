@@ -16,7 +16,7 @@ function FifthQuestion() {
     setSelectedOptions(storedOptions.map((key) => parseInt(key.replace('CH1-Q5-', ''))));
   }, []);
 
-  const handleOptionChange = (optionId, optionAnswer) => {
+  const handleOptionChange = (optionId, Q5) => {
     if (selectedOptions.includes(optionId)) {
       setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
       localStorage.removeItem(`CH1-Q5-${optionId}`);
@@ -24,10 +24,11 @@ function FifthQuestion() {
     } else {
       if (selectedOptions.length < 3) {
         setSelectedOptions([...selectedOptions, optionId]);
-        const check1Q5 = { optionAnswer };
+        const check1Q5 = { Q5 };
+        console.log(check1Q5)
         localStorage.setItem(`CH1-Q5-${optionId}`, JSON.stringify(check1Q5));
-        const check2Q5 = { optionAnswer };
-        localStorage.setItem(`CH2-Q5-${optionId}`, JSON.stringify(check2Q5));
+/*         const check2Q5 = { Q5 };
+        localStorage.setItem(`CH2-Q5-${optionId}`, JSON.stringify(check2Q5)); */
       }
     }
   };
