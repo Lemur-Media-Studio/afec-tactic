@@ -1,50 +1,108 @@
-import React from 'react'
-import { Container } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import QHeader from '../../Components/QHeader';
+import { Container } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+//import Table from 'react-bootstrap/Table';
+//import checkbox from "./pullCheck";
 
-function FQSuggestedSession() {
-  const a1 = JSON.parse(localStorage.getItem('A-Q1'))
-  const a1list = Object.values(a1)
-  const a2 = JSON.parse(localStorage.getItem('A-Q2'))
-  const a2list = Object.values(a2)
-  const a3 = JSON.parse(localStorage.getItem('CH1-Q3'))
-  const a3list = Object.values(a3)
-  
-  
-  const a4 = JSON.parse(localStorage.getItem('CH1-Q4'))
-  const a4list = Object.values(a4)
-  
-  const a5 = JSON.parse(localStorage.getItem('A-Q5'))
-  const a5list = Object.values(a5)
-  const a6 = JSON.parse(localStorage.getItem('A-Q6'))
-  const a6list = Object.values(a6)
-  const a7 = JSON.parse(localStorage.getItem('A-Q7'))
-  const a7list = Object.values(a7)
-  const a8 = JSON.parse(localStorage.getItem('A-Q8'))
-  const a8list = Object.values(a8)
-  const a9 = JSON.parse(localStorage.getItem('A-Q9'))
-  const a9list = Object.values(a9)
+
+export default function RecordList() {
+  const [etiquetas, setEtiquetas] = useState([]);
+
+  /* CONEXIÓN A API */
+  useEffect(() => {
+    async function getEtiquetas() {
+      const response = await fetch(`https://afecapp.onrender.com/etiquetas`);
+      let etiquetas = await response.json();
+
+      setEtiquetas(etiquetas.data);
+    }
+    getEtiquetas();
+    return;
+  }, [etiquetas.length]);
+
+  /* EXTRAIGO DATOS DE CUESTIONARIO */
+  const AQ1 = JSON.parse(localStorage.getItem('A-Q1'))
+  const AQ2 = JSON.parse(localStorage.getItem('A-Q2'))
+  const AQ7 = JSON.parse(localStorage.getItem('A-Q7'))
+  const AQ8 = JSON.parse(localStorage.getItem('A-Q8'))
+  const AQ9 = JSON.parse(localStorage.getItem('A-Q9'))
+  let asnwMomento = Object.values(AQ1)[0]
+  let asnwFase = Object.values(AQ2)[0]
+  let asnwFaseNull = ""
+  let asnwSiete = Object.values(AQ7)[0]
+  let asnwOcho = Object.values(AQ8)[0]
+  let asnwNueve = Object.values(AQ9)[0]
+
+  /* ADAPTO RESPUESTAS A FORMATO DE ETIQUETA */
+  if (asnwMomento === "Momento sin balón") {
+    asnwMomento = "MSB"
+  } else if (asnwMomento === "Momento con balón") {
+    asnwMomento = "MCB"
+  }
+  if (asnwFase === "Tras recuperación") {
+    asnwFase = "Momento tras recuperación"
+  }
+  if (asnwFase === "Presión Bloque Alto") {
+    asnwFase = "Presión"
+  }
+  if (asnwFase === "Tras Pérdida") {
+    asnwFase = "Momento tras pérdida"
+  }
+  if (asnwSiete === "Espacios amplios") {
+    asnwSiete = "Amplios"
+  }
+  if (asnwSiete === "Espacios medios") {
+    asnwSiete = "Medios"
+  }
+  if (asnwSiete === "Espacios reducidos") {
+    asnwSiete = "Reducido"
+  }
+
+  /*DEFINO MI FILTRO Y COMPARO VALORES */
+  const filtroMac = etiquetas.filter((e) => {
+    const filtroMomento = e.fase.includes(asnwFase)
+    const filtroFase = e.fase.includes(asnwFase)
+    const filtroSiete = e.espacios.includes(asnwSiete)
+    const filtroOcho = e.direccion.includes(asnwOcho)
+    const filtroNueve = e.igualdad.includes(asnwNueve)
+
+    if (filtroMomento === true) {
+      if (filtroFase === true) {
+        if (filtroSiete === true || filtroOcho === true || filtroNueve === true) {
+          return e
+        }
+      }
+    }
+  })
+
+  /*LLAMO A FILTRO Y MAPEO VALORES*/
+  function filtroMacro() {
+    return filtroMac.slice(0, 5).map((e) => {
+      return (
+        <div key={e.id}>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={e.img} />
+            <Card.Body>
+              <Button variant="primary" href={e.video}>Ver video</Button>
+            </Card.Body>
+          </Card>
+        </div>
+
+      )
+    })
+  }
+
+
   return (
-
-    <>
-
-    <QHeader />
-
-    <Container className="suggested-questions-container">
-      <h1 className="question-title">SESIÓN DE ENTRENAMIENTO SUGERIDA</h1>
-      <small>Resp1: {a1list}</small>
-      <small>Resp2: {a2list}</small>
-      <small>Resp3: {a3list}</small>
-      <small>Resp4: {a4list}</small>
-      <small>Resp5: {a5list}</small>
-      <small>Resp6: {a6list}</small>
-      <small>Resp7: {a7list}</small>
-      <small>Resp8: {a8list}</small>
-      <small>Resp9: {a9list}</small>
-    </Container>
-
-    </>
+    <div>
+      <QHeader />
+      <Container className="suggested-questions-container">
+        <h1 className="question-title">SESIÓN DE ENTRENAMIENTO SUGERIDA</h1>
+        {filtroMacro()}
+      </Container>
+    </div>
   );
 }
-
-export default FQSuggestedSession;
