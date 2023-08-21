@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import QHeader from '../../Components/QHeader';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import SpinnerLoading from "../../Components/SpinnerLoading";
+import MainLoading from "../../Components/MainLoading";
 //import Table from 'react-bootstrap/Table';
 //import checkbox from "./pullCheck";
 
 
 export default function RecordList() {
+
   const [etiquetas, setEtiquetas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   /* CONEXIÓN A API */
   useEffect(() => {
@@ -18,6 +22,8 @@ export default function RecordList() {
       let etiquetas = await response.json();
 
       setEtiquetas(etiquetas.data);
+      setIsLoading(false)
+
     }
     getEtiquetas();
     return;
@@ -82,14 +88,16 @@ export default function RecordList() {
   function filtroMacro() {
     return filtroMac.slice(0, 5).map((e) => {
       return (
+        <Col xs={12}>
         <div key={e.id}>
-          <Card style={{ width: '18rem' }}>
+          <Card style={{ width: '50rem' }} className="mt-5 mx-auto">
             <Card.Img variant="top" src={e.img} />
             <Card.Body>
-              <Button variant="primary" href={e.video}>Ver video</Button>
+              <Button variant="primary" href={e.video}>Ver vídeo</Button>
             </Card.Body>
           </Card>
         </div>
+        </Col>
 
       )
     })
@@ -101,7 +109,11 @@ export default function RecordList() {
       <QHeader />
       <Container className="suggested-questions-container">
         <h1 className="question-title">SESIÓN DE ENTRENAMIENTO SUGERIDA</h1>
-        {filtroMacro()}
+        <Row className="justify-content-center">
+          <SpinnerLoading loading={isLoading}>
+            {filtroMacro()}
+          </SpinnerLoading>
+        </Row>
       </Container>
     </div>
   );

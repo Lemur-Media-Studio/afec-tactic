@@ -1,17 +1,19 @@
 import React from 'react'
 import Spinner from 'react-bootstrap/Spinner';
 
-function SpinnerLoading({loading}){
+function SpinnerLoading({children, loading}){
     if(loading){
         return(
-            <Spinner
-            className="spinner-loader"
-            as="span"
-            animation="border"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-            />
+            <Spinner className="loading2-container" animation="" role="status">
+                <img src={require('../img/loading-ia3-unscreen.gif')} alt="Loading IA" />
+                <p className='loading2-p'>Loading</p>
+            </Spinner>
+        )
+    }else{
+        return(
+            <>
+            {children}
+            </>
         )
     }
 }
