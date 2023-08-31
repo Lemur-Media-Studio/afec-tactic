@@ -20,18 +20,6 @@ function SQSuggestedSession() {
   const f2q7List = Object.values(f2q7)
   const f2q8 = JSON.parse(localStorage.getItem('B-Q8'))
   const f2q8List = Object.values(f2q8)
-  const f2q9 = JSON.parse(localStorage.getItem('B-Q9'))
-  const f2q9List = Object.values(f2q9)
-  const f2q10 = JSON.parse(localStorage.getItem('B-Q10'))
-  const f2q10List = Object.values(f2q10)
-  const f2q11 = JSON.parse(localStorage.getItem('B-Q11'))
-  const f2q11List = Object.values(f2q11)
-  const f2q12 = JSON.parse(localStorage.getItem('B-Q12'))
-  const f2q12List = Object.values(f2q12)
-  const f2q13 = JSON.parse(localStorage.getItem('B-Q13'))
-  const f2q13List = Object.values(f2q13)
-  const f2q14 = JSON.parse(localStorage.getItem('B-Q14'))
-  const f2q14List = Object.values(f2q14)
 
   return (
 
@@ -51,12 +39,6 @@ function SQSuggestedSession() {
       <small>Resp6: {f2q6List}</small>
       <small>Resp7: {f2q7List}</small>
       <small>Resp8: {f2q8List}</small>
-      <small>Resp9: {f2q9List}</small>
-      <small>Resp10: {f2q10List}</small>
-      <small>Resp11: {f2q11List}</small>
-      <small>Resp12: {f2q12List}</small>
-      <small>Resp13: {f2q13List}</small>
-      <small>Resp14: {f2q14List}</small>
 
     </Container>
 

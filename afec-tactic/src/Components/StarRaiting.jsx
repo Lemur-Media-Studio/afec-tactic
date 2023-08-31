@@ -44,10 +44,10 @@ function StarRating({sendAnswer, route, qTitle, prevRoute}){
       </div>
 
       <Button className="nextq-btn mb-3" as={Link} 
-      to={rating && qTitle!=="DECIMOCUARTA PREGUNTA" ? route : '#'}
-      onClick={qTitle==="DECIMOCUARTA PREGUNTA" && rating ? handleShow : showAlert}
+      to={rating && qTitle!=="OCTAVA PREGUNTA" ? route : '#'}
+      onClick={qTitle==="OCTAVA PREGUNTA" && rating ? handleShow : showAlert}
       >
-        {qTitle!=="DECIMOCUARTA PREGUNTA" ? "Enviar y avanzar" : "Enviar y finalizar"}
+        {qTitle!=="OCTAVA PREGUNTA" ? "Enviar y avanzar" : "Enviar y finalizar"}
       </Button>
 
       {!rating &&
@@ -56,7 +56,7 @@ function StarRating({sendAnswer, route, qTitle, prevRoute}){
 
       <div className='mt-5'>
           <Link as={Link} to={prevRoute} className='mx-2 question-link'>Anterior pregunta</Link>
-          {qTitle !== "DECIMOCUARTA PREGUNTA" &&
+          {qTitle !== "OCTAVA PREGUNTA" &&
             <Link as={Link} to={rating ? route : '#'} 
             onClick={showAlert}
             className='mx-2 question-link'
