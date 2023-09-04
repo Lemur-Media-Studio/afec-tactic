@@ -47,7 +47,7 @@ function SQSuggestedSession() {
     f2q1List[0] = "Salida de balón"
   }
   if (f2q2List[0] === "Muy mala" || f2q2List[0] === "Mala") {
-    f2q2List[0] = "Juego Campo Contrario"
+    f2q2List[0] = "Juego campo contrario"
   }
   if (f2q3List[0] === "Muy mala" || f2q3List[0] === "Mala") {
     f2q3List[0] = "Ataque de última línea"
