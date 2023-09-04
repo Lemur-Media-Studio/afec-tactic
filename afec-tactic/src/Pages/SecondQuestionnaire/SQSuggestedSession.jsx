@@ -265,6 +265,19 @@ function SQSuggestedSession() {
       <Container className="suggested-questions-container">
 
         <h1 className="question-title">SESIÓN DE ENTRENAMIENTO SUGERIDA</h1>
+
+        <Row className="justify-content-center">
+          <SpinnerLoading loading={isLoading}>
+            {filtroListQ1()}
+            {filtroListQ2()}
+            {filtroListQ3()}
+            {filtroListQ4()}
+            {filtroListQ5()}
+            {filtroListQ6()}
+            {filtroListQ7()}
+            {filtroListQ8()}
+          </SpinnerLoading>
+        </Row>
         {/*
         
         <small>Resp1: {f2q1List}</small>
@@ -278,15 +291,6 @@ function SQSuggestedSession() {
         */
 
         }
-
-        {filtroListQ1()}
-        {filtroListQ2()}
-        {filtroListQ3()}
-        {filtroListQ4()}
-        {filtroListQ5()}
-        {filtroListQ6()}
-        {filtroListQ7()}
-        {filtroListQ8()}
 
       </Container>
 
