@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import QHeader from '../../Components/QHeader';
 import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import SpinnerLoading from "../../Components/SpinnerLoading";
-import MainLoading from "../../Components/MainLoading";
 //import Table from 'react-bootstrap/Table';
 //import checkbox from "./pullCheck";
 
