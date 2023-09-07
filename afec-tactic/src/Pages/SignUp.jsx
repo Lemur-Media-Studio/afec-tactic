@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import { Button, Container, Spinner } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useState } from "react";
 import AlertCustom from "../Components/AlertCustom";
 import { useNavigate } from "react-router-dom";
 import FormPopover from "../Components/FormPopover";
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import SpinnerLoading from "../Components/SpinnerLoading";
+import LoginLoader from "../Components/LoginLoader";
 
 function SignUp(){
 
@@ -179,7 +179,7 @@ function SignUp(){
 
                         <Button className="btn-login" type="submit">
                             Registrarse
-                            <SpinnerLoading loading={loading} />
+                            <LoginLoader loading={loading} />
                         </Button>
                     </Form>
                 </Card.Text>

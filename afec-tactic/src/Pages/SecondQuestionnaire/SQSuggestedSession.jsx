@@ -4,7 +4,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import SpinnerLoading from "../../Components/SpinnerLoading";
-import MainLoading from "../../Components/MainLoading";
 
 function SQSuggestedSession() {
 
