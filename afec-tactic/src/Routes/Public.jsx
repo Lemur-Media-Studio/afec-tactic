@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import ChooseQuestionnaire from '../Pages/ChooseQuestionnaire'
 import Home from "../Pages/Home"
 import Login from '../Pages/Login'
+import Profile from '../Pages/Profile'
 import SignUp from '../Pages/SignUp'
 
 function Public(){
@@ -13,6 +14,7 @@ function Public(){
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/choose-questionnaire' element={<ChooseQuestionnaire />} />
+            <Route path='/profile' element={<Profile />} />
         </Routes>
     )
 

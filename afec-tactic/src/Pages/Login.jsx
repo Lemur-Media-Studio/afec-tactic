@@ -15,9 +15,9 @@ function Login() {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const [alert, setAlert] = useState({color: "", text: ""})
-    const [emailAlert, setEmailAlert] = useState({className: "", text: ""});
-    const [alertPassword, setAlertPassword] = useState({className: "", text: ""});
+    const [alert, setAlert] = useState({ color: "", text: "" })
+    const [emailAlert, setEmailAlert] = useState({ className: "", text: "" });
+    const [alertPassword, setAlertPassword] = useState({ className: "", text: "" });
     const context = useContext(LoginContext);
 
 
@@ -34,10 +34,10 @@ function Login() {
         e.preventDefault();
         setLoading(true)
 
-        if( user==="" || password===""){
-            setAlert({color: 'yellow', text:'Todos los campos son obligatorios'});
+        if (user === "" || password === "") {
+            setAlert({ color: 'yellow', text: 'Todos los campos son obligatorios' });
             setLoading(false)
-        }else{
+        } else {
             try {
                 const response = await fetch('https://afecapp.onrender.com/usuarios/login', {
                     method: 'POST',
@@ -50,30 +50,33 @@ function Login() {
                     })
                 });
                 const data = await response.json();
-                console.log(data);
-    
-                if(data.message === "Usuario no existe"){
+                //console.log(data);
+
+
+                if (data.message === "Usuario no existe") {
                     setLoading(false);
-                    setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
-                    setEmailAlert({className: 'error-alert-login', text:"--EMAIL NO REGISTRADO--"})
-                }else if(data.message === "Password incorrecto"){
+                    setAlert({ color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente' });
+                    setEmailAlert({ className: 'error-alert-login', text: "--EMAIL NO REGISTRADO--" })
+                } else if (data.message === "Password incorrecto") {
                     setLoading(false);
-                    setAlert({color: 'yellow', text: 'El email y la contraseña no coinciden'});
-                    setEmailAlert({className: 'error-alert-login', text:"--CHEQUEAR DATOS--"})
-                    setAlertPassword({className: 'error-alert-login', text:"--CHEQUEAR DATOS--"})
-                }else{
+                    setAlert({ color: 'yellow', text: 'El email y la contraseña no coinciden' });
+                    setEmailAlert({ className: 'error-alert-login', text: "--CHEQUEAR DATOS--" })
+                    setAlertPassword({ className: 'error-alert-login', text: "--CHEQUEAR DATOS--" })
+                } else {
                     context.handleLogin();
-                    setAlert({color: 'green', text: `Bienvenido, ${user}. Gracias por utilizar nuestros servicios. Aguarda y serás redirigido.`})
+                    localStorage.setItem("token", data.token)
+                    localStorage.setItem("idUser", data.id)
+                    setAlert({ color: 'green', text: `Bienvenido, ${user}. Gracias por utilizar nuestros servicios. Aguarda y serás redirigido.` })
                     setTimeout(() => {
-                        navigate ("/")
+                        navigate ("/profile")
                         setLoading(false)
-                    },2000);
+                    }, 2000);
                 }
-            
-    
+
+
             } catch (error) {
                 console.log(error)
-    
+
             }
         }
 

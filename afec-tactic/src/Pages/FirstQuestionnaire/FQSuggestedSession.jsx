@@ -4,6 +4,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import SpinnerLoading from "../../Components/SpinnerLoading";
+import { useParams, useNavigate } from "react-router";
+
 //import Table from 'react-bootstrap/Table';
 //import checkbox from "./pullCheck";
 
@@ -11,13 +13,21 @@ import SpinnerLoading from "../../Components/SpinnerLoading";
 export default function RecordList() {
 
   const [etiquetas, setEtiquetas] = useState([]);
+  const [answerId, setAnswerId] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
+  const params = useParams();
 
   /* CONEXIÓN A API */
   useEffect(() => {
+
     async function getEtiquetas() {
-      const response = await fetch(`https://afecapp.onrender.com/etiquetas`);
-      let etiquetas = await response.json();
+      const responseAnswer = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas/${params.id.toString()}`);
+      const records = await responseAnswer.json();
+      //console.log(records)
+      setAnswerId(records);
+
+      const responseEtiquetas = await fetch(`https://afecapp.onrender.com/etiquetas`);
+      let etiquetas = await responseEtiquetas.json();
 
       setEtiquetas(etiquetas.data);
       setIsLoading(false)
@@ -28,6 +38,12 @@ export default function RecordList() {
   }, [etiquetas.length]);
 
   /* EXTRAIGO DATOS DE CUESTIONARIO */
+  const AQ1 = answerId.q1
+  const AQ2 = answerId.q2
+  const AQ7 = answerId.q7
+  const AQ8 = answerId.q8
+  const AQ9 = answerId.q9
+  /*
   const AQ1 = JSON.parse(localStorage.getItem('A-Q1'))
   const AQ2 = JSON.parse(localStorage.getItem('A-Q2'))
   const AQ7 = JSON.parse(localStorage.getItem('A-Q7'))
@@ -41,37 +57,43 @@ export default function RecordList() {
   let asnwNueve = Object.values(AQ9)[0]
 
   /* ADAPTO RESPUESTAS A FORMATO DE ETIQUETA */
-  if (asnwMomento === "Momento sin balón") {
-    asnwMomento = "MSB"
-  } else if (asnwMomento === "Momento con balón") {
-    asnwMomento = "MCB"
+  if (AQ1 === "Momento sin balón") {
+    AQ1 = "MSB"
+  } else if (AQ1 === "Momento con balón") {
+    AQ1 = "MCB"
   }
-  if (asnwFase === "Tras recuperación") {
-    asnwFase = "Momento tras recuperación"
+  if (AQ2 === "Tras recuperación") {
+    AQ2 = "Momento tras recuperación"
   }
-  if (asnwFase === "Presión Bloque Alto") {
-    asnwFase = "Presión"
+  if (AQ2 === "Presión Bloque Alto") {
+    AQ2 = "Presión"
   }
-  if (asnwFase === "Tras Pérdida") {
-    asnwFase = "Momento tras pérdida"
+  if (AQ2 === "Tras Pérdida") {
+    AQ2 = "Momento tras pérdida"
   }
-  if (asnwSiete === "Espacios amplios") {
-    asnwSiete = "Amplios"
+  if (AQ7 === "Espacios amplios") {
+    AQ7 = "Amplios"
   }
-  if (asnwSiete === "Espacios medios") {
-    asnwSiete = "Medios"
+  if (AQ7 === "Espacios medios") {
+    AQ7 = "Medios"
   }
-  if (asnwSiete === "Espacios reducidos") {
-    asnwSiete = "Reducido"
+  if (AQ7 === "Espacios reducidos") {
+    AQ7 = "Reducido"
   }
+
+
 
   /*DEFINO MI FILTRO Y COMPARO VALORES */
   const filtroMac = etiquetas.filter((e) => {
-    const filtroMomento = e.fase.includes(asnwFase)
-    const filtroFase = e.fase.includes(asnwFase)
-    const filtroSiete = e.espacios.includes(asnwSiete)
-    const filtroOcho = e.direccion.includes(asnwOcho)
-    const filtroNueve = e.igualdad.includes(asnwNueve)
+    const filtroMomento = e.momento.includes(AQ1)
+    const filtroFase = e.fase.includes(AQ2)
+    const filtroSiete = e.espacios.includes(AQ7)
+    const filtroOcho = e.direccion.includes(AQ8)
+    const filtroNueve = e.igualdad.includes(AQ9)
+
+
+   
+    
 
     if (filtroMomento === true) {
       if (filtroFase === true) {
@@ -80,6 +102,7 @@ export default function RecordList() {
         }
       }
     }
+    
   })
 
   /*LLAMO A FILTRO Y MAPEO VALORES*/
