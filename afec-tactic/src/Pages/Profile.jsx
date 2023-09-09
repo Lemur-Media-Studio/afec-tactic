@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 
-let idUser = localStorage.getItem("idUser");
+
 const Record = (props) => (
   <tr>
     <td ><Link className="btn btn-link" to={`/form1-suggested-session/${props.record._id}`}>{props.record.createdAt} </Link></td>
@@ -41,6 +41,7 @@ function Profile() {
 
   function recordList() {
     return records.map((record) => {
+      const idUser = localStorage.getItem("idUser");
       console.log(idUser)
       if (record.id === idUser) {
         return (
