@@ -40,7 +40,7 @@ function FQRoutes(){
             <Route path='/form1-question7' element={<SeventhQuestion />} />
             <Route path='/form1-question8' element={<EighthQuestion />} />
             <Route path='/form1-question9' element={<NinethQuestion />} />
-            <Route path='/form1-suggested-session/:id' element={<FQSuggestedSession />} />
+            <Route path='/form1-suggested-session/:id/:index' element={<FQSuggestedSession />} />
         </Routes>
     )
 

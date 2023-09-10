@@ -24,6 +24,7 @@ export default function RecordList() {
       const responseAnswer = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas/${params.id.toString()}`);
       const records = await responseAnswer.json();
       //console.log(records)
+      
       setAnswerId(records);
 
       const responseEtiquetas = await fetch(`https://afecapp.onrender.com/etiquetas`);
@@ -104,10 +105,13 @@ export default function RecordList() {
     }
     
   })
+  const indexFilter = params.index.toString()
+  console.log(parseFloat(indexFilter) + 1)
+
 
   /*LLAMO A FILTRO Y MAPEO VALORES*/
   function filtroMacro() {
-    return filtroMac.slice(0, 5).map((e) => {
+    return filtroMac.slice(indexFilter, parseFloat(indexFilter) + 5).map((e) => {
       return (
         <Col xs={12}>
         <div key={e.id}>

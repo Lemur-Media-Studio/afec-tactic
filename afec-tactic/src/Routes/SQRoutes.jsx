@@ -22,7 +22,7 @@ function SQRoutes(){
             <Route path='/form2-question6' element={<SixthQuestion />} />
             <Route path='/form2-question7' element={<SeventhQuestion />} />
             <Route path='/form2-question8' element={<EighthQuestion />} />
-            <Route path='/form2-suggested-session' element={<SQSuggestedSession />} />
+            <Route path='/form2-suggested-session/:id/:index' element={<SQSuggestedSession />} />
         </Routes>
     )
 

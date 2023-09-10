@@ -4,15 +4,24 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import SpinnerLoading from "../../Components/SpinnerLoading";
+import { useParams, useNavigate } from "react-router";
 
 function SQSuggestedSession() {
 
   const [etiquetas, setEtiquetas] = useState([]);
+  const [answerId, setAnswerId] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
+  const params = useParams();
 
   /* CONEXIÓN A API */
   useEffect(() => {
     async function getEtiquetas() {
+      const responseAnswer = await fetch(`https://afecapp.onrender.com/AnswerC2/respuestas/${params.id.toString()}`);
+      const records = await responseAnswer.json();
+      console.log(records)
+      
+      setAnswerId(records);
+
       const response = await fetch(`https://afecapp.onrender.com/etiquetas`);
       let etiquetas = await response.json();
 
@@ -25,101 +34,100 @@ function SQSuggestedSession() {
   }, [etiquetas.length]);
 
 
-  const f2q1 = JSON.parse(localStorage.getItem('B-Q1'))
-  const f2q1List = Object.values(f2q1)
-  const f2q2 = JSON.parse(localStorage.getItem('B-Q2'))
-  const f2q2List = Object.values(f2q2)
-  const f2q3 = JSON.parse(localStorage.getItem('B-Q3'))
-  const f2q3List = Object.values(f2q3)
-  const f2q4 = JSON.parse(localStorage.getItem('B-Q4'))
-  const f2q4List = Object.values(f2q4)
-  const f2q5 = JSON.parse(localStorage.getItem('B-Q5'))
-  const f2q5List = Object.values(f2q5)
-  const f2q6 = JSON.parse(localStorage.getItem('B-Q6'))
-  const f2q6List = Object.values(f2q6)
-  const f2q7 = JSON.parse(localStorage.getItem('B-Q7'))
-  const f2q7List = Object.values(f2q7)
-  const f2q8 = JSON.parse(localStorage.getItem('B-Q8'))
-  const f2q8List = Object.values(f2q8)
+  let BQ1 = answerId.q1
+  let BQ2 = answerId.q2
+  let BQ3 = answerId.q3
+  let BQ4 = answerId.q4
+  let BQ5 = answerId.q5
+  let BQ6 = answerId.q6
+  let BQ7 = answerId.q7
+  let BQ8 = answerId.q8
+  
 
-  if (f2q1List[0] === "Muy mala" || f2q1List[0] === "Mala") {
-    f2q1List[0] = "Salida de balón"
+  if (BQ1 === "Muy mala" || BQ1 === "Mala" ) {
+    BQ1 = "Salida de balón"
   }
-  if (f2q2List[0] === "Muy mala" || f2q2List[0] === "Mala") {
-    f2q2List[0] = "Juego campo contrario"
+
+  if (BQ2 === "Muy mala" || BQ2 === "Mala") {
+    BQ2 = "Juego campo contrario"
   }
-  if (f2q3List[0] === "Muy mala" || f2q3List[0] === "Mala") {
-    f2q3List[0] = "Ataque de última línea"
+  if (BQ3 === "Muy mala" || BQ3 === "Mala") {
+    BQ3 = "Ataque de última línea"
   }
-  if (f2q4List[0] === "Muy mala" || f2q4List[0] === "Mala") {
-    f2q4List[0] = "Momento tras recuperación"
+  if (BQ4 === "Muy mala" || BQ4 === "Mala") {
+    BQ4 = "Momento tras recuperación"
   }
-  if (f2q5List[0] === "Muy mala" || f2q5List[0] === "Mala") {
-    f2q5List[0] = "Presión"
+  if (BQ5 === "Muy mala" || BQ5 === "Mala") {
+    BQ5 = "Presión"
   }
-  if (f2q6List[0] === "Muy mala" || f2q6List[0] === "Mala") {
-    f2q6List[0] = "Bloque medio"
+  if (BQ7 === "Muy mala" || BQ7 === "Mala") {
+    BQ7 = "Bloque medio"
   }
-  if (f2q7List[0] === "Muy mala" || f2q7List[0] === "Mala") {
-    f2q7List[0] = "Defensa de área"
+  if (BQ8 === "Muy mala" || BQ8 === "Mala") {
+    BQ8 = "Defensa de área"
   }
-  if (f2q8List[0] === "Muy mala" || f2q8List[0] === "Mala") {
-    f2q8List[0] = "Momento tras pérdida"
-  }
+  
+
+ 
+
 
   /*DEFINO MI FILTRO Y COMPARO VALORES */
   const filtroFaseQ1 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q1List[0])
+    const filtroFase = e.fase.includes(BQ1)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ2 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q2List[0])
+    const filtroFase = e.fase.includes(BQ2)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ3 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q3List[0])
+    const filtroFase = e.fase.includes(BQ3)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ4 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q4List[0])
+    const filtroFase = e.fase.includes(BQ4)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ5 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q5List[0])
+    const filtroFase = e.fase.includes(BQ5)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ6 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q6List[0])
+    const filtroFase = e.fase.includes(BQ6)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ7 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q7List[0])
+    const filtroFase = e.fase.includes(BQ7)
     if (filtroFase === true) {
       return e
     }
   })
   const filtroFaseQ8 = etiquetas.filter((e) => {
-    const filtroFase = e.fase.includes(f2q8List[0])
+    const filtroFase = e.fase.includes(BQ8)
     if (filtroFase === true) {
       return e
     }
   })
 
+  const filter1 = params.index.toString()
+  const filter2 = parseFloat(filter1) + 1
+  
+
   /*LLAMO A FILTRO Y MAPEO VALORES*/
   function filtroListQ1() {
-    return filtroFaseQ1.slice(0, 1).map((e) => {
+    return filtroFaseQ1.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -136,7 +144,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ2() {
-    return filtroFaseQ2.slice(0, 1).map((e) => {
+    return filtroFaseQ2.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -153,7 +161,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ3() {
-    return filtroFaseQ3.slice(0, 1).map((e) => {
+    return filtroFaseQ3.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -170,7 +178,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ4() {
-    return filtroFaseQ4.slice(0, 1).map((e) => {
+    return filtroFaseQ4.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -187,7 +195,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ5() {
-    return filtroFaseQ5.slice(0, 1).map((e) => {
+    return filtroFaseQ5.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -204,7 +212,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ6() {
-    return filtroFaseQ6.slice(0, 1).map((e) => {
+    return filtroFaseQ6.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -221,7 +229,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ7() {
-    return filtroFaseQ7.slice(0, 1).map((e) => {
+    return filtroFaseQ7.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
@@ -238,7 +246,7 @@ function SQSuggestedSession() {
     })
   }
   function filtroListQ8() {
-    return filtroFaseQ8.slice(0, 1).map((e) => {
+    return filtroFaseQ8.slice(filter1, filter2).map((e) => {
       return (
         <Col xs={12}>
           <div key={e.id}>
