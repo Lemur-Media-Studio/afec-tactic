@@ -1,0 +1,16 @@
+.profile-table{
+    text-align: center;
+    border: 1px solid $blue !important;
+    margin-top: 150px !important;
+}
+
+.profile-table-title th{
+    background-color: $blue !important;
+    font-family: 'Bold';
+}
+
+.profile-table-body td{
+    background-color: $dark-blue !important;
+    font-family: 'Regular';
+    color: $white !important;
+}

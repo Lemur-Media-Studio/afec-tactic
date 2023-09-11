@@ -1,43 +1,39 @@
 import { Button, Container } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
-import Cookies from 'js-cookie'
+import React, { useContext, useEffect, useState } from "react";
+import Cookies from 'js-cookie';
 import { Browser } from "leaflet";
 import NavBar from "../Components/NavBar";
 import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { LoginContext } from "../Context/LoginContext";
 
 
 const Record = (props) => (
-  <tr>
+  <tr className='profile-table-body'>
   
-    <td ><Link className="btn btn-link"  to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`} >{props.record.createdAt} </Link></td>
-    <td>{props.idCuestionario} </td>
-    <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."} </td>
-
-
-    
-
+    <td ><Link className="btn btn-link"  to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`} >{props.record.createdAt}</Link></td>
+    <td>{props.idCuestionario}</td>
+    <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."}</td>
 
   </tr>
 );
 
 const Record2 = (props) => (
-  <tr>
+  <tr className='profile-table-body'>
    
     <td ><Link className="btn btn-link"  to={`/form2-suggested-session/${props.record._id}/${props.numeroKey}`} >{props.record.createdAt} </Link></td>
     <td>{props.idCuestionario} </td>
     <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."} </td>
-
-
-    
-
 
   </tr>
 );
 function Profile() {
   const [records, setRecords] = useState([]);
   const [records2, setRecords2] = useState([]);
+
+  const context = useContext(LoginContext)
+
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas`);
@@ -86,15 +82,12 @@ function Profile() {
     });
   }
 
-  
   function record2List() {
     return records2.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 2"
       console.log(idUser)
       if (record.id === idUser) {
-
-
 
         return (
           <Record2
@@ -114,12 +107,10 @@ function Profile() {
 
     <Container>
       <NavBar />
-      <Link as={Button} to='/choose-questionnaire'>
-        Agregar
-      </Link>
-      <Table className="mt-5" striped bordered hover>
+
+      <Table className="profile-table" striped bordered hover>
         <thead>
-          <tr>
+          <tr className='profile-table-title'>
      
 
             <th>Fecha</th>
@@ -158,7 +149,9 @@ function Profile() {
       </Table>
 
 
+      <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
 
+      <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/' onClick={context.handleLogout}>CERRAR SESIÓN</Button>
 
 
 
