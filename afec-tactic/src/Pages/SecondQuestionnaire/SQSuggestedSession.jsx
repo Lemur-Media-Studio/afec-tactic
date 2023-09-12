@@ -42,6 +42,7 @@ function SQSuggestedSession() {
   let BQ6 = answerId.q6
   let BQ7 = answerId.q7
   let BQ8 = answerId.q8
+ 
   
 
   if (BQ1 === "Muy mala" || BQ1 === "Mala" ) {
@@ -49,7 +50,7 @@ function SQSuggestedSession() {
   }
 
   if (BQ2 === "Muy mala" || BQ2 === "Mala") {
-    BQ2 = "Juego campo contrario"
+    BQ2 = "Juego en campo contrario"
   }
   if (BQ3 === "Muy mala" || BQ3 === "Mala") {
     BQ3 = "Ataque de última línea"
@@ -60,11 +61,14 @@ function SQSuggestedSession() {
   if (BQ5 === "Muy mala" || BQ5 === "Mala") {
     BQ5 = "Presión"
   }
+  if (BQ6 === "Muy mala" || BQ6 === "Mala") {
+    BQ6 = "Bloque medio"
+  }
   if (BQ7 === "Muy mala" || BQ7 === "Mala") {
-    BQ7 = "Bloque medio"
+    BQ7 = "Defensa de área"
   }
   if (BQ8 === "Muy mala" || BQ8 === "Mala") {
-    BQ8 = "Defensa de área"
+    BQ8 = "Momento tras pérdida"
   }
   
 
@@ -116,7 +120,7 @@ function SQSuggestedSession() {
   })
   const filtroFaseQ8 = etiquetas.filter((e) => {
     const filtroFase = e.fase.includes(BQ8)
-    console.log(filtroFase)
+    //console.log(filtroFase)
     if (filtroFase === true) {
       return e
     }
@@ -214,6 +218,7 @@ function SQSuggestedSession() {
   }
   function filtroListQ6() {
     return filtroFaseQ6.slice(filter1, filter2).map((e) => {
+
       return (
         <Col xs={12}>
           <div key={e.id}>

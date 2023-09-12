@@ -12,7 +12,7 @@ import { LoginContext } from "../Context/LoginContext";
 const Record = (props) => (
   <tr className='profile-table-body'>
   
-    <td ><Link className="btn btn-link"  to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`} >{props.record.createdAt}</Link></td>
+    <td ><Link className="btn btn-link"  to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`} >Dia: {props.record.createdAt.replace("T"," Hora:").slice(0, props.record.createdAt.length - 3)} </Link></td>
     <td>{props.idCuestionario}</td>
     <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."}</td>
 
@@ -22,10 +22,19 @@ const Record = (props) => (
 const Record2 = (props) => (
   <tr className='profile-table-body'>
    
-    <td ><Link className="btn btn-link"  to={`/form2-suggested-session/${props.record._id}/${props.numeroKey}`} >{props.record.createdAt} </Link></td>
+    <td ><Link className="btn btn-link"  to={`/form2-suggested-session/${props.record._id}/${props.numeroKey}`} >Dia: {props.record.createdAt.replace("T"," Hora:").slice(0, props.record.createdAt.length - 3)} </Link></td>
     <td>{props.idCuestionario} </td>
-    
-    <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."} </td>
+    <td>
+      <div>Salida de Balón: {props.record.q1}</div>
+      <div>Juego Campo Contrario: {props.record.q2}</div>
+      <div>Ataque Última Línea: {props.record.q3}</div>
+      <div>Tras Recuperación: {props.record.q4}</div>
+      <div>Presión Bloque Alto: {props.record.q5}</div>
+      <div>Bloque Medio: {props.record.q6}</div>
+      <div>Defensa de Área: {props.record.q7}</div>
+      <div>Tras Pérdida: {props.record.q8}</div>
+
+     </td>
 
   </tr>
 );
@@ -40,6 +49,11 @@ function Profile() {
       const response = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas`);
       const response2 = await fetch(`https://afecapp.onrender.com/AnswerC2/respuestas`);
       const records2 = await response2.json();
+
+      const idUser = localStorage.getItem("idUser");
+
+
+
       
     
       setRecords2(records2.data);
@@ -59,14 +73,19 @@ function Profile() {
 
     return;
   }, [records.length]);
+  const idUser = localStorage.getItem("idUser");
+
 
 
   function recordList() {
+    
     return records.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 1"
-      console.log(idUser)
+      //console.log(idUser)
       if (record.id === idUser) {
+
+
 
         return (
           <Record
@@ -83,19 +102,25 @@ function Profile() {
   }
 
   function record2List() {
-    const filtroQ2 = records2.filter((e) => {
-      console.log(e)
-    
-      return e
-    })
-
-  
+     const filtroPrueba = records2.reduce((a, item) => {
+        if (item.id === idUser) {
+          a.push({
+            ...item,
+            index: a.length
+          });
+        }
+        return a;
    
-    return filtroQ2.map((record, index) => {
+      }, [])
+    
+   
+
+    return filtroPrueba.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 2"
-    
+      //console.log(idUser)
       if (record.id === idUser) {
+        console.log(record)
 
         return (
           <Record2
