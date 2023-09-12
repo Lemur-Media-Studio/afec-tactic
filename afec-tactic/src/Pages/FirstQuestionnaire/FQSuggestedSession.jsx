@@ -111,7 +111,7 @@ export default function RecordList() {
 
   /*LLAMO A FILTRO Y MAPEO VALORES*/
   function filtroMacro() {
-    return filtroMac.slice(indexFilter, parseFloat(indexFilter) + 5).map((e) => {
+    return filtroMac.slice(0,5).map((e) => {
       return (
         <Col xs={12}>
         <div key={e.id}>

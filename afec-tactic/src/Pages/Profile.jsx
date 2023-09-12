@@ -24,6 +24,7 @@ const Record2 = (props) => (
    
     <td ><Link className="btn btn-link"  to={`/form2-suggested-session/${props.record._id}/${props.numeroKey}`} >{props.record.createdAt} </Link></td>
     <td>{props.idCuestionario} </td>
+    
     <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."} </td>
 
   </tr>
@@ -39,6 +40,7 @@ function Profile() {
       const response = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas`);
       const response2 = await fetch(`https://afecapp.onrender.com/AnswerC2/respuestas`);
       const records2 = await response2.json();
+      
     
       setRecords2(records2.data);
 
@@ -66,8 +68,6 @@ function Profile() {
       console.log(idUser)
       if (record.id === idUser) {
 
-
-
         return (
           <Record
             record={record}
@@ -83,10 +83,18 @@ function Profile() {
   }
 
   function record2List() {
-    return records2.map((record, index) => {
+    const filtroQ2 = records2.filter((e) => {
+      console.log(e)
+    
+      return e
+    })
+
+  
+   
+    return filtroQ2.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 2"
-      console.log(idUser)
+    
       if (record.id === idUser) {
 
         return (

@@ -116,6 +116,7 @@ function SQSuggestedSession() {
   })
   const filtroFaseQ8 = etiquetas.filter((e) => {
     const filtroFase = e.fase.includes(BQ8)
+    console.log(filtroFase)
     if (filtroFase === true) {
       return e
     }
