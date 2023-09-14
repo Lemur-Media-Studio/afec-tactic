@@ -256,11 +256,6 @@
   color: #006cff !important;
 }
 
-.logo {
-  position: relative;
-  top: 80px;
-}
-
 @media only screen and (max-width: 767px) {
   .logo {
     position: static;
@@ -978,10 +973,14 @@
     padding-top: 100px !important;
   }
 }
+.profile-container {
+  margin-bottom: 100px;
+}
+
 .profile-table {
   text-align: center;
   border: 1px solid #006cff !important;
-  margin-top: 150px !important;
+  margin-top: 50px !important;
 }
 
 .profile-table-title th {
@@ -993,6 +992,122 @@
   background-color: #10224a !important;
   font-family: "Regular";
   color: #fff !important;
+}
+
+.subscriptions-underline {
+  border-bottom: #006cff 1px solid;
+  line-height: 80px;
+}
+
+.subscriptions-plans-title {
+  font-family: "Bold";
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.subscriptions-card {
+  background-color: #10224a;
+  border: 1px solid #090d2c;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Regular";
+  border-top: 5px #006cff solid;
+}
+
+.yearly {
+  border-top-color: goldenrod;
+}
+
+.subscriptions-span {
+  color: goldenrod;
+  text-align: center;
+  font-family: "Regular";
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
+
+.subscriptions-card-title {
+  font-family: "Black Italic";
+  font-size: 28px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.subscriptions-card-price {
+  color: #4091ff !important;
+  text-align: center;
+  background-color: #090d2c;
+  font-family: "Bold";
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.subscriptions-btn {
+  background-color: #006cff;
+  padding: 5px 20px;
+  color: #090d2c !important;
+  font-family: "Bold" !important;
+}
+
+.stripe-result-container {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.stripe-result-container h1 {
+  font-family: "Bold";
+  color: #fff;
+  margin-top: 50px;
+}
+
+.stripe-result-container p {
+  font-family: "Bold";
+  color: #fff;
+  font-size: 20px;
+}
+
+.stripe-result-container button {
+  font-family: "Bold";
+  color: #fff;
+  background-color: #006cff;
+  border-radius: 15px;
+  border: 1px solid #006cff;
+  padding: 5px;
+  margin-top: 50px;
+}
+
+.legal-container {
+  padding: 100px 50px;
+}
+
+.legal-container h1, h2 {
+  font-family: "Bold";
+  color: #fff;
+}
+
+.legal-container h2 {
+  font-size: 22px;
+  margin-top: 50px;
+}
+
+.legal-container p {
+  font-family: "Regular";
+  color: #fff;
+}
+
+.legal-container table {
+  background-color: #090d2c !important;
+  border-color: #fff;
+}
+
+.legal-container td {
+  background-color: #090d2c !important;
+}
+
+.legal-container th {
+  background-color: #090d2c !important;
 }
 
 body {

@@ -13,7 +13,7 @@ function Testimonials(){
         <MDBRow className="d-flex justify-content-center">
         <MDBCol md="10" xl="8" className="text-center">
             <p className="mb-4 pb-2 mb-md-5 pb-md-0 p-testimonials">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum a pariatur veniam.
+            Descubre lo que otros entrenadores tienen que decir sobre su experiencia con TACTIC. Sus testimonios reflejan cómo nuestra plataforma ha transformado la forma en que planifican y desarrollan sus sesiones de entrenamiento. ¡Lee lo que dicen a continuación!
             </p>
         </MDBCol>
         </MDBRow>
@@ -22,17 +22,20 @@ function Testimonials(){
                 <ZoomIn>
                 <div className="d-flex justify-content-center mb-4">
                 <img
-                    src="https://imagenes.elpais.com/resizer/aLgNPhpEET_piZtSB7wzOeLq4B0=/980x980/cloudfront-eu-central-1.images.arcpublishing.com/prisa/LRANCB25RBMURRSIPBI6QKNMDM.jpg"
+                    src={require("../img/Unknown-7.jpeg")}
+                    alt='Sergio de la Paz'
                     className="rounded-circle shadow-1-strong"
                     width="150"
                     height="150"
                 />
                 </div>
-                <h5 className="mb-3 h5-testimonials">Pep Guardiola</h5>
-                <h6 className="text-primary mb-3 h6-testimonials">Míster</h6>
+                <h5 className="mb-3 h5-testimonials">Sergio de la Paz</h5>
+                <h6 className="text-primary mb-3 h6-testimonials">Entrenador</h6>
                 <p className="px-xl-3 p-testimonials">
                 <MDBIcon fas icon="quote-left" className="pe-2" />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+                    Entrenar en fútbol base y compaginarlo con mi trabajo a veces es complicado. Gracias a TACTIC
+                    puedo elaborar mis sesiones de entrenamiento en 1 minuto y tener la garantía de tener tareas realizadas 
+                    por entrenadores profesionales.
                 </p>
                 <MDBTypography
                 listUnStyled
@@ -61,18 +64,19 @@ function Testimonials(){
                 <ZoomIn>
                 <div className="d-flex justify-content-center mb-4">
                 <img
-                    src="https://fotografias.lasexta.com/clipping/cmsimages01/2022/08/13/8A3BB204-3A27-4D39-8A0C-C0F1BAEDE890/carlo-ancelotti-entrenador-real-madrid_104.jpg?crop=858,858,x241,y0&width=1200&height=1200&optimize=low&format=webply"
+                    src={require('.././img/danigarcia.jpeg')}
+                    alt='Dani García'
                     className="rounded-circle shadow-1-strong"
                     width="150"
                     height="150"
                 />
                 </div>
-                <h5 className="mb-3 h5-testimonials">Carlo Ancelotti</h5>
-                <h6 className="text-primary mb-3 h6-testimonials">Míster</h6>
+                <h5 className="mb-3 h5-testimonials">Dani García</h5>
+                <h6 className="text-primary mb-3 h6-testimonials">Entrenador</h6>
                 <p className="px-xl-3 p-testimonials">
                 <MDBIcon fas icon="quote-left" className="pe-2" />
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                suscipit laboriosam, nisi ut aliquid commodi.
+                Es increíble poder tener mi sesión de entrenamiento en minutos. Simplemente he tenido que responder
+                el cuestionario para que me envíen tareas de entrenamiento adaptadas a mis objetivos. Espectacular.
                 </p>
                 <MDBTypography
                 listUnStyled
@@ -101,18 +105,19 @@ function Testimonials(){
                 <ZoomIn>
                 <div className="d-flex justify-content-center mb-4">
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9dPxDQEbkO6NAyBV4k6MFV0S_w9azz32AAQ&usqp=CAU"
+                    src={require('.././img/carlosferris.jpeg')}
+                    alt='Carlos Ferris'
                     className="rounded-circle shadow-1-strong"
                     width="150"
                     height="150"
                 />
                 </div>
-                <h5 className="mb-3 h5-testimonials">José Mourinho</h5>
-                <h6 className="text-primary mb-3 h6-testimonials">Míster</h6>
+                <h5 className="mb-3 h5-testimonials">Carlos Ferris</h5>
+                <h6 className="text-primary mb-3 h6-testimonials">Entrenador</h6>
                 <p className="px-xl-3 p-testimonials">
                 <MDBIcon fas icon="quote-left" className="pe-2" />
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis praesentium voluptatum deleniti atque corrupti.
+                Desconocía el potencial de esta herramienta. Destaco su facilidad de uso, su bajo coste y la gran variedad
+                de tareas que me permite crear sesiones de entrenamiento super completas. Enhorabuena por la iniciativa.
                 </p>
                 <MDBTypography
                 listUnStyled

@@ -5,9 +5,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
 import { BsTwitter, BsInstagram, BsFacebook, BsYoutube, BsLinkedin, BsAt, BsFillTelephoneFill } from "react-icons/bs";
+import { useContext } from "react";
+import { LoginContext } from "../Context/LoginContext";
 
 
 function Footer(){
+
+    const context = useContext(LoginContext)
 
     return(
             <>
@@ -22,7 +26,7 @@ function Footer(){
                                 <ul className="footer-list">
                                     <h3 className="footer-title">Sitemap</h3>
                                     <li><a href="/" className="footer-link">Inicio</a></li>
-                                    <li><a href="/login" className="footer-link">Ingresar</a></li>
+                                    <li><a href={context.login ? "/profile" : "/login"} className="footer-link">Mi cuenta</a></li>
                                 </ul>
                             </Col>
 
@@ -56,9 +60,9 @@ function Footer(){
 
                             <Nav className="ms-auto footer-legal">
                                 <Nav.Link as={Link} to='/' className="footer-end-link">Términos y Condiciones</Nav.Link>
-                                <Nav.Link as={Link} to='/' className="footer-end-link">Aviso Legal</Nav.Link>
-                                <Nav.Link as={Link} to='/' className="footer-end-link">Política de Cookies</Nav.Link>
-                                <Nav.Link as={Link} to='/' className="footer-end-link">Politica de privacidad</Nav.Link>
+                                <Nav.Link as={Link} to='/legal-warning' className="footer-end-link">Aviso Legal</Nav.Link>
+                                <Nav.Link as={Link} to='/cookies-policy' className="footer-end-link">Política de Cookies</Nav.Link>
+                                <Nav.Link as={Link} to='/privacy-policy' className="footer-end-link">Politica de privacidad</Nav.Link>
                             </Nav>
 
                     </Navbar>

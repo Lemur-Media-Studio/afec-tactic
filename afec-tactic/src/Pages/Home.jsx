@@ -13,10 +13,13 @@ import Testimonials from "../Components/Testimonials";
 import ZoomIn from "../Components/Animations/ZoomIn";
 import FadeInLeft from "../Components/Animations/FadeInLeft";
 import FadeInRight from "../Components/Animations/FadeInRight";
+import { useContext } from "react";
+import { LoginContext } from "../Context/LoginContext";
 
 function Home(){
 
     const[isLoading, setIsLoading] = useState(true)
+    const context = useContext(LoginContext)
 
     const children = <>
                         <section className="bg-ia">
@@ -29,7 +32,7 @@ function Home(){
                                         <Col className="d-none d-md-block" />
                                         <Col xs={12} lg={4}>
                                             <h1 className="home-title">LA IA PARA <span className="blue-word">ENTRENADORES</span> DE FÚTBOL</h1>
-                                            <Button className="home-button" as={Link} to='/choose-questionnaire'>Prueba tu primera semana gratis</Button>
+                                            <Button className="home-button" as={Link} to={context.login ? '/choose-questionnaire' : '/login'}>Completa un cuestionario gratis</Button>
                                         </Col>
 
                                         <Col xs={12} lg={4}><img src={require('../img/devices.png')} className="img-mobile-home" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>
@@ -42,7 +45,7 @@ function Home(){
                         <section className="home-sectionblue-container">
                             <Container className="text-center">
                                 <h2 className="home-subtitle mx-auto">TACTIC elabora sesiones de entrenamiento <br /> <span className="blue-word">adaptadas 100%</span> a tus objetivos</h2>
-                                <Button className="home-button mt-5" as={Link} to='/choose-questionnaire'>Comienza con tu prueba de 7 días gratis</Button>
+                                <Button className="home-button mt-5" as={Link} to={context.login ? '/choose-questionnaire' : '/login'}>Completa un cuestionario gratis</Button>
                             </Container>
                         </section>
 

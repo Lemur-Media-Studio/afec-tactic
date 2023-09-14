@@ -1,0 +1,83 @@
+.subscriptions-underline{
+    border-bottom: $blue 1px solid;
+    line-height: 80px;
+}
+
+.subscriptions-plans-title{
+    font-family: 'Bold';
+    color: $white;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.subscriptions-card{
+    background-color: $dark-blue;
+    border: 1px solid $darkest-blue;
+    border-radius: 5px;
+    color: $white;
+    font-family: 'Regular';
+    border-top: 5px $blue solid;
+}
+
+.yearly{
+    border-top-color: goldenrod;
+}
+
+.subscriptions-span{
+    color: goldenrod;
+    text-align: center;
+    font-family: 'Regular';
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.subscriptions-card-title{
+    font-family: 'Black Italic';
+    font-size: 28px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.subscriptions-card-price{
+    color: $blue-active !important;
+    text-align: center;
+    background-color: $darkest-blue;
+    font-family: 'Bold';
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.subscriptions-btn{
+    background-color: $blue;
+    padding: 5px 20px;
+    color: $darkest-blue !important;
+    font-family: 'Bold' !important;
+}
+
+.stripe-result-container{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.stripe-result-container h1{
+    font-family: 'Bold';
+    color: $white;
+    margin-top: 50px;
+}
+
+.stripe-result-container p{
+    font-family: 'Bold';
+    color: $white;
+    font-size: 20px;
+}
+
+.stripe-result-container button{
+    font-family: 'Bold';
+    color: $white;
+    background-color: $blue;
+    border-radius: 15px;
+    border: 1px solid $blue;
+    padding: 5px;
+    margin-top: 50px;
+}

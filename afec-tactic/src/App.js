@@ -6,6 +6,7 @@ import Public from './Routes/Public';
 import FQRoutes from './Routes/FQRoutes';
 import SQRoutes from './Routes/SQRoutes';
 import LoginProvider from './Context/LoginContext';
+import "@stripe/stripe-js";
 
 function App() {
   return (

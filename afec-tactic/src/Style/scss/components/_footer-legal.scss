@@ -1,0 +1,31 @@
+.legal-container{
+    padding: 100px 50px;
+}
+
+.legal-container h1, h2{
+    font-family: 'Bold';
+    color: $white;
+}
+
+.legal-container h2{
+    font-size: 22px;
+    margin-top: 50px;
+}
+
+.legal-container p{
+    font-family: 'Regular';
+    color: $white;
+}
+
+.legal-container table {
+    background-color: $darkest-blue !important;
+    border-color: $white;
+}
+
+.legal-container td {
+    background-color: $darkest-blue !important;
+}
+
+.legal-container th {
+    background-color: $darkest-blue !important;
+}

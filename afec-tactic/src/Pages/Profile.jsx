@@ -3,10 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { Browser } from "leaflet";
 import NavBar from "../Components/NavBar";
-import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import { LoginContext } from "../Context/LoginContext";
+import SpinnerLoading from "../Components/SpinnerLoading";
 
 
 const Record = (props) => (
@@ -39,8 +39,10 @@ const Record2 = (props) => (
   </tr>
 );
 function Profile() {
+
   const [records, setRecords] = useState([]);
   const [records2, setRecords2] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   const context = useContext(LoginContext)
 
@@ -66,6 +68,7 @@ function Profile() {
 
       const records = await response.json();
       setRecords(records.data);
+      setLoading(false)
     }
 
     getRecords();
@@ -138,8 +141,14 @@ function Profile() {
 
   return (
 
-    <Container>
+    <Container className='profile-container'>
       <NavBar />
+
+      <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
+
+      <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/' onClick={context.handleLogout}>CERRAR SESIÓN</Button>
+
+      <SpinnerLoading loading={loading}>
 
       <Table className="profile-table" striped bordered hover>
         <thead>
@@ -152,8 +161,10 @@ function Profile() {
 
           </tr>
         </thead>
-        <tbody>{recordList()}</tbody>
-        <tbody>{record2List()}</tbody>
+
+          <tbody>{recordList()}</tbody>
+          <tbody>{record2List()}</tbody>
+
 
         {/*
         <tbody>
@@ -181,14 +192,7 @@ function Profile() {
 
       </Table>
 
-
-      <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
-
-      <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/' onClick={context.handleLogout}>CERRAR SESIÓN</Button>
-
-
-
-
+      </SpinnerLoading>
 
     </Container>
 
