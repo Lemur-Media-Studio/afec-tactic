@@ -13,6 +13,7 @@ import SignUp from '../Pages/SignUp'
 import StripeCancel from '../Pages/StripeCancel'
 import StripeSuccess from '../Pages/StripeSuccess'
 import Subscriptions from '../Pages/Subscriptions'
+import Pay from '../Pages/Pay'
 
 function Public(){
 
@@ -26,11 +27,12 @@ function Public(){
             <Route path='/choose-questionnaire' element={<ChooseQuestionnaire />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/subscriptions' element={context.login ? <Subscriptions /> : <Login />} />
-            <Route path='success' element={<StripeSuccess />} />
-            <Route path='cancel' element={<StripeCancel />} />
+            <Route path='/success' element={<StripeSuccess />} />
+            <Route path='/cancel' element={<StripeCancel />} />
             <Route path='/cookies-policy' element={<Cookies />} />
             <Route path='/legal-warning' element={<LegalWarning />} />
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/pay' element={<Pay />} />
         </Routes>
     )
 
