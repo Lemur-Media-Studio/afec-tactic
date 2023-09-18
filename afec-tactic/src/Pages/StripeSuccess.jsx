@@ -26,6 +26,7 @@ function StripeSuccess() {
         localStorage.setItem("customerID", json[0].data[0].customer)
         localStorage.setItem("subscriptionID", json[0].data[0].subscription)
         localStorage.setItem("invoicePDF", json[0].data[0].invoice_pdf)
+        localStorage.setItem("invoiceID", json[0].data[0].id)
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [fetchOptions]);
@@ -35,6 +36,7 @@ function StripeSuccess() {
     const invoicePDF = localStorage.getItem("invoicePDF");
     const idUser = localStorage.getItem("idUser");
     const idPrice = localStorage.getItem("StripePay");
+    const idInvoice = localStorage.getItem("invoiceID");
     const submit = async (e) => {
       setLoading(true)
       try {
@@ -49,7 +51,8 @@ function StripeSuccess() {
             linkIn: invoicePDF,
             refUser: customerID,
             idPrice: idPrice,
-            state: "active"
+            state: "active",
+            idInvoice: idInvoice
 
           })
         });
