@@ -7,12 +7,20 @@ import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import { LoginContext } from "../Context/LoginContext";
 import SpinnerLoading from "../Components/SpinnerLoading";
+import STRIPE_KEYS from ".././services/stripeKeys";
+import { loadStripe } from '@stripe/stripe-js';
+
+const Stripe = require('stripe');
+const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+
+
+
 
 
 const Record = (props) => (
   <tr className='profile-table-body'>
-  
-    <td ><Link className="btn btn-link"  to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`} >Dia: {props.record.createdAt.replace("T"," Hora:").slice(0, props.record.createdAt.length - 3)} </Link></td>
+
+    <td ><Link className="btn btn-link" to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`} >Dia: {props.record.createdAt.replace("T", " Hora:").slice(0, props.record.createdAt.length - 3)} </Link></td>
     <td>{props.idCuestionario}</td>
     <td>{props.record.q1} - {props.record.q2} - {props.record.q7} {"..."}</td>
 
@@ -21,8 +29,8 @@ const Record = (props) => (
 
 const Record2 = (props) => (
   <tr className='profile-table-body'>
-   
-    <td ><Link className="btn btn-link"  to={`/form2-suggested-session/${props.record._id}/${props.numeroKey}`} >Dia: {props.record.createdAt.replace("T"," Hora:").slice(0, props.record.createdAt.length - 3)} </Link></td>
+
+    <td ><Link className="btn btn-link" to={`/form2-suggested-session/${props.record._id}/${props.numeroKey}`} >Dia: {props.record.createdAt.replace("T", " Hora:").slice(0, props.record.createdAt.length - 3)} </Link></td>
     <td>{props.idCuestionario} </td>
     <td>
       <div>Salida de Balón: {props.record.q1}</div>
@@ -34,14 +42,67 @@ const Record2 = (props) => (
       <div>Defensa de Área: {props.record.q7}</div>
       <div>Tras Pérdida: {props.record.q8}</div>
 
-     </td>
+    </td>
 
   </tr>
 );
+
+const Record3 = (props) => {
+
+  const cancelSub = async (e) => {
+
+
+
+    const response = await fetch(`https://afecapp.onrender.com/pago/success/${props.record._id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        state: "cancel"
+      })
+    });
+ 
+
+    const { error } = await stripe.subscriptions.cancel(props.record.idSub);
+
+
+
+
+
+
+
+  }
+
+
+  return (
+    <tr className='profile-table-body'>
+
+
+      <td>{props.record.idPrice}</td>
+      <td>{props.record.state}</td>
+      <td><button onClick={cancelSub}>Cancelar SUB</button></td>
+      <td><Link to={props.record.linkIn}>descargar factura</Link></td>
+
+
+
+
+    </tr>
+
+  );
+
+}
+
+
+
+
+
+
 function Profile() {
 
   const [records, setRecords] = useState([]);
   const [records2, setRecords2] = useState([]);
+  const [sub, setSub] = useState([]);
   const [loading, setLoading] = useState(true)
 
   const context = useContext(LoginContext)
@@ -50,14 +111,17 @@ function Profile() {
     async function getRecords() {
       const response = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas`);
       const response2 = await fetch(`https://afecapp.onrender.com/AnswerC2/respuestas`);
+      const responseSub = await fetch(`https://afecapp.onrender.com/pago/success`);
+      const sub = await responseSub.json();
+      setSub(sub.data)
       const records2 = await response2.json();
 
       const idUser = localStorage.getItem("idUser");
 
 
 
-      
-    
+
+
       setRecords2(records2.data);
 
       if (!response.ok) {
@@ -81,7 +145,7 @@ function Profile() {
 
 
   function recordList() {
-    
+
     return records.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 1"
@@ -105,25 +169,25 @@ function Profile() {
   }
 
   function record2List() {
-     const filtroPrueba = records2.reduce((a, item) => {
-        if (item.id === idUser) {
-          a.push({
-            ...item,
-            index: a.length
-          });
-        }
-        return a;
-   
-      }, [])
-    
-   
+    const filtroPrueba = records2.reduce((a, item) => {
+      if (item.id === idUser) {
+        a.push({
+          ...item,
+          index: a.length
+        });
+      }
+      return a;
+
+    }, [])
+
+
 
     return filtroPrueba.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 2"
       //console.log(idUser)
       if (record.id === idUser) {
-        console.log(record)
+        //console.log(record)
 
         return (
           <Record2
@@ -138,6 +202,25 @@ function Profile() {
 
     });
   }
+  function recordSuccesspayment() {
+    return sub.map((record, index) => {
+
+      const idUser = localStorage.getItem("idUser");
+      if (idUser === record.id) {
+        if (record.state === "active") {
+          return (
+            <Record3
+              record={record}
+              numeroKey={index}
+
+
+              key={record._id}
+            />
+          );
+        }
+      }
+    });
+  }
 
   return (
 
@@ -148,49 +231,43 @@ function Profile() {
 
       <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/' onClick={context.handleLogout}>CERRAR SESIÓN</Button>
 
+
       <SpinnerLoading loading={loading}>
+        <Table className="profile-table" striped bordered hover>
+          <thead>
+            <tr className='profile-table-title'>
 
-      <Table className="profile-table" striped bordered hover>
-        <thead>
-          <tr className='profile-table-title'>
-     
 
-            <th>Fecha</th>
-            <th>Cuestionario</th>
-            <th>Referencia</th>
+              <th>DETALLES PLAN</th>
+              <th>ESTADO</th>
+              <th>CANCELAR</th>
+              <th>FACTURA</th>
 
-          </tr>
-        </thead>
+            </tr>
+          </thead>
+          <tbody>{recordSuccesspayment()}</tbody>
+
+
+
+        </Table>
+
+        <Table className="profile-table" striped bordered hover>
+          <thead>
+            <tr className='profile-table-title'>
+
+
+              <th>Fecha</th>
+              <th>Cuestionario</th>
+              <th>Referencia</th>
+
+            </tr>
+          </thead>
 
           <tbody>{recordList()}</tbody>
           <tbody>{record2List()}</tbody>
 
+        </Table>
 
-        {/*
-        <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-  
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-  
-        </tr>
-        <tr>
-          <td>3</td>
-          <td >Larry the Bird</td>
-          <td>Thornton</td>
-  
-        </tr>
-      </tbody>
-      */
-        }
-
-      </Table>
 
       </SpinnerLoading>
 

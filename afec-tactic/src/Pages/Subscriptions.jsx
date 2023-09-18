@@ -26,6 +26,8 @@ function Subscriptions() {
   const [loading, setLoading] = useState(false)
   const [loading2, setLoading2] = useState(true)
 
+  
+
   const fetchOptions = {
     headers: {
       Authorization: `Bearer ${STRIPE_KEYS.secret}`
@@ -35,6 +37,9 @@ function Subscriptions() {
   const redirectToCheckout = async (el) => {
   console.log("redirectToCheckout");
   setLoading(true);
+  localStorage.setItem("StripePay", el.id)
+
+  
 
   const checkoutOptions = {
     lineItems: [{ price: el.id, quantity: 1 }],
@@ -61,6 +66,7 @@ function Subscriptions() {
     ])
     .then(responses => Promise.all(responses.map((res) => res.json())))
     .then(json => {
+      console.log(json)
       const products = json[0].data;
       const prices = json[1].data;
 

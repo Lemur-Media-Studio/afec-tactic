@@ -7,6 +7,7 @@ export default function App() {
 
 
     const submit = async (e) => {
+        e.preventDefault();
         const query = new URLSearchParams(window.location.search);
         const response = await fetch('https://afecapp.onrender.com/stripe/create-checkout-session', {
             method: 'POST',
@@ -18,6 +19,8 @@ export default function App() {
             })
         });
         const data = await response.json();
+        console.log(data)
+        
     }
    
 
