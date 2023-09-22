@@ -161,9 +161,9 @@ function Profile({idPrice}) {
     }
   
     async function getRecords() {
-      const response = await fetch(`http://afectactic.xyz/AnswerC1/respuestas`);
-      const response2 = await fetch(`http://afectactic.xyz/AnswerC2/respuestas`);
-      const responseSub = await fetch(`http://afectactic.xyz/pago/success`);
+      const response = await fetch(`https://afectactic.xyz/AnswerC1/respuestas`);
+      const response2 = await fetch(`https://afectactic.xyz/AnswerC2/respuestas`);
+      const responseSub = await fetch(`https://afectactic.xyz/pago/success`);
       const sub = await responseSub.json();
       setSub(sub.data);
       console.log('sub-data', sub.data);
