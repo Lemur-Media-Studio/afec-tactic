@@ -1,0 +1,99 @@
+.navbar-bg{
+    background-color: transparent;
+    box-shadow: none !important;
+}
+
+.navbar-container{
+    margin: 0 250px !important;
+    display: flex !important;
+}
+
+.navbar-link{
+    font-family: 'Black Italic';
+    color: $white !important;
+    font-size: 25px !important;
+}
+
+.navbar-link:hover{
+    color: $blue !important;
+}
+
+.navbar-link:active{
+    color: $blue !important;
+}
+
+@media only screen and (max-width: 767px){
+    .logo{
+        position: static;
+        top: 0;
+        height: 100px;
+    }
+
+    .navbar-container{
+        margin: 0 100px !important;
+        text-align: center !important;
+    }
+
+    .canvas-nav-body{
+        background-color: $blue;
+    }
+
+    .navbar-link{
+        font-family: 'Black Italic';
+        color: $white !important;
+        font-size: 20px !important;
+    }
+    
+    .navbar-link:hover{
+        color: $dark-blue !important;
+    }
+    
+    .navbar-link:active{
+        color: $darkest-blue !important;
+    }
+
+    .canvas-nav-btn{
+        background-color: transparent !important;
+        border: none;
+        color: $blue;
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px){
+    .logo{
+        position: static;
+        top: 0;
+        height: 100px;
+    }
+
+    .navbar-container{
+        margin: 0 100px !important;
+        text-align: center !important;
+    }
+
+    .canvas-nav-body{
+        background-color: $blue;
+    }
+
+    .navbar-link{
+        font-family: 'Black Italic';
+        color: $white !important;
+        font-size: 20px !important;
+    }
+    
+    .navbar-link:hover{
+        color: $dark-blue !important;
+    }
+    
+    .navbar-link:active{
+        color: $darkest-blue !important;
+    }
+
+    .canvas-nav-btn{
+        background-color: transparent !important;
+        border: none;
+        color: $blue;
+        font-size: 25px;
+    }
+}

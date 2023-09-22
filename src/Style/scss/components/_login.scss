@@ -1,0 +1,50 @@
+.login-card{
+    margin-top: 50px !important;
+    background-color: transparent !important;
+    color: $white !important;
+    font-family: "Regular";
+    font-size: 14px !important;
+}
+
+.card-login-title{
+    font-family: "Black Italic";
+    font-size: 30px !important;
+}
+
+.btn-login{
+    background-color: $blue !important;
+    color: $darkest-blue !important;
+    width: 100% !important;
+    font-size: 16px;
+}
+
+.login-input{
+    font-size: 14px !important;
+    background-color: $darkest-blue !important;
+    color: $white !important;
+}
+
+.login-link{
+    color: $blue !important;
+}
+
+.error-alert-login{
+    font-size: 14px !important;
+    font-family: "Regular";
+    color: red !important;
+}
+
+.row-align-login{
+    display: flex !important;
+    align-items: center !important;
+}
+
+.progress-bar-container{
+    height: 1rem;
+}
+
+@media only screen and (max-width: 767px){
+    .login-card{
+        width: 22rem !important;
+    }
+}

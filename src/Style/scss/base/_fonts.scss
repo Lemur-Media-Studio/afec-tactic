@@ -1,0 +1,22 @@
+$font-path: "../.././Fonts/InterTight/InterTight-";
+
+@font-face {
+    font-family: 'Black Italic';
+    src: url('#{$font-path}BlackItalic.ttf') format('truetype');
+  }
+
+@font-face {
+    font-family: 'Thin';
+    src: url('#{$font-path}Thin.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Bold';
+    src: url('#{$font-path}Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Regular';
+    src: url('#{$font-path}Regular.ttf') format('truetype');
+  }
+

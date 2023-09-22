@@ -1,0 +1,16 @@
+.popover-btn{
+    border: 0.8px solid $white;
+    border-radius: 30px;
+    font-size: 8px;
+    padding: 0px 4px;
+    background-color: transparent !important;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-family: "Regular";
+    position: relative;
+    bottom: 5px;
+}
+
+.popover-btn:hover{
+    border: 1px solid $white;
+}

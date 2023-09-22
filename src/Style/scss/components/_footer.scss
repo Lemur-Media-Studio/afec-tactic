@@ -1,0 +1,201 @@
+.footer{
+    background-color: $blue !important;
+    margin-top: 100px !important;
+    padding: 50px !important;
+}
+
+.footer-title{
+    font-family: "Bold";
+    color: $darkest-blue !important;
+    border-bottom: $white 1px solid !important;
+    font-size: 22px !important;
+    width: 18%;
+    padding-bottom: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.footer-list{
+    list-style: none !important;
+    font-size: 18px !important;
+}
+
+.footer-link{
+    color: $darkest-blue !important;
+    text-decoration: none !important;
+    font-family: "Regular" !important;
+}
+
+.footer-link:hover{
+    color: $white !important;
+}
+
+.footer-contact{
+    font-size: 20px !important;
+}
+
+.footer-contact-at{
+    font-size: 25px !important;
+}
+
+.footer-social-container{
+    list-style: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.footer-social{
+    font-size: 20px !important;
+    color: $darkest-blue !important;
+    padding: 0px !important;
+}
+
+.footer-social:hover{
+    color: $white !important;
+}
+
+.footer-end{
+    background-color: $black !important;
+    padding: 10px !important;
+}
+
+.footer-copyright{
+    color: $white !important;
+    font-family: "Regular";
+    font-size: 14px !important;
+}
+
+.footer-end-link{
+    color: $white !important;
+    font-family: "Regular" !important;
+    font-size: 14px !important;
+    border-right: $white solid 1px !important;
+    text-align: center !important;
+}
+
+.footer-end-link:last-of-type{
+    border-right: none !important;
+}
+
+@media only screen and (max-width: 767px){
+    
+    .footer{
+        background-color: $blue !important;
+        margin-top: 100px !important;
+        padding: 50px 10px !important;
+    }
+
+    .footer-title{
+        font-size: 18px !important;
+    }
+
+    .logo-footer{
+        position: relative;
+        left: 20px !important;
+        height: 120px;
+    }
+
+    .footer-contact{
+        font-size: 12px !important;
+    }
+    
+    .footer-contact-at{
+        font-size: 15px !important;
+    }
+    
+    .footer-social-container{
+        list-style: none !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .footer-social{
+        font-size: 12px !important;
+        color: $darkest-blue !important;
+        padding: 0px !important;
+    }
+
+    .footer-link{
+        font-size: 12px;
+    }
+
+    .footer-legal{
+        margin: 20px auto;
+    }
+
+    .footer-end-link{
+        border-right: none !important;
+        border-bottom: $white solid 1px !important;
+        font-size: 12px !important;
+    }
+
+    .footer-end-link:last-of-type{
+        border-bottom: none !important;
+    }
+    
+    .footer-copyright{
+        font-size: 10px !important;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px){
+    
+    .footer{
+        background-color: $blue !important;
+        margin-top: 100px !important;
+        padding: 50px 10px !important;
+    }
+
+    .footer-title{
+        font-size: 18px !important;
+    }
+
+    .logo-footer{
+        position: relative;
+        left: 20px !important;
+        height: 120px;
+    }
+
+    .footer-contact{
+        font-size: 12px !important;
+    }
+    
+    .footer-contact-at{
+        font-size: 15px !important;
+    }
+    
+    .footer-social-container{
+        list-style: none !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .footer-social{
+        font-size: 12px !important;
+        color: $darkest-blue !important;
+        padding: 0px !important;
+    }
+
+    .footer-link{
+        font-size: 12px;
+    }
+
+    .footer-legal{
+        margin: 20px auto;
+    }
+
+    .footer-end-link{
+        border-right: none !important;
+        border-bottom: $white solid 1px !important;
+        font-size: 12px !important;
+    }
+
+    .footer-end-link:last-of-type{
+        border-bottom: none !important;
+    }
+    
+    .footer-copyright{
+        font-size: 10px !important;
+        margin: 0 auto;
+    }
+}

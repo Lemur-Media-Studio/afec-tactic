@@ -1,0 +1,31 @@
+.profile-container{
+    margin-bottom: 100px;
+}
+
+.profile-cancel-btn{
+    background-color: red;
+    border-radius: 20px !important;
+    padding: 5px!important;
+    border: red 1px solid;
+    font-size: 14px !important;
+    font-family: "Bold" !important;
+    color: $white !important;
+}
+
+.profile-table{
+    text-align: center;
+    border: 1px solid $blue !important;
+    margin-top: 50px !important;
+}
+
+.profile-table-title th{
+    background-color: $blue !important;
+    font-family: 'Bold';
+}
+
+.profile-table-body td{
+    background-color: $dark-blue !important;
+    font-family: 'Regular';
+    color: $white !important;
+    vertical-align: middle !important;
+}

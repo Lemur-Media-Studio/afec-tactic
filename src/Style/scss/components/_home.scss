@@ -1,0 +1,236 @@
+.home-container{
+    margin-top: 50px !important;
+}
+
+.home-title{
+    font-family: 'Black Italic' !important;
+    color: $white;
+}
+
+.home-subtitle{
+    font-family: 'Black Italic' !important;
+    color: $white !important;
+    margin-top: 50px !important;
+}
+
+.home-button{
+    background-color: $blue !important;
+    font-family: 'Regular' !important;
+    font-size: 16px !important;
+    color: $darkest-blue !important;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.blue-word{
+    color: $blue !important;
+}
+
+.home-sectionblue-container{
+    background-color: $dark-blue !important;
+    padding: 150px 0;
+  -webkit-mask:
+    radial-gradient(var(--r1,160%) var(--r2,68.15%) at bottom   ,$white 79.5%,transparent 80%) bottom left,
+    radial-gradient(var(--r1,160%) var(--r2,68.15%) at top,transparent 79.5%,$white 80%) bottom center,
+    radial-gradient(var(--r1,160%) var(--r2,68.15%) at bottom   ,$white 79.5%,transparent 80%) bottom right;
+  mask:
+    radial-gradient(var(--r1,160%) var(--r2,68.15%) at bottom   ,$white 79.5%,transparent 80%) bottom left,
+    radial-gradient(var(--r1,160%) var(--r2,68.15%) at top,transparent 79.5%,$white 80%) bottom center,
+    radial-gradient(var(--r1,160%) var(--r2,68.15%) at bottom   ,$white 79.5%,transparent 80%) top right;
+  -webkit-mask-size:100% 160%; 
+  -webkit-mask-repeat:no-repeat;
+  mask-size:100% 180%;
+  mask-repeat:no-repeat;
+}
+
+.home-p{
+    color: $white !important;
+    font-family: "Bold" !important;
+    font-size: 25px !important;
+}
+
+.home-grid{
+    margin: 0px 250px 0 250px !important;
+    padding-top: 100px !important;
+}
+
+.home-trainingsession-container{
+    background-color: $darkest-blue !important;
+    padding-bottom: 150px !important;
+    -webkit-mask:
+    radial-gradient(var(--r1,100%) var(--r2,100%) at top   ,$white 100%,transparent 100%) ,
+    radial-gradient(var(--r1,100%) var(--r2,100%) at bottom,transparent 100%,$white 100%) ,
+    radial-gradient(var(--r1,100%) var(--r2,100%) at top   ,$white 100%,transparent 100%) ;
+  mask:
+    radial-gradient(var(--r1,100%) var(--r2,100%) at top   ,$white 100%,transparent 100%) ,
+    radial-gradient(var(--r1,100%) var(--r2,100%) at bottom,transparent 100%,$white 100%) ,
+    radial-gradient(var(--r1,100%) var(--r2,100%) at top   ,$white 100%,transparent 100%) ;
+  -webkit-mask-size:100% 100%; 
+  -webkit-mask-repeat:no-repeat;
+  mask-size:100% 100%;
+  mask-repeat:no-repeat;
+}
+
+.home-training-first-row{
+    margin-top: 100px !important;
+}
+
+.home-testimonials-container{
+    background-color: $dark-blue !important;
+    margin-top: -200px;
+    margin-bottom: -100px !important;
+    padding-bottom: 150px !important;
+    z-index: -1 !important;
+}
+
+.home-subtitle-testimonials{
+    font-family: 'Black Italic' !important;
+    color: $white !important;
+    margin-top: 50px !important;
+    margin-top: 200px !important;
+}
+
+.home-carousel{
+    margin-top: 200px !important;
+    text-align: center !important;
+}
+
+.home-carousel-title{
+    font-family: 'Bold' !important;
+    color: $white !important;
+    margin-top: 50px !important;
+    text-align: center !important;
+    position: relative !important;
+    bottom: 60px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    
+    .img-mobile-home{
+        height: 200px;
+    }
+
+    .home-trainingsession-container{
+        background-color: $darkest-blue !important;
+        padding-bottom: 200px !important;
+        -webkit-mask:
+        none !important;
+      mask:
+        none !important;
+        mask-size:none;
+        mask-repeat:none;
+    }
+
+    .home-grid{
+        margin: 0px 50px 0 50px !important;
+        padding-top: 100px !important;
+    }
+
+    .row-mobile-center{
+        text-align: center;
+    }
+
+    .home-button{
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+
+    .img-mobile-ipad-home{
+        height: 100px;
+    }
+
+    .home-p{
+        font-size: 18px !important;
+    }
+
+    .home-subtitle{
+        margin-top: 0px !important;
+    }
+
+    .home-testimonials-container{
+        margin-top: -100px;
+    }
+
+    .home-subtitle-testimonials{
+        margin-top: 0px !important;
+    }
+
+    .home-p{
+        color: $white !important;
+        font-family: "Regular" !important;
+        font-size: 12px !important;
+    }
+
+    .home-button{
+        font-size: 12px !important;
+        padding: 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px){
+
+    .img-mobile-home{
+        height: 200px;
+    }
+
+    .home-sectionblue-container{
+        background-color: $dark-blue !important;
+        padding: 150px 0 100px 0;
+    }
+
+    .home-trainingsession-container{
+        background-color: $darkest-blue !important;
+        padding-bottom: 200px !important;
+        -webkit-mask:
+        none !important;
+      mask:
+        none !important;
+        mask-size:none;
+        mask-repeat:none;
+    }
+
+    .home-grid{
+        margin: 0px 150px 0 150px !important;
+        padding-top: 100px !important;
+    }
+
+    .row-mobile-center{
+        text-align: center;
+    }
+
+    .home-button{
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+
+    .img-mobile-ipad-home{
+        height: 100px;
+    }
+
+    .home-p{
+        font-size: 18px !important;
+    }
+
+    .home-subtitle{
+        margin-top: 0px !important;
+    }
+
+    .home-testimonials-container{
+        margin-top: -100px;
+    }
+
+    .home-subtitle-testimonials{
+        margin-top: 0px !important;
+    }
+
+    .home-p{
+        color: $white !important;
+        font-family: "Regular" !important;
+        font-size: 12px !important;
+    }
+
+    .home-button{
+        font-size: 12px !important;
+        padding: 12px;
+    }
+}

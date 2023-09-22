@@ -1,0 +1,233 @@
+.questions-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Regular" !important;
+    color: $white !important;
+    margin-bottom: 100px;
+}
+
+.question-title{
+    font-family: "Black Italic" !important;
+    color: $white !important;
+    border-bottom: 3px $blue solid;
+    width: 50%;
+    font-size: 40px !important;
+}
+
+.question-font{
+    font-family: "Black Italic" !important;
+    color: $white !important;
+}
+
+.answers-btn:hover{
+    background-color: $blue-hover !important;
+}
+
+.answers-btn:active{
+    background-color: $blue-active !important;
+}
+
+.subanswers-btn{
+    border: 1px solid $dark-blue !important;
+    margin-top: 50px;
+    padding: 10px;
+    font-size: 16px !important;
+}
+
+.subanswers-btn:hover{
+    background-color: $blue-hover !important;
+}
+
+.subanswers-btn:active{
+    background-color: $blue-active !important;
+}
+
+.nextq-btn{
+    background-color: $dark-blue !important;
+    border: 2px solid $blue !important;
+    margin-top: 50px;
+    padding: 10px 100px !important;
+    font-size: 16px !important;
+    font-family: Regular;
+}
+
+.nextq-btn:hover{
+    background-color: $darkest-blue !important;
+}
+
+.nextq-btn:active{
+    background-color: $blue !important;
+}
+
+.checkbox-questions{
+    display: flex !important;
+    justify-content: left !important;
+    text-align: left !important;
+    font-size: 13px;
+}
+
+.form-check{
+    display: block;
+    padding-left: 120px !important;
+}
+
+.form-check-input{
+    float: left !important;
+    margin: none;
+}
+
+.chooseq-btn{
+    background-color: $blue !important;
+    border-radius: 20px !important;
+    padding: 15px!important;
+    font-size: 12px !important;
+    font-family: "Bold" !important;
+    color: $white !important;
+}
+
+.chooseq-btn:hover{
+    background-color: $blue-hover !important;
+}
+
+.chooseq-card{
+    background-color: $dark-blue;
+    border: 1px $blue solid;
+    border-radius: 10px !important;
+    height: 100% !important;
+}
+
+.chooseq-card-header{
+    font-family: "Regular" !important;
+    color: $white !important;
+    background-color: $blue !important;
+}
+
+.chooseq-row{
+    margin-top: 50px !important;
+    background-color: transparent !important;
+
+}
+
+.chooseq-title{
+    font-family: "Bold" !important;
+    text-align: center !important;
+    color: $white !important;
+    font-size: 26px !important;
+}
+
+.chooseq-p{
+    font-family: "Regular" !important;
+    text-align: center !important;
+    color: $white !important;
+    padding: 20px !important;
+}
+
+.modal-header{
+    background-color: $blue !important;
+    color: $white !important;
+    font-family: "Bold" !important;
+    border-color: $darkest-blue !important;
+}
+
+.modal-body{
+    background-color: $dark-blue !important;
+    color: $white !important;
+    font-family: "Regular" !important;
+    border-color: $darkest-blue !important;
+}
+
+.modal-footer{
+    background-color: $dark-blue !important;
+    color: $white !important;
+    font-family: "Regular" !important;
+    border-color: $darkest-blue !important;
+}
+
+.qheader-container{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.qheader-title{
+    font-family: "Bold" !important;
+    color: $white !important;
+    font-size: 20px !important;
+}
+
+@media only screen and (max-width: 767px){
+
+    .questions-container{
+        margin-top: 50px;
+    }
+
+    .question-title{
+        width: 50%;
+        font-size: 30px !important;
+    }
+
+    .qheader-title{
+        font-family: "Bold" !important;
+        color: $white !important;
+        font-size: 18px !important;
+    }
+
+    .qheader-logo{
+        height: 100px;
+    }
+
+    .btn-group{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-top: 50px !important;
+    }
+
+    .answers-btn{
+        font-size: 14px !important;
+        margin-top: 10px !important;
+    }
+
+    .subanswers-btn{
+        font-size: 14px !important;
+        margin-top: 10px !important;
+    }
+
+    .nextq-btn{
+        padding: 10px 100px !important;
+        font-size: 14px !important;
+    }
+
+    .chooseq-card-header{
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+
+    .chooseq-title{
+        font-size: 18px !important;
+    }
+
+    .chooseq-p{
+        padding: 14px !important;
+    }
+
+    .chooseq-btn{
+        font-size: 10px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px){
+    .btn-group{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-top: 50px !important;
+    }
+
+    .answers-btn{
+        font-size: 14px !important;
+        margin-top: 10px !important;
+    }
+}

@@ -1,0 +1,25 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "./base/colors";
+@import "./base/fonts";
+@import "./components/home";
+@import "./components/navbar";
+@import "./components/footer";
+@import "./components/login";
+@import "./components/questions";
+@import "./components/suggested-questions";
+@import "./components/star";
+@import "./components/loading";
+@import "./components/popover";
+@import "./components/testimonials";
+@import "./components/profile";
+@import "./components/subscriptions";
+@import "./components/footer-legal";
+
+body{
+    background-image: url("../../img/background.jpg");
+    background-size: 100% !important;
+}
+
+ul{
+    list-style: none !important;
+}
