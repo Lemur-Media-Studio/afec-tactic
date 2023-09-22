@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react'
 import './Style/css/style.css'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
 import Public from './Routes/Public';
 import FQRoutes from './Routes/FQRoutes';
 import SQRoutes from './Routes/SQRoutes';
@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <LoginProvider>
-        <Router>
+        <HashRouter hashtype="hashbang">
           <Public />
           <FQRoutes />
           <SQRoutes />
-        </Router>
+        </HashRouter>
       </LoginProvider>
 
     </div>
