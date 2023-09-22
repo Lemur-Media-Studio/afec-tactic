@@ -44,8 +44,8 @@ function Subscriptions() {
   const checkoutOptions = {
     lineItems: [{ price: el.id, quantity: 1 }],
     mode: "subscription",
-    successUrl: `${window.location.origin}/success`,
-    cancelUrl: `${window.location.origin}/cancel`,
+    successUrl: `${window.location.origin}/#/success`,
+    cancelUrl: `${window.location.origin}/#/cancel`,
     };
 
   const stripe = await getStripe();
