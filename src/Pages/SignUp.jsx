@@ -46,7 +46,7 @@ function SignUp(){
             setLoading(false)
         }else{
             try {
-                const response = await fetch('https://afecapp.onrender.com/usuarios/registro', {
+                const response = await fetch('https://afectactic.xyz/usuarios/registro', {
                  method: 'POST',
                  headers: {
                    'Content-Type': 'application/json'

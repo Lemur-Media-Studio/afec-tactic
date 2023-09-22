@@ -49,7 +49,7 @@ function StripeSuccess() {
     const submit = async (e) => {
       setLoading(true)
       try {
-        const response = await fetch('https://afecapp.onrender.com/pago/success', {
+        const response = await fetch('https://afectactic.xyz/pago/success', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

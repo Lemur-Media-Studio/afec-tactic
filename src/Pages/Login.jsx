@@ -39,7 +39,7 @@ function Login() {
             setLoading(false)
         } else {
             try {
-                const response = await fetch('https://afecapp.onrender.com/usuarios/login', {
+                const response = await fetch('https://afectactic.xyz/usuarios/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

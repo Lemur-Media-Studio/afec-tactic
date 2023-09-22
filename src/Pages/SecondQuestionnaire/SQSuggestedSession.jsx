@@ -16,13 +16,13 @@ function SQSuggestedSession() {
   /* CONEXIÓN A API */
   useEffect(() => {
     async function getEtiquetas() {
-      const responseAnswer = await fetch(`https://afecapp.onrender.com/AnswerC2/respuestas/${params.id.toString()}`);
+      const responseAnswer = await fetch(`https://afectactic.xyz/AnswerC2/respuestas/${params.id.toString()}`);
       const records = await responseAnswer.json();
       console.log(records)
       
       setAnswerId(records);
 
-      const response = await fetch(`https://afecapp.onrender.com/etiquetas`);
+      const response = await fetch(`https://afectactic.xyz/etiquetas`);
       let etiquetas = await response.json();
 
       setEtiquetas(etiquetas.data);

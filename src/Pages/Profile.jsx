@@ -71,7 +71,7 @@ const Record3 = (props) => {
   
   const cancelSub = async (e) => {
 
-    const response = await fetch(`https://afecapp.onrender.com/pago/success/${props.record._id}`, {
+    const response = await fetch(`https://afectactic.xyz/pago/success/${props.record._id}`, {
       headers: {
         'Content-Type': 'application/json'
       },

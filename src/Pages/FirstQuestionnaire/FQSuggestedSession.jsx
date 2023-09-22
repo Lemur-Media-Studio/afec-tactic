@@ -21,13 +21,13 @@ export default function RecordList() {
   useEffect(() => {
 
     async function getEtiquetas() {
-      const responseAnswer = await fetch(`https://afecapp.onrender.com/AnswerC1/respuestas/${params.id.toString()}`);
+      const responseAnswer = await fetch(`https://afectactic.xyz/AnswerC1/respuestas/${params.id.toString()}`);
       const records = await responseAnswer.json();
       //console.log(records)
       
       setAnswerId(records);
 
-      const responseEtiquetas = await fetch(`https://afecapp.onrender.com/etiquetas`);
+      const responseEtiquetas = await fetch(`https://afectactic.xyz/etiquetas`);
       let etiquetas = await responseEtiquetas.json();
 
       setEtiquetas(etiquetas.data);
