@@ -14,6 +14,13 @@ import context from "react-bootstrap/esm/AccordionContext";
 const Stripe = require('stripe');
 const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
 
+let seleccionPrice = 0
+const date = new Date();
+
+
+
+
+
 function reverseDate(dateString) {
   const [year, month, day] = dateString.split("-");
   return `${day}/${month}/${year}`;
@@ -56,6 +63,7 @@ const Record3 = (props) => {
   const context = useContext(LoginContext)
   const { startDate, endDate } = props
 
+
   function calculateAvailableQ(subs) {
     switch (subs) {
       case 'price_1NpwVkDCxZVJxL3fJNHGpzm2':
@@ -68,7 +76,7 @@ const Record3 = (props) => {
         return { cuestionario1: 0, cuestionario2: 0 };
     }
   }
-  
+
   const cancelSub = async (e) => {
 
     const response = await fetch(`https://afectactic.xyz/pago/success/${props.record._id}`, {
@@ -80,7 +88,7 @@ const Record3 = (props) => {
         state: "cancel"
       })
     });
- 
+
     const { error } = await stripe.subscriptions.cancel(props.record.idSub);
 
     if (!error) {
@@ -95,7 +103,7 @@ const Record3 = (props) => {
     <tr className='profile-table-body'>
 
       <td>
-        
+
         {props.record.idPrice === 'price_1NpwVkDCxZVJxL3fJNHGpzm2' && 'Plan Premium Mensual'}
         {props.record.idPrice === 'price_1NpwVkDCxZVJxL3fC12Fuyki' && 'Plan Premium Anual'}
 
@@ -104,7 +112,7 @@ const Record3 = (props) => {
 
         {props.record.idPrice === 'price_1NpwTeDCxZVJxL3fo1YjtMLB' && 'Plan Basic Mensual'}
         {props.record.idPrice === 'price_1NpwTeDCxZVJxL3fELqtn5cS' && 'Plan Basic Anual'}
-      
+
       </td>
 
       <td>
@@ -127,7 +135,7 @@ const Record3 = (props) => {
 
 }
 
-function Profile({idPrice}) {
+function Profile({ idPrice }) {
 
   const [records, setRecords] = useState([]);
   const [records2, setRecords2] = useState([]);
@@ -142,9 +150,9 @@ function Profile({idPrice}) {
 
   const context = useContext(LoginContext)
 
-  console.log('idPrice', idPrice)
+  //console.log('idPrice', idPrice)
 
-  console.log('context', context)
+  //console.log('context', context)
 
   useEffect(() => {
     async function getSubscriptionData() {
@@ -152,75 +160,51 @@ function Profile({idPrice}) {
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
         const startDate = new Date(subscription.current_period_start * 1000);
         const endDate = new Date(subscription.current_period_end * 1000);
-  
+
         setStartSubPeriod(startDate);
         setEndSubPeriod(endDate);
       } catch (error) {
         console.error('Error al obtener la suscripción:', error);
       }
     }
-  
+
     async function getRecords() {
       const response = await fetch(`https://afectactic.xyz/AnswerC1/respuestas`);
       const response2 = await fetch(`https://afectactic.xyz/AnswerC2/respuestas`);
       const responseSub = await fetch(`https://afectactic.xyz/pago/success`);
       const sub = await responseSub.json();
       setSub(sub.data);
-      console.log('sub-data', sub.data);
+      //console.log('sub-data', sub.data);
       const records2 = await response2.json();
-  
+
       const idUser = localStorage.getItem("idUser");
-  
+
       setRecords2(records2.data);
-      console.log('records2', records2);
-  
+      //console.log('records2', records2);
+
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
-  
+
       const records = await response.json();
       context.handleFreeTrialDone();
       setRecords(records.data);
       setLoading(false);
     }
-  
+
     getSubscriptionData();
     getRecords();
   }, [records.length]);
-  
+
 
   const idUser = localStorage.getItem("idUser");
 
 
 
   function recordList() {
-
-    return records.map((record, index) => {
-      const idUser = localStorage.getItem("idUser");
-      const idCuestionario = "Cuestionario 1"
-      //console.log(idUser)
-      if (record.id === idUser) {
-
-
-
-        return (
-          <Record
-            record={record}
-            numeroKey={index}
-            idCuestionario={idCuestionario}
-
-            key={record._id}
-          />
-        );
-      }
-
-    });
-  }
-
-  function record2List() {
-    const filtroPrueba = records2.reduce((a, item) => {
+    const filtroIndex = records.reduce((a, item) => {
       if (item.id === idUser) {
         a.push({
           ...item,
@@ -231,23 +215,97 @@ function Profile({idPrice}) {
 
     }, [])
 
-    return filtroPrueba.map((record, index) => {
+    return filtroIndex.map((record, index) => {
+      const idUser = localStorage.getItem("idUser");
+      const idCuestionario = "Cuestionario 1"
+      let setStart = startSubPeriod
+      let setEnd = endSubPeriod
+      let setDate = date
+
+      function validarFechaEnRango(fecha1, fecha2, fecha3) {
+        return fecha3 >= fecha1 && fecha3 <= fecha2;
+      }
+   
+      //console.log(idUser)
+      if (validarFechaEnRango(setStart, setEnd, setDate) === true) {
+        if (record.id === idUser) {
+          let maxAns = 0
+          if (maxAns === 0) {
+            if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
+              maxAns = 0;
+              if (index <= maxAns) {
+                return (
+                  <Record
+                    record={record}
+                    numeroKey={index}
+                    idCuestionario={idCuestionario}
+                    key={record._id}
+                  />
+                );
+              }
+            }
+          }
+  
+        }
+
+      }       
+
+
+    });
+  }
+
+  function record2List() {
+    const filtroIndex = records2.reduce((a, item) => {
+      if (item.id === idUser) {
+        a.push({
+          ...item,
+          index: a.length
+        });
+      }
+      return a;
+
+    }, [])
+
+    return filtroIndex.map((record, index) => {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 2"
+      let setStart = startSubPeriod
+      let setEnd = endSubPeriod
+      let setDate = date
+
+      function validarFechaEnRango(fecha1, fecha2, fecha3) {
+        return fecha3 >= fecha1 && fecha3 <= fecha2;
+      }
+
+      if (validarFechaEnRango(setStart, setEnd, setDate) === true) {
       //console.log(idUser)
       if (record.id === idUser) {
-        //console.log(record)
-
-        return (
-          <Record2
-            record={record}
-            numeroKey={index}
-            idCuestionario={idCuestionario}
-
-            key={record._id}
-          />
-        );
+        let maxAns = 0
+        if (maxAns === 0) {
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
+            maxAns = 4;
+            if (index <= maxAns) {
+              return (
+                <Record2
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+          }
+        }
       }
+
+      }else{
+        alert("no podes usar la app")
+      }
+
+
+
+
+
 
     });
   }
@@ -258,6 +316,7 @@ function Profile({idPrice}) {
       const idUser = localStorage.getItem("idUser");
       if (idUser === record.id) {
         if (record.state === "active") {
+          seleccionPrice = record.idPrice
           return (
             <Record3
               record={record}
@@ -272,12 +331,12 @@ function Profile({idPrice}) {
     });
   }
 
-/*   const logout = (e) => {
-    e.preventDefault();
-    context.handleLogout();
-    context.handleFreeTrialAvailable();
-    navigate('/');
-  } */
+  /*   const logout = (e) => {
+      e.preventDefault();
+      context.handleLogout();
+      context.handleFreeTrialAvailable();
+      navigate('/');
+    } */
 
   return (
 
@@ -285,7 +344,7 @@ function Profile({idPrice}) {
       <NavBar />
 
       <div className='d-flex align-items-center'>
-        {context.subscriptionOn 
+        {context.subscriptionOn
           ? <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
           : <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
         }
@@ -316,7 +375,7 @@ function Profile({idPrice}) {
 
 
 
-        </Table>     
+        </Table>
 
         <Table className="profile-table" striped bordered hover>
           <thead>
