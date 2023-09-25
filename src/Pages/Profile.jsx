@@ -233,7 +233,7 @@ function Profile({ idPrice }) {
       const idCuestionario = "Cuestionario 1"
       let setStart = startSubPeriod
       let setEnd = endSubPeriod
-      //let setEnd = new Date(2023, 11, 23)
+      //let setEnd = new Date(2023, 12, 23)
       let setDate = date
 
       function validarFechaEnRango(fecha1, fecha2, fecha3) {
@@ -245,8 +245,13 @@ function Profile({ idPrice }) {
 
             if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
               let maxAns = 0;
+              //console.log(calcularDiferenciaMeses(createdSub, setEnd))
               if(calcularDiferenciaMeses(createdSub, setEnd) > 1){
                 maxAns = maxAns + calcularDiferenciaMeses(createdSub, setEnd)
+              }
+             
+              if(index === maxAns-1 || index === maxAns){
+                //console.log("Bloquear boton nuevo cuestionario")
               }
               if (index <= maxAns) {
                 return (
@@ -300,6 +305,11 @@ function Profile({ idPrice }) {
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
+              //console.log(maxAns)
+              //console.log(index)
+              if(index === maxAns-1){
+                //console.log("Bloquear boton nuevo cuestionario")
+              }
               return (
                 <Record2
                   record={record}
