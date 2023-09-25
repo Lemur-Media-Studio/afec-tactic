@@ -66,7 +66,7 @@ function StarRating({ sendAnswer, route, qTitle, prevRoute }) {
     console.log(q1, q2, q7, q8)
 
     try {
-      const response = await fetch('https://afecapp.onrender.com/AnswerC2/respuestas', {
+      const response = await fetch('https://afectactic.xyz/AnswerC2/respuestas', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

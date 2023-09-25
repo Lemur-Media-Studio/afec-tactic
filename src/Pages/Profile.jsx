@@ -18,13 +18,23 @@ let seleccionPrice = 0
 const date = new Date();
 
 
+/* funciones globales */
+function validarFechaEnRango(fecha1, fecha2, fecha3) {
+  return fecha3 >= fecha1 && fecha3 <= fecha2;
+}
 
+/* funcion para calcular meses activos de la cuenta */
+function calcularDiferenciaMeses(fecha1, fecha2) {
+  let diferencia = (fecha2.getTime() - fecha1.getTime()) / 1000 / (3600 * 24 * 7 * 4);
 
+  return Math.abs(Math.round(diferencia));
+}
 
 function reverseDate(dateString) {
   const [year, month, day] = dateString.split("-");
   return `${day}/${month}/${year}`;
 }
+/* fin funciones globales */
 
 const Record = (props) => (
   <tr className='profile-table-body'>
@@ -141,6 +151,7 @@ function Profile({ idPrice }) {
   const [records2, setRecords2] = useState([]);
   const [sub, setSub] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [createdSub, setCreated] = useState();
   const [startSubPeriod, setStartSubPeriod] = useState();
   const [endSubPeriod, setEndSubPeriod] = useState();
 
@@ -160,7 +171,9 @@ function Profile({ idPrice }) {
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
         const startDate = new Date(subscription.current_period_start * 1000);
         const endDate = new Date(subscription.current_period_end * 1000);
-
+        const created = new Date(subscription.created * 1000)
+        
+        setCreated(created);
         setStartSubPeriod(startDate);
         setEndSubPeriod(endDate);
       } catch (error) {
@@ -220,19 +233,21 @@ function Profile({ idPrice }) {
       const idCuestionario = "Cuestionario 1"
       let setStart = startSubPeriod
       let setEnd = endSubPeriod
+      //let setEnd = new Date(2023, 11, 23)
       let setDate = date
 
       function validarFechaEnRango(fecha1, fecha2, fecha3) {
         return fecha3 >= fecha1 && fecha3 <= fecha2;
       }
-   
       //console.log(idUser)
       if (validarFechaEnRango(setStart, setEnd, setDate) === true) {
         if (record.id === idUser) {
-          let maxAns = 0
-          if (maxAns === 0) {
+
             if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
-              maxAns = 0;
+              let maxAns = 0;
+              if(calcularDiferenciaMeses(createdSub, setEnd) > 1){
+                maxAns = maxAns + calcularDiferenciaMeses(createdSub, setEnd)
+              }
               if (index <= maxAns) {
                 return (
                   <Record
@@ -244,7 +259,7 @@ function Profile({ idPrice }) {
                 );
               }
             }
-          }
+          
   
         }
 
@@ -271,19 +286,19 @@ function Profile({ idPrice }) {
       const idCuestionario = "Cuestionario 2"
       let setStart = startSubPeriod
       let setEnd = endSubPeriod
+      //let setEnd = new Date(2023, 11, 23)
+      //console.log(setEnd)
       let setDate = date
-
-      function validarFechaEnRango(fecha1, fecha2, fecha3) {
-        return fecha3 >= fecha1 && fecha3 <= fecha2;
-      }
+     
+      //console.log(validarFechaEnRango(setStart, setEnd, setDate))
+      //console.log(calcularDiferenciaMeses(createdSub, setEnd))
 
       if (validarFechaEnRango(setStart, setEnd, setDate) === true) {
       //console.log(idUser)
       if (record.id === idUser) {
-        let maxAns = 0
-        if (maxAns === 0) {
+
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
-            maxAns = 4;
+            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               return (
                 <Record2
@@ -295,18 +310,10 @@ function Profile({ idPrice }) {
               );
             }
           }
-        }
+        
       }
 
-      }else{
-        alert("no podes usar la app")
       }
-
-
-
-
-
-
     });
   }
 
