@@ -9,7 +9,6 @@ import { LoginContext } from "../Context/LoginContext";
 import SpinnerLoading from "../Components/SpinnerLoading";
 import STRIPE_KEYS from ".././services/stripeKeys";
 import { loadStripe } from '@stripe/stripe-js';
-import context from "react-bootstrap/esm/AccordionContext";
 
 const Stripe = require('stripe');
 const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
@@ -73,7 +72,10 @@ const Record3 = (props) => {
   const context = useContext(LoginContext)
   const { startDate, endDate } = props
 
-
+  if(props.record.price){
+    context.handleFreeTrialDone();
+  }
+  
   function calculateAvailableQ(subs) {
     switch (subs) {
       case 'price_1NpwVkDCxZVJxL3fJNHGpzm2':
@@ -154,6 +156,7 @@ function Profile({ idPrice }) {
   const [createdSub, setCreated] = useState();
   const [startSubPeriod, setStartSubPeriod] = useState();
   const [endSubPeriod, setEndSubPeriod] = useState();
+  const navigate = useNavigate();
 
   //const navigate = useNavigate()
 
@@ -202,7 +205,7 @@ function Profile({ idPrice }) {
       }
 
       const records = await response.json();
-      context.handleFreeTrialDone();
+      //context.handleFreeTrialDone();
       setRecords(records.data);
       setLoading(false);
     }
@@ -303,6 +306,7 @@ function Profile({ idPrice }) {
       if (record.id === idUser) {
 
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
+            //context.handleSubscriptionOn();
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               //console.log(maxAns)
@@ -333,7 +337,8 @@ function Profile({ idPrice }) {
       const idUser = localStorage.getItem("idUser");
       if (idUser === record.id) {
         if (record.state === "active") {
-          seleccionPrice = record.idPrice
+          seleccionPrice = record.idPrice;
+          console.log(record.id);
           return (
             <Record3
               record={record}
@@ -348,12 +353,13 @@ function Profile({ idPrice }) {
     });
   }
 
-  /*   const logout = (e) => {
+    const logout = (e) => {
       e.preventDefault();
       context.handleLogout();
       context.handleFreeTrialAvailable();
+      context.handleSubscriptionOff();
       navigate('/');
-    } */
+    }
 
   return (
 
@@ -361,16 +367,17 @@ function Profile({ idPrice }) {
       <NavBar />
 
       <div className='d-flex align-items-center'>
+
         {context.subscriptionOn
           ? <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
           : <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
         }
 
-        {!recordList && !record2List &&
-          <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>PRUEBA GRATIS AQUÍ</Button>
+        {context.freeTrialDone ? "" : 
+          <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button>
         }
 
-        <Button className="chooseq-btn mx-3 mt-5" as={Link} onClick={context.handleLogout}>CERRAR SESIÓN</Button>
+        <Button className="chooseq-btn mx-3 mt-5" as={Link} onClick={logout}>CERRAR SESIÓN</Button>
       </div>
 
 

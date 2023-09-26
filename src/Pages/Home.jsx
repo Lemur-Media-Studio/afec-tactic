@@ -39,14 +39,8 @@ function Home(){
                                                 ?
                                                 <Button className="home-button px-5" as={Link} to={'/profile'}>Ir al Perfil</Button>
                                                 :
-                                                <Button className="home-button" as={Link} to={'/choose-questionnaire'}>Completa un cuestionario gratis</Button>
+                                                <Button className="home-button" as={Link} to={!context.login ? '/signup' : '/profile'}>Completa un cuestionario gratis</Button>
                                             }
-
-                                            {
-                                                !context.login &&
-                                                <Button className="home-button" as={Link} to={'/login'}>Completa un cuestionario gratis</Button>
-                                            }
-                                            
                                         </Col>
 
                                         <Col xs={12} lg={4}><img src={require('../img/devices.png')} className="img-mobile-home" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" /></Col>

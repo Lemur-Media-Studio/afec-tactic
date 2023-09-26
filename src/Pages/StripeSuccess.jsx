@@ -36,6 +36,7 @@ function StripeSuccess() {
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [fetchOptions]);
+
   function subscriptionSuccess() {
     const customerID = localStorage.getItem("customerID");
     const subscriptionID = localStorage.getItem("subscriptionID");
@@ -69,6 +70,7 @@ function StripeSuccess() {
         console.log(data);
  
         if (data) {
+          context.handleSubscriptionOn();
           navigation("/profile");
         }
       } catch (error) {

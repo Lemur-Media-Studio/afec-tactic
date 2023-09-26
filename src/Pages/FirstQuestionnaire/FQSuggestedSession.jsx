@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import QHeader from '../../Components/QHeader';
 import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import SpinnerLoading from "../../Components/SpinnerLoading";
 import { useParams, useNavigate } from "react-router";
+import { LoginContext } from "../../Context/LoginContext";
 
 //import Table from 'react-bootstrap/Table';
 //import checkbox from "./pullCheck";
@@ -15,6 +16,7 @@ export default function RecordList() {
   const [etiquetas, setEtiquetas] = useState([]);
   const [answerId, setAnswerId] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
+  const context = useContext(LoginContext)
   const params = useParams();
 
   /* CONEXIÓN A API */
@@ -26,6 +28,7 @@ export default function RecordList() {
       //console.log(records)
       
       setAnswerId(records);
+      context.handleFreeTrialDone();
 
       const responseEtiquetas = await fetch(`https://afectactic.xyz/etiquetas`);
       let etiquetas = await responseEtiquetas.json();

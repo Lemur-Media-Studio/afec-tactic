@@ -61,6 +61,8 @@ function SignUp(){
                  const data = await response.json();
     
                  console.log(data);
+
+                 console.log(password.length)
     
                  if(data.code === 11000){
                     setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
@@ -72,10 +74,11 @@ function SignUp(){
                     setLoading(false)
                     setRequiredField({className: 'error-alert-login', text:"--CAMPO OBLIGATORIO--"})
                  }else if(data.msg === "usuarios validation failed: name: Name should be between 3 and 50 characters" ||
-                 data.msg === "usuarios validation failed: surname: Name should be between 3 and 50 characters" ||
-                 data.msg === "usuarios validation failed: password: Password should be between 6 and 20 characters"){
+                 data.msg === "usuarios validation failed: surname: Name should be between 3 and 50 characters"){
                     setAlert({color: 'yellow', text: 'Por favor, chequea los errores e inténtalo nuevamente'});
                     setLoading(false)
+                    setAlertCharacters({className: 'error-alert-login', text:"--SE REQUIEREN ENTRE 3 Y 50 CARACTERES--"})
+                 }else if(data.msg === "usuarios validation failed: password: Password should be between 6 and 20 characters"){
                     setAlertCharacters({className: 'error-alert-login', text:"--SE REQUIEREN ENTRE 6 Y 20 CARACTERES--"})
                  }else{
                      setAlert({color: "yellow", text:`Bienvenido, ${name}. Gracias por regisrtarte. Aguarda que serás redirigido.`})
@@ -129,7 +132,7 @@ function SignUp(){
                             <Form.Label className="login-label">Contraseña <FormPopover text={"Entre 6 y 20 caracteres."} />
                             {password==="" && <span className={requiredField.className}>{requiredField.text}</span>}
                             <span className={alertPassword.className}>{alertPassword.text}</span>
-                            {(password.length < 3 || password.length > 50) && <span className={alertCharacters.className}>{alertCharacters.text}</span>}
+                            {(password.length < 6 || password.length > 20) && <span className={alertCharacters.className}>{alertCharacters.text}</span>}
                             </Form.Label>
                             <Form.Control type="password" className="login-input" onChange={(e) => setPassword(e.target.value)} />
                             {(password.length === 6 && 

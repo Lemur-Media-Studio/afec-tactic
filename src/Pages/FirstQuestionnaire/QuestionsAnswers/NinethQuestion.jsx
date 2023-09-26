@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, ButtonGroup, Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AlertCustom from '../../../Components/AlertCustom';
 import QHeader from '../../../Components/QHeader';
+import { LoginContext } from '../../../Context/LoginContext';
 import { Answers } from '../../../utils/Answers';
 
 function NinethQuestion() {
+
   let [id, setId] = useState("")
   let [q1, setQ1] = useState("")
   let [q2, setQ2] = useState("")
@@ -21,6 +23,7 @@ function NinethQuestion() {
   const [alert, setAlert] = useState({ color: "", text: "" })
   const [hover, setHover] = useState(0);
   const [show, setShow] = useState(false);
+  const context = useContext(LoginContext)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -107,6 +110,7 @@ function NinethQuestion() {
       const data = await response.json();
 
       console.log(data);
+      context.handleFreeTrialDone();
 
 
 
@@ -173,7 +177,7 @@ function NinethQuestion() {
           <Button variant="secondary" onClick={handleClose}>
             Seguir editando
           </Button>
-          <Button variant="primary" type="submit" onClick={submit} as={Link} to='/profile'>
+          <Button variant="primary" type="submit" onClick={submit} as={Link} to={!context.subscriptionOn ? '/FQSuggested-Session' : '/profile'}>
             Enviar y finalizar
           </Button>
         </Modal.Footer>
