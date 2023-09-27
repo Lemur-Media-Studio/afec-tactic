@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Button, Modal } from 'react-bootstrap';
 import AlertCustom from "./AlertCustom";
+import { LoginContext } from "../Context/LoginContext";
 
 function StarRating({ sendAnswer, route, qTitle, prevRoute }) {
+
+  const context = useContext(LoginContext)
 
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -86,6 +89,7 @@ function StarRating({ sendAnswer, route, qTitle, prevRoute }) {
       const data = await response.json();
 
       console.log(data);
+      context.freeTrialDone();
 
 
 
@@ -152,7 +156,7 @@ function StarRating({ sendAnswer, route, qTitle, prevRoute }) {
           <Button variant="secondary" onClick={handleClose}>
             Seguir editando
           </Button>
-          <Button variant="primary"  type="submit" onClick={submit} as={Link} to='/profilefree'>
+          <Button variant="primary"  type="submit" onClick={submit} as={Link} to={!context.subscriptionOn ? '/profilefree' : '/profile'}>
             Enviar y finalizar
           </Button>
         </Modal.Footer>

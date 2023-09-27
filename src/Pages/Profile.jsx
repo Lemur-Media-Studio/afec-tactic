@@ -381,7 +381,8 @@ function Profile({ idPrice }) {
 
           //PLAN 1 CHEACKQ2 STANDARD
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
-            //context.handleSubscriptionOn();
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();;
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               //console.log(maxAns)
@@ -402,7 +403,8 @@ function Profile({ idPrice }) {
 
           //PLAN 2 CHEACKQ2 STANDARD
           if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ") {
-            //context.handleSubscriptionOn();
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();;
             let maxAns = 12 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               //console.log(maxAns)
@@ -423,7 +425,8 @@ function Profile({ idPrice }) {
 
           //PLAN 3 CHEACKQ2 STANDARD
           if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2") {
-            //context.handleSubscriptionOn();
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();
             let maxAns = 24 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               //console.log(maxAns)
@@ -475,6 +478,7 @@ function Profile({ idPrice }) {
     context.handleLogout();
     context.handleFreeTrialAvailable();
     context.handleSubscriptionOff();
+    localStorage.clear();
     navigate('/');
   }
 
@@ -487,12 +491,15 @@ function Profile({ idPrice }) {
 
         {context.subscriptionOn
           ? <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
-          : <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
+          : <>
+              <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button> 
+              <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
+            </>
         }
 
-        {context.freeTrialDone ? "" :
+{/*         {context.freeTrialDone ? "" :
           <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button>
-        }
+        } */}
 
         <Button className="chooseq-btn mx-3 mt-5" as={Link} onClick={logout}>CERRAR SESIÓN</Button>
       </div>

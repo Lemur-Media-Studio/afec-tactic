@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import SpinnerLoading from "../../Components/SpinnerLoading";
 import { useParams, useNavigate } from "react-router";
 import { LoginContext } from "../../Context/LoginContext";
+import { Link } from "react-router-dom";
 
 //import Table from 'react-bootstrap/Table';
 //import checkbox from "./pullCheck";
@@ -137,11 +138,13 @@ export default function RecordList() {
       <QHeader />
       <Container className="suggested-questions-container">
         <h1 className="question-title">SESIÓN DE ENTRENAMIENTO SUGERIDA</h1>
+        <Button className="chooseq-btn mx-auto mt-5" as={Link} to='/profile'>IR AL PERFIL</Button>
         <Row className="justify-content-center">
           <SpinnerLoading loading={isLoading}>
             {filtroMacro()}
           </SpinnerLoading>
         </Row>
+
       </Container>
     </div>
   );

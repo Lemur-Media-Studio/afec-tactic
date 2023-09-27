@@ -86,7 +86,7 @@ function NinethQuestion() {
         q8 = asnwOcho
         q9 = asnwNueve
 
-        console.log(q1, q2, q7, q8, q9)
+        console.log(q1, q2, q7, q8, q9);
 
     try {
       const response = await fetch('https://afectactic.xyz/AnswerC1/respuestas', {
@@ -177,7 +177,7 @@ function NinethQuestion() {
           <Button variant="secondary" onClick={handleClose}>
             Seguir editando
           </Button>
-          <Button variant="primary" type="submit" onClick={submit} as={Link} to={!context.subscriptionOn ? '/profilefree/' : '/profile'}>
+          <Button variant="primary" type="submit" onClick={submit} as={Link} to={!context.subscriptionOn ? '/profilefree' : '/profile'}>
             Enviar y finalizar
           </Button>
         </Modal.Footer>

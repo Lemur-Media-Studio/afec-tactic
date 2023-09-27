@@ -32,7 +32,7 @@ function NavBar(){
                         <Nav className="ms-auto d-none d-md-flex">
                             <Nav.Link as={Link} to='/' className="navbar-link">INICIO</Nav.Link>
                             {context.login
-                                ? <Nav.Link as={Link} to='/profile' className="navbar-link">PERFIL</Nav.Link> 
+                                ? <Nav.Link as={Link} to={!context.subscriptionOn ? '/profilefree' : '/profile'} className="navbar-link">PERFIL</Nav.Link> 
                                 : <Nav.Link as={Link} to='/login' className="navbar-link">INGRESAR</Nav.Link>
                             }
                             
@@ -48,7 +48,7 @@ function NavBar(){
                                         <Nav className="text-center d-block d-md-none">
                                             <Nav.Link as={Link} to='/' className="navbar-link">INICIO</Nav.Link>
                                             {context.login
-                                                ? <Nav.Link as={Link} to='/profile' className="navbar-link">PERFIL</Nav.Link>
+                                                ? <Nav.Link as={Link} to={!context.subscriptionOn ? '/profilefree' : '/profile'} className="navbar-link">PERFIL</Nav.Link>
                                                 : <Nav.Link as={Link} to='/login' className="navbar-link">INGRESAR</Nav.Link>
                                             }
                                         </Nav>

@@ -26,7 +26,7 @@ function Public(){
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/choose-questionnaire' element={<ChooseQuestionnaire />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={context.subscriptionOn ? <Profile /> : <ProfileFree />} />
             <Route path='/profilefree' element={<ProfileFree />} />
             <Route path='/subscriptions' element={context.login ? <Subscriptions /> : <Login />} />
             <Route path='/success' element={<StripeSuccess />} />
