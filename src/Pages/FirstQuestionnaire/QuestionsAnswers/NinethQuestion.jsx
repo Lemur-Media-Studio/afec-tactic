@@ -177,7 +177,7 @@ function NinethQuestion() {
           <Button variant="secondary" onClick={handleClose}>
             Seguir editando
           </Button>
-          <Button variant="primary" type="submit" onClick={submit} as={Link} to={!context.subscriptionOn ? '/FQSuggested-Session/' : '/profile'}>
+          <Button variant="primary" type="submit" onClick={submit} as={Link} to={!context.subscriptionOn ? '/profilefree/' : '/profile'}>
             Enviar y finalizar
           </Button>
         </Modal.Footer>

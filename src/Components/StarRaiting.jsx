@@ -152,7 +152,7 @@ function StarRating({ sendAnswer, route, qTitle, prevRoute }) {
           <Button variant="secondary" onClick={handleClose}>
             Seguir editando
           </Button>
-          <Button variant="primary"  type="submit" onClick={submit} as={Link} to='/profile'>
+          <Button variant="primary"  type="submit" onClick={submit} as={Link} to='/profilefree'>
             Enviar y finalizar
           </Button>
         </Modal.Footer>
