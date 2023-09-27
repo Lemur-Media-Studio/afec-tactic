@@ -180,6 +180,8 @@ function Profile({ idPrice }) {
         setCreated(created);
         setStartSubPeriod(startDate);
         setEndSubPeriod(endDate);
+        context.handleFreeTrialDone();
+        context.handleSubscriptionOn();
       } catch (error) {
         console.error('Error al obtener la suscripción:', error);
       }
@@ -478,7 +480,6 @@ function Profile({ idPrice }) {
     context.handleLogout();
     context.handleFreeTrialAvailable();
     context.handleSubscriptionOff();
-    localStorage.clear();
     navigate('/');
   }
 
