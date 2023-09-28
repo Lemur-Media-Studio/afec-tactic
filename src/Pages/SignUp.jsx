@@ -24,6 +24,9 @@ function SignUp(){
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
+    const hasMayus = /[A-Z]/.test(password);
+    const hasNum = /\d/.test(password);
+
     useEffect(() => {
         document.title = 'Registrarse';
     
@@ -135,37 +138,37 @@ function SignUp(){
                             {(password.length < 6 || password.length > 20) && <span className={alertCharacters.className}>{alertCharacters.text}</span>}
                             </Form.Label>
                             <Form.Control type="password" className="login-input" onChange={(e) => setPassword(e.target.value)} />
-                            {(password.length === 6 && 
+                            {((password.length === 6 && !hasNum && !hasMayus) && 
                             <ProgressBar className="progress-bar-container">
                                 <ProgressBar label="Insegura" animated striped variant="danger" now={10} key={1} />
                                 <ProgressBar label="" animated striped variant="warning" now={0} key={2} />
                                 <ProgressBar label="" animated striped variant="success" now={0} key={3} />
                             </ProgressBar>) ||
-                            ((password.length > 6 && password.length <= 10) && 
+                            (((password.length > 6 && password.length <= 20 && !hasNum && !hasMayus) || (password.length === 6 && hasMayus && !hasNum) || (password.length === 6 && hasNum && !hasMayus)) && 
                             <ProgressBar className="progress-bar-container">
                                 <ProgressBar label="Insegura" animated striped variant="danger" now={33} key={1} />
                                 <ProgressBar label="" animated striped variant="warning" now={0} key={2} />
                                 <ProgressBar label="" animated striped variant="success" now={0} key={3} />
                             </ProgressBar>) ||
-                            ((password.length > 10 && password.length <= 12) && 
+                            (((password.length > 6 && password.length <= 8 && hasMayus && !hasNum) || (password.length > 6 && password.length <= 8 && hasNum && !hasMayus)) && 
                             <ProgressBar className="progress-bar-container">
                                 <ProgressBar label="" animated striped variant="danger" now={33} key={1} />
                                 <ProgressBar label="Segura" animated striped variant="warning" now={10} key={2} />
                                 <ProgressBar label="" animated striped variant="success" now={0} key={3} />
                             </ProgressBar>) ||
-                            ((password.length > 12 && password.length <= 15) && 
+                            (((password.length > 6 && password.length <= 8 && hasMayus && hasNum)) && 
                             <ProgressBar className="progress-bar-container">
                                 <ProgressBar label="" animated striped variant="danger" now={33} key={1} />
                                 <ProgressBar label="Segura" animated striped variant="warning" now={33} key={2} />
                                 <ProgressBar label="" animated striped variant="success" now={0} key={3} />
                             </ProgressBar>) ||
-                            ((password.length > 15 && password.length <= 18) && 
+                            (((password.length > 8 && password.length <= 20 && hasMayus && !hasNum) || (password.length > 8 && password.length <= 20 && !hasMayus && hasNum)) && 
                             <ProgressBar className="progress-bar-container">
                                 <ProgressBar label="" animated striped variant="danger" now={33} key={1} />
                                 <ProgressBar label="" animated striped variant="warning" now={33} key={2} />
                                 <ProgressBar label="Muy segura" animated striped variant="success" now={20} key={3} />
                             </ProgressBar>) ||
-                            ((password.length > 18) && 
+                            ((password.length > 8 && password.length <= 20 && hasMayus && hasNum) && 
                             <ProgressBar className="progress-bar-container">
                                 <ProgressBar label="" animated striped variant="danger" now={33} key={1} />
                                 <ProgressBar label="" animated striped variant="warning" now={33} key={2} />

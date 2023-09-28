@@ -26,7 +26,13 @@ function Subscriptions() {
   const [loading, setLoading] = useState(false)
   const [loading2, setLoading2] = useState(true)
 
-  
+  useEffect(() => {
+    document.title = 'Suscripciones';
+
+    return () => {
+      document.title = 'AFEC Tactic';
+    };
+  }, []);
 
   const fetchOptions = {
     headers: {

@@ -159,7 +159,13 @@ function Profile({ idPrice }) {
   const [endSubPeriod, setEndSubPeriod] = useState();
   const navigate = useNavigate();
 
-  //const navigate = useNavigate()
+  useEffect(() => {
+    document.title = 'Perfil';
+
+    return () => {
+      document.title = 'AFEC Tactic';
+    };
+  }, []);
 
 
 

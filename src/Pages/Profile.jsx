@@ -157,9 +157,16 @@ function Profile({ idPrice }) {
   const [createdSub, setCreated] = useState();
   const [startSubPeriod, setStartSubPeriod] = useState();
   const [endSubPeriod, setEndSubPeriod] = useState();
+  const [isDisabled, setIsDisabled] = useState("chooseq-btn mx-3 mt-5");
   const navigate = useNavigate();
 
-  //const navigate = useNavigate()
+  useEffect(() => {
+    document.title = 'Perfil';
+
+    return () => {
+      document.title = 'AFEC Tactic';
+    };
+  }, []);
 
   const subscriptionId = localStorage.getItem("subscriptionID"); // ID de la suscripción
 
@@ -270,7 +277,7 @@ function Profile({ idPrice }) {
             }
 
             if (index === maxAns - 1 || index === maxAns) {
-              console.log("Bloquear boton nuevo cuestionario!!!!")
+              setIsDisabled('disabled chooseq-btn mx-3 mt-5')
             }
 
             if (index <= maxAns) {
@@ -294,7 +301,7 @@ function Profile({ idPrice }) {
             }
 
             if (index === maxAns - 1 || index === maxAns) {
-              console.log("Bloquear boton nuevo cuestionario!!!!!!!")
+              setIsDisabled('disabled chooseq-btn mx-3 mt-5')
             }
             if (index <= maxAns) {
               return (
@@ -318,7 +325,7 @@ function Profile({ idPrice }) {
             }
 
             if (index === maxAns - 1 || index === maxAns) {
-              console.log("Bloquear boton nuevo cuestionario!!!!!!!")
+              setIsDisabled('disabled chooseq-btn mx-3 mt-5')
             }
             if (index <= maxAns) {
               return (
@@ -390,7 +397,7 @@ function Profile({ idPrice }) {
               //console.log(maxAns)
               //console.log(index)
               if (index === maxAns) {
-                console.log("Bloquear boton nuevo cuestionario")
+                setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
               return (
                 <Record2
@@ -412,7 +419,7 @@ function Profile({ idPrice }) {
               //console.log(maxAns)
               //console.log(index)
               if (index === maxAns) {
-                console.log("Bloquear boton nuevo cuestionario")
+                setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
               return (
                 <Record2
@@ -434,7 +441,7 @@ function Profile({ idPrice }) {
               //console.log(maxAns)
               //console.log(index)
               if (index === maxAns) {
-                console.log("Bloquear boton nuevo cuestionario")
+                setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
               return (
                 <Record2
@@ -491,16 +498,12 @@ function Profile({ idPrice }) {
       <div className='d-flex align-items-center'>
 
         {context.subscriptionOn
-          ? <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
+          ? <Button className={isDisabled} as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
           : <>
               <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button> 
               <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
             </>
         }
-
-{/*         {context.freeTrialDone ? "" :
-          <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button>
-        } */}
 
         <Button className="chooseq-btn mx-3 mt-5" as={Link} onClick={logout}>CERRAR SESIÓN</Button>
       </div>

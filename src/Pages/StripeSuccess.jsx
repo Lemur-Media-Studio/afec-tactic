@@ -13,6 +13,14 @@ function StripeSuccess() {
   const [loading, setLoading] = useState(false);
   const context = useContext(LoginContext)
 
+  useEffect(() => {
+    document.title = 'Pago exitoso';
+
+    return () => {
+      document.title = 'AFEC Tactic';
+    };
+  }, []);
+
   const fetchOptions = {
     headers: {
       Authorization: `Bearer ${STRIPE_KEYS.secret}`

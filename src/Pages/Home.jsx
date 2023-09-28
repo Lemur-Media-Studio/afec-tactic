@@ -27,6 +27,12 @@ function Home(){
                         <section className="bg-ia">
 
                             <NavBar />
+
+                            <section className="whatsapp-sticky">
+                                <a href="https://wa.me/+34661232683" target="_blank" rel="noopener noreferrer">
+                                    <img src={require('../img/whatsapp.png')} alt="WhatsApp" />
+                                </a>
+                            </section>
                             
                             <ZoomIn>
                             <Container fluid="md" className="home-container row-mobile-center">
@@ -56,14 +62,9 @@ function Home(){
                                 {
                                     context.freeTrialDone && context.login
                                     ?
-                                    <Button className="home-button mt-5 px-5" as={Link} to={!context.subscriptionOn ? '/profilefree' : '/profile'}>Ir al Perfil</Button>
+                                    <Button className="home-button px-5" as={Link} to={!context.subscriptionOn ? '/profilefree' : '/profile'}>Ir al Perfil</Button>
                                     :
-                                    <Button className="home-button mt-5" as={Link} to={'/login'}>Completa un cuestionario gratis</Button>
-                                }
-
-                                {
-                                    !context.login &&
-                                    <Button className="home-button mt-5" as={Link} to={'/login'}>Completa un cuestionario gratis</Button>
+                                    <Button className="home-button" as={Link} to={!context.login ? '/signup' : '/profile'}>Completa un cuestionario gratis</Button>
                                 }
                             </Container>
                         </section>

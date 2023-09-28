@@ -19,6 +19,20 @@
   margin-top: 50px !important;
 }
 
+.whatsapp-sticky {
+  position: fixed;
+  text-align: left !important;
+  bottom: 10px;
+  right: 10px;
+  z-index: 99;
+}
+
+.whatsapp-sticky img {
+  width: 60px;
+  height: auto;
+  border: none;
+}
+
 .home-title {
   font-family: "Black Italic" !important;
   color: #fff;

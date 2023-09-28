@@ -1,7 +1,16 @@
+import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function StripeCancel(){
+
+    useEffect(() => {
+        document.title = 'Pago cancelado';
+    
+        return () => {
+          document.title = 'AFEC Tactic';
+        };
+      }, []);
     
     const navigation = useNavigate()
 
