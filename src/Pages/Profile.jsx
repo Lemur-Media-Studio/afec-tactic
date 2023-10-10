@@ -36,6 +36,7 @@ function reverseDate(dateString) {
 /* fin funciones globales */
 
 const Record = (props) => (
+  
   <tr className='profile-table-body'>
     <td>
       <Link className="btn btn-link" to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`}>
@@ -135,9 +136,9 @@ const Record3 = (props) => {
       <td>{endDate.toLocaleString()}</td>
 
       <td className='py-3'>
-        Cuestionario 1: {calculateAvailableQ(props.record.idPrice).cuestionario1}
+        Cuestionario 1: {localStorage.getItem("calculoC1Disponibles")}
         <hr />
-        Cuestionario 2: {calculateAvailableQ(props.record.idPrice).cuestionario2}
+        Cuestionario 2: {localStorage.getItem("calculoC2Disponibles")}
       </td>
 
       <td><button className='profile-cancel-btn' onClick={cancelSub}>Cancelar</button></td>
@@ -246,7 +247,7 @@ function Profile({ idPrice }) {
       const idCuestionario = "Cuestionario 1"
       let setStart = startSubPeriod
       let setEnd = endSubPeriod
-      //let setEnd = new Date(2023, 11, 26) //PRUEBA FECHA
+      //let setEnd = new Date(2023, 10, 26) //PRUEBA FECHA
       let setDate = date
 
       function validarFechaEnRango(fecha1, fecha2, fecha3) {
@@ -270,22 +271,35 @@ function Profile({ idPrice }) {
 
           //PLAN 1 CHEACKQ1 BASICO
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
+            
             let maxAns = 1; //uno por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
-            if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
-              maxAns = maxAns + calcularDiferenciaMeses(createdSub, setEnd)
+            const calculoMeses = calcularDiferenciaMeses(createdSub, setEnd);
+            if (calculoMeses > 1) {
+              maxAns = maxAns + calculoMeses
+              //console.log(maxAns)
             }
 
             if (index === maxAns - 1 || index === maxAns) {
-              setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              //console.log(index)
             }
 
+         
+            
+
             if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
+              
+              
+           
               return (
                 <Record
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -301,9 +315,11 @@ function Profile({ idPrice }) {
             }
 
             if (index === maxAns - 1 || index === maxAns) {
-              setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
             }
             if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
               return (
                 <Record
                   record={record}
@@ -325,9 +341,11 @@ function Profile({ idPrice }) {
             }
 
             if (index === maxAns - 1 || index === maxAns) {
-              setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
             }
             if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
               return (
                 <Record
                   record={record}
@@ -365,8 +383,8 @@ function Profile({ idPrice }) {
       const idUser = localStorage.getItem("idUser");
       const idCuestionario = "Cuestionario 2"
       let setStart = startSubPeriod
-      //let setEnd = endSubPeriod
-      let setEnd = new Date(2023, 11, 23) //prueba fecha
+      let setEnd = endSubPeriod
+      //let setEnd = new Date(2023, 10, 23) //prueba fecha
       //console.log(setEnd)
       let setDate = date
 
@@ -397,8 +415,11 @@ function Profile({ idPrice }) {
               //console.log(maxAns)
               //console.log(index)
               if (index === maxAns) {
-                setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
               return (
                 <Record2
                   record={record}
@@ -419,8 +440,11 @@ function Profile({ idPrice }) {
               //console.log(maxAns)
               //console.log(index)
               if (index === maxAns) {
-                setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
               return (
                 <Record2
                   record={record}
@@ -441,8 +465,11 @@ function Profile({ idPrice }) {
               //console.log(maxAns)
               //console.log(index)
               if (index === maxAns) {
-                setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
               return (
                 <Record2
                   record={record}
