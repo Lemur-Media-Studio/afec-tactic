@@ -281,7 +281,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 1 CHEACKQ1 BASICO MENSUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB" || "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
 
             let maxAns = 1; //uno por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
@@ -310,7 +310,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 1 CHEACKQ1 BASICO ANUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS") {
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS" || "price_1O2XnDKuryBPUG9fJ2CgPVI0") {
 
             let maxAns = 1; //uno por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
@@ -340,7 +340,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 2 CHEACKQ1 STANDARD MENSUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ") {
+          if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ" || "price_1O2XoVKuryBPUG9fBCTK4UOB") {
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
@@ -365,7 +365,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 2 CHEACKQ1 STANDARD ANUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4") {
+          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4" || "price_1O2XoVKuryBPUG9fW2VVsSrX") {
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setDate);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
@@ -391,7 +391,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 3 CHEACKQ1 STANDARD MENSUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2") {
+          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2" || "price_1O2XpZKuryBPUG9f9fQ7WBNf") {
             let maxAns = 8 * calcularDiferenciaMeses(createdSub, setEnd);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
@@ -417,7 +417,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 3 CHEACKQ1 STANDARD ANUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki") {
+          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki" || "price_1O2XpZKuryBPUG9fIFPqZ4oS") {
             let maxAns = 8 * calcularDiferenciaMeses(createdSub, setDate);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setDate) > 1) {
@@ -491,7 +491,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 1 CHEACKQ2 BASICO MENSUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB" || "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
@@ -516,7 +516,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 1 CHEACKQ2 BASICO ANUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS") {
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS" || "price_1O2XnDKuryBPUG9fJ2CgPVI0") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setDate);
@@ -541,7 +541,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 2 CHEACKQ2 STANDARD MENSUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ") {
+          if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ" || "price_1O2XoVKuryBPUG9fBCTK4UOB") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 12 * calcularDiferenciaMeses(createdSub, setEnd);
@@ -567,7 +567,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 2 CHEACKQ2 STANDARD ANUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4") {
+          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4" || "price_1O2XoVKuryBPUG9fW2VVsSrX") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 12 * calcularDiferenciaMeses(createdSub, setDate);
@@ -592,7 +592,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 3 CHEACKQ2 PREMIUM MENSUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2") {
+          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2" || "price_1O2XpZKuryBPUG9f9fQ7WBNf") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();
             let maxAns = 24 * calcularDiferenciaMeses(createdSub, setEnd);
@@ -616,7 +616,7 @@ function Profile({ idPrice }) {
             }
           }
           //PLAN 3 CHEACKQ2 PREMIUM ANUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki") {
+          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki" || "price_1O2XpZKuryBPUG9fIFPqZ4oS") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();
             let maxAns = 24 * calcularDiferenciaMeses(createdSub, setDate);
