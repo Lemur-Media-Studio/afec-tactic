@@ -96,7 +96,7 @@
 
 .home-testimonials-container {
   background-color: #10224a !important;
-  margin-top: -200px;
+  margin-top: -250px;
   margin-bottom: -100px !important;
   padding-bottom: 150px !important;
   z-index: -1 !important;
@@ -106,7 +106,7 @@
   font-family: "Black Italic" !important;
   color: #fff !important;
   margin-top: 50px !important;
-  margin-top: 200px !important;
+  margin-top: 250px !important;
 }
 
 .home-carousel {
@@ -1050,6 +1050,12 @@
   font-family: "Regular";
   margin-top: -15px;
   margin-bottom: -15px;
+}
+
+.plan-warning {
+  color: #fff;
+  text-align: justify;
+  font-family: "Regular";
 }
 
 .subscriptions-card-title {

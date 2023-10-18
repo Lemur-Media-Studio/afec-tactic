@@ -78,7 +78,7 @@ function Home(){
                                 <FadeInLeft>
                                     <Row className="home-training-first-row justify-content-center align-items-center">
                                         <Col>
-                                            <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" className="img-mobile-ipad-home" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
+                                            <img src={require('../img/foto1.png')} className="img-mobile-ipad-home" height="400" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
                                         </Col>
 
                                         <Col>
@@ -88,13 +88,13 @@ function Home(){
                                 </FadeInLeft>
 
                                 <FadeInRight>
-                                    <Row className="mt-5 justify-content-center align-items-center">
+                                    <Row className="mt-5 mx-5 justify-content-center align-items-center">
                                         <Col>
                                             <p className="home-p">2. Responde a TACTIC todas las preguntas</p>
                                         </Col>
 
                                         <Col>
-                                            <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" className="img-mobile-ipad-home" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
+                                            <img src={require('../img/foto2.png')} className="img-mobile-ipad-home" height="400" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
                                         </Col>
                                     </Row>
                                 </FadeInRight>
@@ -102,7 +102,7 @@ function Home(){
                                 <FadeInLeft>
                                     <Row className="mt-5 justify-content-center align-items-center">
                                         <Col>
-                                            <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-HD.png" className="img-mobile-ipad-home" height="280" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
+                                            <img src={require('../img/foto3.png')} className="img-mobile-ipad-home" height="400" alt="Imagen de una tablet y un móvil con los logos de AFEC Tactic" />
                                         </Col>
 
                                         <Col>

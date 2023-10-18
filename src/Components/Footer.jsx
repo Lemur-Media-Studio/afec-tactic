@@ -59,7 +59,7 @@ function Footer(){
                             <Navbar.Brand className="footer-copyright">Copyright © 2023 AFEC Football Academy. Todos los derechos reservados.</Navbar.Brand>
 
                             <Nav className="ms-auto footer-legal">
-                                <Nav.Link as={Link} to='/' className="footer-end-link">Términos y Condiciones</Nav.Link>
+                                <Nav.Link as={Link} to='/terms-of-service' className="footer-end-link">Términos y Condiciones</Nav.Link>
                                 <Nav.Link as={Link} to='/legal-warning' className="footer-end-link">Aviso Legal</Nav.Link>
                                 <Nav.Link as={Link} to='/cookies-policy' className="footer-end-link">Política de Cookies</Nav.Link>
                                 <Nav.Link as={Link} to='/privacy-policy' className="footer-end-link">Politica de privacidad</Nav.Link>

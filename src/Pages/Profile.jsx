@@ -684,7 +684,7 @@ function Profile({ idPrice }) {
       <div className='d-flex align-items-center'>
 
         {context.subscriptionOn
-          ? <Button className={isDisabled} as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
+          ? <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
           : <>
             <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button>
             <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>

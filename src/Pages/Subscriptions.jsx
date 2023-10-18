@@ -146,12 +146,28 @@ function Subscriptions() {
               {monthlyPlans}
             </div>
           </ZoomIn>
-          <h2 className="subscriptions-plans-title mt-5">PLANES ANUALES</h2>
+          <h2 className="subscriptions-plans-title mt-5">PLANES ANUALES *</h2>
           <ZoomIn>
             <div className='d-flex justify-content-center mt-4'>
               {annualPlans}
             </div>
           </ZoomIn>
+          <div className='mt-5 plan-warning'>
+            <p> 
+              (*) La cantidad de los planes se calcula de manera anual, por lo que, si bien se recomienda utilizarlos de manera gradual como un plan mensual, el uso puede ser definido
+              en base a la necesidad de cada usuario. De esta manera, se dispondrá de un total de la siguiente cantidad de cuestionarios dentro del período de un año,
+              dependiendo de cada plan:
+            </p>
+            <p>
+              Plan Basic Anual: 12 cuestionarios de partido y 48 cuestionarios de entrenamiento
+            </p>
+            <p>
+              Plan Basic Anual: 48 cuestionarios de partido y 144 cuestionarios de entrenamiento
+            </p>
+            <p>
+              Plan Basic Anual: 96 cuestionarios de partido y 288 cuestionarios de entrenamiento
+            </p>
+          </div>
         </SpinnerLoading>
       </Container>
     </>
