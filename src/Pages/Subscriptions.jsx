@@ -94,19 +94,23 @@ function Subscriptions() {
 
         if (monthlyPrices.includes(price)) {
           monthlyPlans.push(
-            <Card style={{ width: '18rem', height: '24rem', border: 'none' }} className='mx-2' key={el.id}>
-              <Card.Body className="subscriptions-card d-flex flex-column justify-content-around">
-                <Card.Title className="subscriptions-card-title">{productData.name}</Card.Title>
-                <Card.Subtitle className="mb-2 subscriptions-card-price text-muted">{price} € / mes</Card.Subtitle>
-                <Card.Text>
-                  {productData.description}
-                </Card.Text>
-                <Button className='subscriptions-btn' onClick={() => redirectToCheckout(el)}>
-                    Suscribirse
-                    <LoginLoader loading={loading} />
-                </Button>
-              </Card.Body>
-            </Card>
+            <>
+              {productData.name === 'Asesoría AFEC' ? '' : 
+                <Card style={{ width: '18rem', height: '24rem', border: 'none' }} className='mx-2' key={el.id}>
+                  <Card.Body className="subscriptions-card d-flex flex-column justify-content-around">
+                    <Card.Title className="subscriptions-card-title">{productData.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 subscriptions-card-price text-muted">{price} € / mes</Card.Subtitle>
+                    <Card.Text>
+                      {productData.description}
+                    </Card.Text>
+                    <Button className='subscriptions-btn' onClick={() => redirectToCheckout(el)}>
+                        Suscribirse
+                        <LoginLoader loading={loading} />
+                    </Button>
+                  </Card.Body>
+                </Card>
+              }
+            </>
           );
         } else if (annualPrices.includes(price)) {
           annualPlans.push(
