@@ -23,7 +23,8 @@ function StripeSuccess() {
 
   const fetchOptions = {
     headers: {
-      Authorization: `Bearer ${STRIPE_KEYS.secret}`
+      //Authorization: `Bearer ${STRIPE_KEYS.secret}`
+      Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`
     },
   }
   

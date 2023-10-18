@@ -11,7 +11,8 @@ import STRIPE_KEYS from ".././services/stripeKeys";
 import { loadStripe } from '@stripe/stripe-js';
 
 const Stripe = require('stripe');
-const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+//const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+const stripe = Stripe(process.env.REACT_APP_SECRET_KEY);
 
 let seleccionPrice = 0
 const date = new Date();

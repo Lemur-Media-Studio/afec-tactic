@@ -9,11 +9,15 @@ import { LoginContext } from "../Context/LoginContext";
 import SpinnerLoading from "../Components/SpinnerLoading";
 import STRIPE_KEYS from ".././services/stripeKeys";
 import { loadStripe } from '@stripe/stripe-js';
-
+//console.log(process.env.REACT_APP_SECRET_KEY)
+//console.log(process.env.REACT_APP_PUBLIC_KEY)
 const Stripe = require('stripe');
-const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+//const stripe = Stripe('sk_test_51NpwRSDCxZVJxL3fgj7tsJ85VkpWy2DsDKp0rhMItM3EoJHyBryBlk6JKMaFnqoFvoiKmchq9pK5lgzFYCrRjubo00EflBfuoM');
+const stripe = Stripe(process.env.REACT_APP_SECRET_KEY);
+
 
 let seleccionPrice = 0
+
 const date = new Date();
 
 
@@ -29,6 +33,15 @@ function calcularDiferenciaMeses(fecha1, fecha2) {
   return Math.abs(Math.round(diferencia));
 }
 
+/* funcion para calcular años activos de la cuenta */
+function calcularDiferenciaAnios(fecha1, fecha2) {
+  const diferenciaEnMilisegundos = fecha2 - fecha1;
+  const milisegundosEnUnAnio = 1000 * 60 * 60 * 24 * 365.25; // Tomamos en cuenta años bisiestos
+  const diferenciaEnAnios = diferenciaEnMilisegundos / milisegundosEnUnAnio;
+
+  return Math.abs(Math.round(diferenciaEnAnios));
+}
+
 function reverseDate(dateString) {
   const [year, month, day] = dateString.split("-");
   return `${day}/${month}/${year}`;
@@ -36,7 +49,7 @@ function reverseDate(dateString) {
 /* fin funciones globales */
 
 const Record = (props) => (
-  
+
   <tr className='profile-table-body'>
     <td>
       <Link className="btn btn-link" to={`/form1-suggested-session/${props.record._id}/${props.numeroKey}`}>
@@ -250,9 +263,7 @@ function Profile({ idPrice }) {
       //let setEnd = new Date(2023, 10, 26) //PRUEBA FECHA
       let setDate = date
 
-      function validarFechaEnRango(fecha1, fecha2, fecha3) {
-        return fecha3 >= fecha1 && fecha3 <= fecha2;
-      }
+
       //console.log(idUser)
       if (validarFechaEnRango(setStart, setEnd, setDate) === true) {
         if (record.id === idUser) {
@@ -269,9 +280,9 @@ function Profile({ idPrice }) {
           }
 
 
-          //PLAN 1 CHEACKQ1 BASICO
+          //PLAN 1 CHEACKQ1 BASICO MENSUAL
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
-            
+
             let maxAns = 1; //uno por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             const calculoMeses = calcularDiferenciaMeses(createdSub, setEnd);
@@ -279,21 +290,13 @@ function Profile({ idPrice }) {
               maxAns = maxAns + calculoMeses
               //console.log(maxAns)
             }
-
             if (index === maxAns - 1 || index === maxAns) {
               //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               //console.log(index)
             }
-
-         
-            
-
             if (index <= maxAns) {
               const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
               localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
-              
-              
-           
               return (
                 <Record
                   record={record}
@@ -306,7 +309,37 @@ function Profile({ idPrice }) {
             }
           }
 
-          //PLAN 2 CHEACKQ1 STANDARD
+          //PLAN 1 CHEACKQ1 BASICO ANUAL
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS") {
+
+            let maxAns = 1; //uno por el free trial
+            //console.log(calcularDiferenciaMeses(createdSub, setEnd))
+
+            const calculoMeses = calcularDiferenciaMeses(createdSub, setDate);
+            if (calculoMeses > 1) {
+              maxAns = maxAns + calculoMeses
+              //console.log(maxAns)
+            }
+            if (index === maxAns - 1 || index === maxAns) {
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              //console.log(index)
+            }
+            if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
+              return (
+                <Record
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
+                  key={record._id}
+                />
+              );
+            }
+          }
+
+          //PLAN 2 CHEACKQ1 STANDARD MENSUAL
           if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ") {
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
@@ -331,13 +364,64 @@ function Profile({ idPrice }) {
             }
           }
 
+          //PLAN 2 CHEACKQ1 STANDARD ANUAL
+          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4") {
+            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setDate);
+            //console.log(calcularDiferenciaMeses(createdSub, setEnd))
+            if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
+              maxAns = maxAns + calcularDiferenciaMeses(createdSub, setDate)
+            }
 
-          //PLAN 3 CHEACKQ1 STANDARD
+            if (index === maxAns - 1 || index === maxAns) {
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+            }
+            if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
+              return (
+                <Record
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+          }
+
+
+          //PLAN 3 CHEACKQ1 STANDARD MENSUAL
           if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2") {
             let maxAns = 8 * calcularDiferenciaMeses(createdSub, setEnd);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
               maxAns = maxAns + calcularDiferenciaMeses(createdSub, setEnd)
+            }
+
+            if (index === maxAns - 1 || index === maxAns) {
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+            }
+            if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
+              return (
+                <Record
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+          }
+
+
+          //PLAN 3 CHEACKQ1 STANDARD ANUAL
+          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki") {
+            let maxAns = 8 * calcularDiferenciaMeses(createdSub, setDate);
+            //console.log(calcularDiferenciaMeses(createdSub, setEnd))
+            if (calcularDiferenciaMeses(createdSub, setDate) > 1) {
+              maxAns = maxAns + calcularDiferenciaMeses(createdSub, setDate)
             }
 
             if (index === maxAns - 1 || index === maxAns) {
@@ -406,7 +490,7 @@ function Profile({ idPrice }) {
             );
           }
 
-          //PLAN 1 CHEACKQ2 STANDARD
+          //PLAN 1 CHEACKQ2 BASICO MENSUAL
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
@@ -431,7 +515,32 @@ function Profile({ idPrice }) {
             }
           }
 
-          //PLAN 2 CHEACKQ2 STANDARD
+          //PLAN 1 CHEACKQ2 BASICO ANUAL
+          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS") {
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();;
+            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setDate);
+            if (index <= maxAns) {
+              //console.log(maxAns)
+              //console.log(index)
+              if (index === maxAns) {
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
+              return (
+                <Record2
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+          }
+
+          //PLAN 2 CHEACKQ2 STANDARD MENSUAL
           if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
@@ -456,11 +565,61 @@ function Profile({ idPrice }) {
             }
           }
 
-          //PLAN 3 CHEACKQ2 STANDARD
+
+          //PLAN 2 CHEACKQ2 STANDARD ANUAL
+          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4") {
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();;
+            let maxAns = 12 * calcularDiferenciaMeses(createdSub, setDate);
+            if (index <= maxAns) {
+              //console.log(maxAns)
+              //console.log(index)
+              if (index === maxAns) {
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
+              return (
+                <Record2
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+          }
+
+          //PLAN 3 CHEACKQ2 PREMIUM MENSUAL
           if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();
             let maxAns = 24 * calcularDiferenciaMeses(createdSub, setEnd);
+            if (index <= maxAns) {
+              //console.log(maxAns)
+              //console.log(index)
+              if (index === maxAns) {
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
+              return (
+                <Record2
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+          }
+          //PLAN 3 CHEACKQ2 PREMIUM ANUAL
+          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki") {
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();
+            let maxAns = 24 * calcularDiferenciaMeses(createdSub, setDate);
             if (index <= maxAns) {
               //console.log(maxAns)
               //console.log(index)
@@ -527,9 +686,9 @@ function Profile({ idPrice }) {
         {context.subscriptionOn
           ? <Button className={isDisabled} as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
           : <>
-              <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button> 
-              <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
-            </>
+            <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button>
+            <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
+          </>
         }
 
         <Button className="chooseq-btn mx-3 mt-5" as={Link} onClick={logout}>CERRAR SESIÓN</Button>

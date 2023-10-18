@@ -9,10 +9,13 @@ import ZoomIn from "../Components/Animations/ZoomIn";
 import SpinnerLoading from "../Components/SpinnerLoading";
 
 let stripePromise;
+//console.log(process.env.REACT_APP_SECRET_KEY)
+//console.log(process.env.REACT_APP_PUBLIC_KEY)
 
 const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(STRIPE_KEYS.public);
+    //stripePromise = loadStripe(STRIPE_KEYS.public);
+    stripePromise = loadStripe(process.env.REACT_APP_PUBLIC_KEY);
   }
 
   return stripePromise;
@@ -36,7 +39,8 @@ function Subscriptions() {
 
   const fetchOptions = {
     headers: {
-      Authorization: `Bearer ${STRIPE_KEYS.secret}`
+      //Authorization: `Bearer ${STRIPE_KEYS.secret}`
+      Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`
     },
   }
 
