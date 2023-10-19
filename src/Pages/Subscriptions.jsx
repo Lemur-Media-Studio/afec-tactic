@@ -96,7 +96,7 @@ function Subscriptions() {
           monthlyPlans.push(
             <>
               {productData.name === 'Asesoría AFEC' ? '' : 
-                <Card style={{ width: '18rem', height: '24rem', border: 'none' }} className='mx-2' key={el.id}>
+                <Card style={{ width: '18rem', height: '24rem', border: 'none' }} className='mx-2 mx-2 mt-3 mt-sm-0' key={el.id}>
                   <Card.Body className="subscriptions-card d-flex flex-column justify-content-around">
                     <Card.Title className="subscriptions-card-title">{productData.name}</Card.Title>
                     <Card.Subtitle className="mb-2 subscriptions-card-price text-muted">{price} € / mes</Card.Subtitle>
@@ -114,7 +114,7 @@ function Subscriptions() {
           );
         } else if (annualPrices.includes(price)) {
           annualPlans.push(
-            <Card style={{ width: '18rem', height: '24rem', border: 'none' }} className='mx-2' key={el.id}>
+            <Card style={{ width: '18rem', height: '24rem', border: 'none' }} className='mx-2 mt-3 mt-sm-0' key={el.id}>
               <Card.Body className="subscriptions-card yearly d-flex flex-column justify-content-around">
                 <span className='subscriptions-span'>Ahorra dinero pagando anualmente</span>
                 <Card.Title className="subscriptions-card-title">{productData.name}</Card.Title>
@@ -146,13 +146,13 @@ function Subscriptions() {
         <SpinnerLoading loading={loading2}>
           <h2 className="subscriptions-plans-title">PLANES MENSUALES</h2>
           <ZoomIn>
-            <div className='d-flex justify-content-center mt-4'>
+            <div className='d-flex flex-wrap wrap justify-content-center mt-4'>
               {monthlyPlans}
             </div>
           </ZoomIn>
           <h2 className="subscriptions-plans-title mt-5">PLANES ANUALES *</h2>
           <ZoomIn>
-            <div className='d-flex justify-content-center mt-4'>
+            <div className='d-flex flex-wrap wrap justify-content-center mt-4'>
               {annualPlans}
             </div>
           </ZoomIn>
