@@ -282,6 +282,28 @@ function Profile({ idPrice }) {
 
           //PLAN 1 CHEACKQ1 BASICO MENSUAL
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB" || "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
+            context.handleSubscriptionOn();
+            context.handleFreeTrialDone();;
+            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
+            if (index <= maxAns) {
+              //console.log(maxAns)
+              //console.log(index)
+              if (index === maxAns) {
+                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              }
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              //console.log(calculoCuestionariosDisponibles)
+              return (
+                <Record2
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  key={record._id}
+                />
+              );
+            }
+            /*
 
             let maxAns = 1; //uno por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
@@ -307,6 +329,7 @@ function Profile({ idPrice }) {
                 />
               );
             }
+            */
           }
 
           //PLAN 1 CHEACKQ1 BASICO ANUAL
@@ -492,6 +515,31 @@ function Profile({ idPrice }) {
 
           //PLAN 1 CHEACKQ2 BASICO MENSUAL
           if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB" || "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
+            let maxAns = 1; //uno por el free trial
+            //console.log(calcularDiferenciaMeses(createdSub, setEnd))
+            const calculoMeses = calcularDiferenciaMeses(createdSub, setEnd);
+            if (calculoMeses > 1) {
+              maxAns = maxAns + calculoMeses
+              //console.log(maxAns)
+            }
+            if (index === maxAns - 1 || index === maxAns) {
+              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
+              //console.log(index)
+            }
+            if (index <= maxAns) {
+              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
+              return (
+                <Record
+                  record={record}
+                  numeroKey={index}
+                  idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
+                  key={record._id}
+                />
+              );
+            }
+            /*
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
@@ -513,6 +561,7 @@ function Profile({ idPrice }) {
                 />
               );
             }
+            */
           }
 
           //PLAN 1 CHEACKQ2 BASICO ANUAL
