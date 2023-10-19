@@ -299,6 +299,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -381,6 +382,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -406,6 +408,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -432,6 +435,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -458,6 +462,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -583,6 +588,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -608,6 +614,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -634,6 +641,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -659,6 +667,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
@@ -683,6 +692,7 @@ function Profile({ idPrice }) {
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
+                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
                   key={record._id}
                 />
               );
