@@ -292,10 +292,10 @@ function Profile({ idPrice }) {
                 //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
               }
               const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
-              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
               //console.log(calculoCuestionariosDisponibles)
               return (
-                <Record2
+                <Record
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
@@ -528,9 +528,9 @@ function Profile({ idPrice }) {
             }
             if (index <= maxAns) {
               const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
-              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
+              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
               return (
-                <Record
+                <Record2
                   record={record}
                   numeroKey={index}
                   idCuestionario={idCuestionario}
