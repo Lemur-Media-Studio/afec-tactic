@@ -128,6 +128,10 @@
     height: 200px;
   }
 
+  .img-mobile-ipad-home {
+    height: 150px !important;
+  }
+
   .home-trainingsession-container {
     background-color: #090d2c !important;
     padding-bottom: 200px !important;
@@ -138,7 +142,7 @@
   }
 
   .home-grid {
-    margin: 0px 50px 0 50px !important;
+    margin: 0px 10px 0 10px !important;
     padding-top: 100px !important;
   }
 
@@ -173,7 +177,7 @@
 
   .home-p {
     color: #fff !important;
-    font-family: "Regular" !important;
+    font-family: "Bold" !important;
     font-size: 12px !important;
   }
 
@@ -828,11 +832,19 @@
   align-items: center;
   justify-content: center;
   margin-top: 100px;
-  text-align: center;
+  text-align: center !important;
   font-family: "Regular" !important;
   color: #fff !important;
 }
+.suggested-questions-container h1 {
+  width: 100%;
+}
 
+@media screen and (max-width: 767px) {
+  .suggested-questions-container .card {
+    width: 25rem !important;
+  }
+}
 #star-rating {
   background-color: transparent;
   border: none;
@@ -1019,6 +1031,13 @@
   vertical-align: middle !important;
 }
 
+@media screen and (max-width: 767px) {
+  .scroll-container {
+    overflow-x: auto;
+    max-width: 100%;
+    /* Esto asegura que el contenedor se extienda al 100% del ancho del dispositivo */
+  }
+}
 .subscriptions-underline {
   border-bottom: #006cff 1px solid;
   line-height: 80px;

@@ -4,7 +4,19 @@
     align-items: center;
     justify-content: center;
     margin-top: 100px;
-    text-align: center;
+    text-align: center !important;
     font-family: "Regular" !important;
     color: $white !important;
+    
+    h1{
+        width: 100%;
+    }
 }
+
+@media screen and (max-width: 767px) {
+    .suggested-questions-container {
+      .card{
+        width: 25rem !important;
+      }
+    }
+  }

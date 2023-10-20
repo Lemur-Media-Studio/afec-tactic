@@ -29,3 +29,10 @@
     color: $white !important;
     vertical-align: middle !important;
 }
+
+@media screen and (max-width: 767px) {
+    .scroll-container {
+      overflow-x: auto;
+      max-width: 100%; /* Esto asegura que el contenedor se extienda al 100% del ancho del dispositivo */
+    }
+  }

@@ -88,7 +88,7 @@ function Home(){
                                 </FadeInLeft>
 
                                 <FadeInRight>
-                                    <Row className="mt-5 mx-5 justify-content-center align-items-center">
+                                    <Row className="mt-5 px-1 mx-1 mx-sm-5 justify-content-center align-items-center">
                                         <Col>
                                             <p className="home-p">2. Responde a TACTIC todas las preguntas</p>
                                         </Col>

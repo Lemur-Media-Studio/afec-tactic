@@ -119,9 +119,13 @@
 }
 
 @media only screen and (max-width: 767px) {
-    
+
     .img-mobile-home{
         height: 200px;
+    }
+    
+    .img-mobile-ipad-home{
+        height: 150px !important;
     }
 
     .home-trainingsession-container{
@@ -136,7 +140,7 @@
     }
 
     .home-grid{
-        margin: 0px 50px 0 50px !important;
+        margin: 0px 10px 0 10px !important;
         padding-top: 100px !important;
     }
 
@@ -171,7 +175,7 @@
 
     .home-p{
         color: $white !important;
-        font-family: "Regular" !important;
+        font-family: "Bold" !important;
         font-size: 12px !important;
     }
 

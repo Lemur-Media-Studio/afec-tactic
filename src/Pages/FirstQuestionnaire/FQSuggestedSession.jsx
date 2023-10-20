@@ -120,7 +120,7 @@ export default function RecordList() {
         <Col xs={12}>
         <div key={e.id}>
           <Card style={{ width: '50rem' }} className="mt-5 mx-auto">
-            <Card.Img variant="top" src={e.img} />
+            <Card.Img variant="top" className='img-fluid' src={e.img} />
             <Card.Body>
               <Button variant="primary" href={e.video}>Ver vídeo</Button>
             </Card.Body>

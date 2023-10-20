@@ -312,22 +312,25 @@ function Profile({ idPrice }) {
       <SpinnerLoading loading={loading}>
 
 
-        <Table className="profile-table" striped bordered hover>
-          <thead>
-            <tr className='profile-table-title'>
+        <div className='scroll-container'>
+          <Table className="profile-table" striped bordered hover>
+            <thead>
+              <tr className='profile-table-title'>
 
 
-              <th>FECHA</th>
-              <th>CUESTIONARIO</th>
-              <th>REFERENCIA</th>
+                <th>FECHA</th>
+                <th>CUESTIONARIO</th>
+                <th>REFERENCIA</th>
 
-            </tr>
-          </thead>
+              </tr>
+            </thead>
 
-          <tbody>{recordList()}</tbody>
-          <tbody>{record2List()}</tbody>
+            <tbody>{recordList()}</tbody>
+            <tbody>{record2List()}</tbody>
 
-        </Table>
+          </Table>
+        </div>
+
 
 
       </SpinnerLoading>

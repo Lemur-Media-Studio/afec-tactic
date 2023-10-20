@@ -755,41 +755,42 @@ function Profile({ idPrice }) {
 
 
       <SpinnerLoading loading={loading}>
-        <Table className="profile-table" striped bordered hover>
-          <thead>
-            <tr className='profile-table-title'>
+        <div className='scroll-container'>
+          <Table className="profile-table" striped bordered hover>
+            <thead>
+              <tr className='profile-table-title'>
 
 
-              <th>PLAN ACTIVO</th>
-              <th>INICIO</th>
-              <th>RENOVACIÓN</th>
-              <th>CUESTIONARIOS DISPONIBLES</th>
-              <th>CANCELAR SUSCRIPCIÓN</th>
+                <th>PLAN ACTIVO</th>
+                <th>INICIO</th>
+                <th>RENOVACIÓN</th>
+                <th>CUESTIONARIOS DISPONIBLES</th>
+                <th>CANCELAR SUSCRIPCIÓN</th>
 
-            </tr>
-          </thead>
-          <tbody>{recordSuccesspayment()}</tbody>
+              </tr>
+            </thead>
+            <tbody>{recordSuccesspayment()}</tbody>
+          </Table>
+        </div>
+
+        <div className='scroll-container'>
+          <Table className="profile-table" striped bordered hover>
+            <thead>
+              <tr className='profile-table-title'>
 
 
+                <th>FECHA</th>
+                <th>CUESTIONARIO</th>
+                <th>REFERENCIA</th>
 
-        </Table>
+              </tr>
+            </thead>
 
-        <Table className="profile-table" striped bordered hover>
-          <thead>
-            <tr className='profile-table-title'>
+            <tbody>{recordList()}</tbody>
+            <tbody>{record2List()}</tbody>
 
-
-              <th>FECHA</th>
-              <th>CUESTIONARIO</th>
-              <th>REFERENCIA</th>
-
-            </tr>
-          </thead>
-
-          <tbody>{recordList()}</tbody>
-          <tbody>{record2List()}</tbody>
-
-        </Table>
+          </Table>
+        </div>
 
 
       </SpinnerLoading>
