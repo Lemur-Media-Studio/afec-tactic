@@ -120,6 +120,7 @@ const Record3 = (props) => {
 
     if (!error) {
       context.handleSubscriptionOff();
+      alert('La suscripción se cancelará a partir del siguiente ciclo, por lo tanto, ya no se te realizará ningún cargo por su renovación.')
       window.location.reload(); // Reload to update
     }
 
