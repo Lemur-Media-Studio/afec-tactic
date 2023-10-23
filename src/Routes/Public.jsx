@@ -11,6 +11,8 @@ import Home from "../Pages/Home"
 import Login from '../Pages/Login'
 import Profile from '../Pages/Profile'
 import ProfileFree from '../Pages/ProfileFree'
+import Questionnaire1 from '../Pages/Questionnaire1'
+import Questionnaire2 from '../Pages/Questionnaire2'
 import SignUp from '../Pages/SignUp'
 import StripeCancel from '../Pages/StripeCancel'
 import StripeSuccess from '../Pages/StripeSuccess'
@@ -26,7 +28,9 @@ function Public(){
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
-            <Route path='/choose-questionnaire' element={<ChooseQuestionnaire />} />
+{/*             <Route path='/choose-questionnaire' element={<ChooseQuestionnaire />} /> */}
+            <Route path='/questionnaire1' element={<Questionnaire1 />} />
+            <Route path='/questionnaire2' element={<Questionnaire2 />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/profilefree' element={context.subscriptionOn ? <Profile /> : <ProfileFree />} />
             <Route path='/subscriptions' element={context.login ? <Subscriptions /> : <Login />} />

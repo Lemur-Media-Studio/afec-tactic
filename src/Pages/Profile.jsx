@@ -743,9 +743,12 @@ function Profile({ idPrice }) {
       <div className='d-flex align-items-center'>
 
         {context.subscriptionOn
-          ? <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>NUEVO CUESTIONARIO</Button>
+          ? <>
+            <Button className="chooseq-btn mx-3 mt-5" disabled={localStorage.getItem('calculoC1Disponibles') === '0'} as={Link} to='/questionnaire1'>CUESTIONARIO 1</Button>
+            <Button className="chooseq-btn mx-3 mt-5" disabled={localStorage.getItem('calculoC2Disponibles') === '0'} as={Link} to='/questionnaire2'>CUESTIONARIO 2</Button>
+            </>
           : <>
-            <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button>
+            <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/questionnaire1'>PRUEBA GRATIS AQUÍ</Button>
             <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
           </>
         }

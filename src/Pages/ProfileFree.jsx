@@ -302,7 +302,7 @@ function Profile({ idPrice }) {
         {context.freeTrialDone
           ? ""
           : <>
-              <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/choose-questionnaire'>PRUEBA GRATIS AQUÍ</Button> 
+              <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/questionnaire1'>PRUEBA GRATIS AQUÍ</Button> 
             </>
         }
         {/* <Button className="chooseq-btn mx-3 mt-5" as={Link} onClick={logout}>CERRAR SESIÓN</Button> */}
