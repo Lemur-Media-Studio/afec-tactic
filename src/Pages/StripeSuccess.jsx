@@ -9,9 +9,17 @@ import { useContext } from "react";
 import { LoginContext } from "../Context/LoginContext";
 
 function StripeSuccess() {
-
   const [loading, setLoading] = useState(false);
-  const context = useContext(LoginContext)
+  const [customerID, setCustomerID] = useState("");
+  const [subscriptionID, setSubscriptionID] = useState("");
+  const [invoicePDF, setInvoicePDF] = useState("");
+  const [idUser, setIdUser] = useState("");
+  const [idPrice, setIdPrice] = useState("");
+  const [idInvoice, setIdInvoice] = useState("");
+  const [subscriptionData, setSubscriptionData] = useState([]);
+
+  const context = useContext(LoginContext);
+  const navigation = useNavigate();
 
   useEffect(() => {
     document.title = 'Pago exitoso';
@@ -27,8 +35,6 @@ function StripeSuccess() {
       Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`
     },
   }
-  
-  const navigation = useNavigate()
 
   useEffect(() => {
     Promise.all([
@@ -36,33 +42,43 @@ function StripeSuccess() {
     ])
       .then(responses => Promise.all(responses.map((res) => res.json())))
       .then(json => {
-        //console.log(json[0].data[0]) 
-        // GUARDAR SUBSCRIPTION INVOICE PDF CUSTOMERID
-        localStorage.setItem("customerID", json[0].data[0].customer);
-        localStorage.setItem("subscriptionID", json[0].data[0].subscription);
-        localStorage.setItem("invoicePDF", json[0].data[0].invoice_pdf);
-        localStorage.setItem("invoiceID", json[0].data[0].id);
+        const data = json[0].data[0];
+        setCustomerID(data.customer);
+        setSubscriptionID(data.subscription);
+        setInvoicePDF(data.invoice_pdf);
+        setIdInvoice(data.id);
+
+        // Update subscription data
+        setSubscriptionData([
+          {
+            label: 'Referencia de usuario',
+            value: data.customer,
+          },
+          {
+            label: 'Número de suscripción',
+            value: data.subscription,
+          },
+          {
+            label: 'Comprobante',
+            value: data.invoice_pdf,
+          },
+        ]);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [fetchOptions]);
 
-  function subscriptionSuccess() {
-    const customerID = localStorage.getItem("customerID");
-    const subscriptionID = localStorage.getItem("subscriptionID");
-    const invoicePDF = localStorage.getItem("invoicePDF");
+  const subscriptionSuccess = () => {
     const idUser = localStorage.getItem("idUser");
     const idPrice = localStorage.getItem("StripePay");
-    const idInvoice = localStorage.getItem("invoiceID");
     context.handleSubscriptionOn();
-    console.log(context);
 
     const submit = async (e) => {
-      setLoading(true)
+      setLoading(true);
       try {
         const response = await fetch('https://afectactic.xyz/pago/success', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             id: idUser,
@@ -71,58 +87,65 @@ function StripeSuccess() {
             refUser: customerID,
             idPrice: idPrice,
             state: "active",
-            idInvoice: idInvoice
-
-          })
+            idInvoice: idInvoice,
+          }),
         });
         const data = await response.json();
         console.log(data);
- 
+
         if (data) {
           context.handleSubscriptionOn();
           navigation("/profile");
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-      setLoading(false)
-    }
+      setLoading(false);
+    };
+
     return (
       <>
-{/*         <Table striped bordered hover>
+        {/*
+        <Table striped bordered hover>
           <thead>
             <tr>
-
               <th>Referencia de usuario</th>
               <th>Número de suscripción</th>
               <th>Comprobante</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-
-              <td>{customerID}</td>
-              <td>{subscriptionID}</td>
-              <td><Link to={invoicePDF}>Descargar comprobante de pago</Link> </td>
-            </tr>
+            {subscriptionData.map((item, index) => (
+              <tr key={index}>
+                <td>{item.value}</td>
+                <td>{subscriptionID}</td>
+                <td>
+                  <Link to={invoicePDF}>Descargar comprobante de pago</Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
-        </Table> */}
-        
-        <button className="home-button px-5 py-2" type="submit" onClick={submit}>Ir al perfil<LoginLoader loading={loading} /></button>
+        </Table>
+    */}
+
+
+
+        <button className="home-button px-5 py-2" type="submit" onClick={submit}>
+          Ir al perfil
+          <LoginLoader loading={loading} />
+        </button>
       </>
-    )
-  }
- 
+    );
+  };
 
   return (
-    <Container className='stripe-result-container'>
-      <img src={require('.././img/logo-afectactic.png')} alt="Logo AFEC Tactic" height='100' />
+    <Container className="stripe-result-container">
+      <img src={require('.././img/logo-afectactic.png')} alt="Logo AFEC Tactic" height="100" />
       <h1>GRACIAS POR TU COMPRA</h1>
-      <p>Tu pago ha sido sido aceptado.</p>
+      <p>Tu pago ha sido aceptado.</p>
       {subscriptionSuccess()}
     </Container>
-  )
-
+  );
 }
 
-export default StripeSuccess
+export default StripeSuccess;

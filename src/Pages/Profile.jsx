@@ -82,46 +82,37 @@ const Record2 = (props) => (
 );
 
 const Record3 = (props) => {
-
   const context = useContext(LoginContext)
   const { startDate, endDate } = props
-
   if (props.record.price) {
     context.handleFreeTrialDone();
   }
 
-  function calculateAvailableQ(subs) {
-    //ACA ESTAN LOS MAXIMOS
-    switch (subs) {
-      case 'price_1NpwVkDCxZVJxL3fJNHGpzm2':
-        return { cuestionario1: 8, cuestionario2: 24 };
-      case 'price_1NpwURDCxZVJxL3fdZAGlnqQ':
-        return { cuestionario1: 4, cuestionario2: 12 };
-      case 'price_1NpwTeDCxZVJxL3fo1YjtMLB':
-        return { cuestionario1: 1, cuestionario2: 4 };
-      default:
-        return { cuestionario1: 0, cuestionario2: 0 };
-    }
-  }
 
   const cancelSub = async (e) => {
 
-    const response = await fetch(`https://afectactic.xyz/pago/success/${props.record._id}`, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        state: "cancel"
-      })
-    });
 
-    const { error } = await stripe.subscriptions.cancel(props.record.idSub);
 
-    if (!error) {
-      context.handleSubscriptionOff();
-      alert('La suscripción se cancelará a partir del siguiente ciclo, por lo tanto, ya no se te realizará ningún cargo por su renovación.')
-      window.location.reload(); // Reload to update
+    if (window.confirm("La suscripción se cancelará a partir del siguiente ciclo, por lo tanto, ya no se te realizará ningún cargo por su renovación. \n  \n¿Desea cancelar la suscripción? ") == true) {
+      const { error } = await stripe.subscriptions.cancel(props.record.idSub);
+      if (!error) {
+        context.handleSubscriptionOff();
+
+        const response = await fetch(`https://afectactic.xyz/pago/success/${props.record._id}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'POST',
+          body: JSON.stringify({
+            state: "cancel"
+          })
+        });
+        window.location.reload(); // Reload to update
+      } else {
+
+      }
+
+
     }
 
   }
@@ -132,16 +123,22 @@ const Record3 = (props) => {
 
       <td>
 
-        {props.record.idPrice === 'price_1NpwVkDCxZVJxL3fJNHGpzm2' && 'Plan Premium Mensual'}
-        {props.record.idPrice === 'price_1NpwVkDCxZVJxL3fC12Fuyki' && 'Plan Premium Anual'}
+        {props.record.idPrice === 'price_1O2XpZKuryBPUG9f9fQ7WBNf' && 'Plan Premium Mensual'}
+        {props.record.idPrice === 'price_1O2XpZKuryBPUG9fIFPqZ4oS' && 'Plan Premium Anual'}
 
-        {props.record.idPrice === 'price_1NpwURDCxZVJxL3fdZAGlnqQ' && 'Plan Standard Mensual'}
-        {props.record.idPrice === 'price_1NpwURDCxZVJxL3fYmpi0Iz4' && 'Plan Standard Anual'}
+        {props.record.idPrice === 'price_1O2XoVKuryBPUG9fBCTK4UOB' && 'Plan Standard Mensual'}
+        {props.record.idPrice === 'price_1O2XoVKuryBPUG9fW2VVsSrX' && 'Plan Standard Anual'}
 
-        {props.record.idPrice === 'price_1NpwTeDCxZVJxL3fo1YjtMLB' && 'Plan Basic Mensual'}
-        {props.record.idPrice === 'price_1NpwTeDCxZVJxL3fELqtn5cS' && 'Plan Basic Anual'}
+        {props.record.idPrice === 'price_1O2XnDKuryBPUG9f0Z9cjrTy' && 'Plan Basic Mensual'}
+        {props.record.idPrice === 'price_1O2XnDKuryBPUG9fJ2CgPVI0' && 'Plan Basic Anual'}
 
       </td>
+
+
+      <td>
+        {props.record.state}
+      </td>
+
 
       <td>
         {startDate.toLocaleString()}
@@ -150,12 +147,53 @@ const Record3 = (props) => {
       <td>{endDate.toLocaleString()}</td>
 
       <td className='py-3'>
-        Cuestionario 1: {localStorage.getItem("calculoC1Disponibles")}
+        Cuestionario 1 (Entrenam.): {localStorage.getItem("calculoC1Disponibles")}
         <hr />
-        Cuestionario 2: {localStorage.getItem("calculoC2Disponibles")}
+        Cuestionario 2 (Partido): {localStorage.getItem("calculoC2Disponibles")}
       </td>
 
       <td><button className='profile-cancel-btn' onClick={cancelSub}>Cancelar</button></td>
+
+    </tr>
+
+  );
+
+}
+
+
+const RecordCancel = (props) => {
+  const context = useContext(LoginContext)
+  const { startDate, endDate } = props
+  if (props.record.price) {
+    context.handleFreeTrialDone();
+  }
+
+
+  return (
+    <tr className='profile-table-body'>
+
+      <td>
+
+        {props.record.idPrice === 'price_1O2XpZKuryBPUG9f9fQ7WBNf' && 'Plan Premium Mensual'}
+        {props.record.idPrice === 'price_1O2XpZKuryBPUG9fIFPqZ4oS' && 'Plan Premium Anual'}
+
+        {props.record.idPrice === 'price_1O2XoVKuryBPUG9fBCTK4UOB' && 'Plan Standard Mensual'}
+        {props.record.idPrice === 'price_1O2XoVKuryBPUG9fW2VVsSrX' && 'Plan Standard Anual'}
+
+        {props.record.idPrice === 'price_1O2XnDKuryBPUG9f0Z9cjrTy' && 'Plan Basic Mensual'}
+        {props.record.idPrice === 'price_1O2XnDKuryBPUG9fJ2CgPVI0' && 'Plan Basic Anual'}
+
+      </td>
+
+
+      <td>
+        {props.record.state}
+      </td>
+
+
+      <td>
+        {props.record.createdAt.slice(0, props.record.createdAt.length - 14)}
+      </td>
 
     </tr>
 
@@ -172,7 +210,7 @@ function Profile({ idPrice }) {
   const [createdSub, setCreated] = useState();
   const [startSubPeriod, setStartSubPeriod] = useState();
   const [endSubPeriod, setEndSubPeriod] = useState();
-  const [isDisabled, setIsDisabled] = useState("chooseq-btn mx-3 mt-5");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -198,6 +236,8 @@ function Profile({ idPrice }) {
         const startDate = new Date(subscription.current_period_start * 1000);
         const endDate = new Date(subscription.current_period_end * 1000);
         const created = new Date(subscription.created * 1000)
+
+
 
         setCreated(created);
         setStartSubPeriod(startDate);
@@ -282,7 +322,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 1 CHEACKQ1 BASICO MENSUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB" || "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
+          if (seleccionPrice === "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
@@ -305,37 +345,11 @@ function Profile({ idPrice }) {
                 />
               );
             }
-            /*
 
-            let maxAns = 1; //uno por el free trial
-            //console.log(calcularDiferenciaMeses(createdSub, setEnd))
-            const calculoMeses = calcularDiferenciaMeses(createdSub, setEnd);
-            if (calculoMeses > 1) {
-              maxAns = maxAns + calculoMeses
-              //console.log(maxAns)
-            }
-            if (index === maxAns - 1 || index === maxAns) {
-              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
-              //console.log(index)
-            }
-            if (index <= maxAns) {
-              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
-              localStorage.setItem("calculoC1Disponibles", calculoCuestionariosDisponibles)
-              return (
-                <Record
-                  record={record}
-                  numeroKey={index}
-                  idCuestionario={idCuestionario}
-                  calculoCuestionariosDisponibles={calculoCuestionariosDisponibles}
-                  key={record._id}
-                />
-              );
-            }
-            */
           }
 
           //PLAN 1 CHEACKQ1 BASICO ANUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS" || "price_1O2XnDKuryBPUG9fJ2CgPVI0") {
+          if (seleccionPrice === "price_1O2XnDKuryBPUG9fJ2CgPVI0") {
 
             let maxAns = 1; //uno por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
@@ -365,8 +379,8 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 2 CHEACKQ1 STANDARD MENSUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ" || "price_1O2XoVKuryBPUG9fBCTK4UOB") {
-            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
+          if (seleccionPrice === "price_1O2XoVKuryBPUG9fBCTK4UOB") {
+            let maxAns = 12 * calcularDiferenciaMeses(createdSub, setEnd);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
               maxAns = maxAns + calcularDiferenciaMeses(createdSub, setEnd)
@@ -391,7 +405,7 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 2 CHEACKQ1 STANDARD ANUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4" || "price_1O2XoVKuryBPUG9fW2VVsSrX") {
+          if (seleccionPrice === "price_1O2XoVKuryBPUG9fW2VVsSrX") {
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setDate);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
@@ -418,8 +432,8 @@ function Profile({ idPrice }) {
 
 
           //PLAN 3 CHEACKQ1 STANDARD MENSUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2" || "price_1O2XpZKuryBPUG9f9fQ7WBNf") {
-            let maxAns = 8 * calcularDiferenciaMeses(createdSub, setEnd);
+          if (seleccionPrice === "price_1O2XpZKuryBPUG9f9fQ7WBNf") {
+            let maxAns = 24 * calcularDiferenciaMeses(createdSub, setEnd);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setEnd) > 1) {
               maxAns = maxAns + calcularDiferenciaMeses(createdSub, setEnd)
@@ -445,7 +459,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 3 CHEACKQ1 STANDARD ANUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki" || "price_1O2XpZKuryBPUG9fIFPqZ4oS") {
+          if (seleccionPrice === "price_1O2XpZKuryBPUG9fIFPqZ4oS") {
             let maxAns = 8 * calcularDiferenciaMeses(createdSub, setDate);
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             if (calcularDiferenciaMeses(createdSub, setDate) > 1) {
@@ -510,7 +524,7 @@ function Profile({ idPrice }) {
           // muestro freetrial
           if (index === 0) {
             return (
-              <Record
+              <Record2
                 record={record}
                 numeroKey={index}
                 idCuestionario={idCuestionario}
@@ -520,21 +534,19 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 1 CHEACKQ2 BASICO MENSUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fo1YjtMLB" || "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
-            let maxAns = 1; //uno por el free trial
+          if (seleccionPrice === "price_1O2XnDKuryBPUG9f0Z9cjrTy") {
+            let maxAns = 2; // por el free trial
             //console.log(calcularDiferenciaMeses(createdSub, setEnd))
             const calculoMeses = calcularDiferenciaMeses(createdSub, setEnd);
             if (calculoMeses > 1) {
               maxAns = maxAns + calculoMeses
               //console.log(maxAns)
             }
-            if (index === maxAns - 1 || index === maxAns) {
-              //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
-              //console.log(index)
-            }
+
             if (index <= maxAns) {
               const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
               localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
+
               return (
                 <Record2
                   record={record}
@@ -545,33 +557,11 @@ function Profile({ idPrice }) {
                 />
               );
             }
-            /*
-            context.handleSubscriptionOn();
-            context.handleFreeTrialDone();;
-            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
-            if (index <= maxAns) {
-              //console.log(maxAns)
-              //console.log(index)
-              if (index === maxAns) {
-                //setIsDisabled('disabled chooseq-btn mx-3 mt-5')
-              }
-              const calculoCuestionariosDisponibles = maxAns - index //ACA CALCULO CUESTIONARIOS DISPONIBLES
-              localStorage.setItem("calculoC2Disponibles", calculoCuestionariosDisponibles)
-              //console.log(calculoCuestionariosDisponibles)
-              return (
-                <Record2
-                  record={record}
-                  numeroKey={index}
-                  idCuestionario={idCuestionario}
-                  key={record._id}
-                />
-              );
-            }
-            */
+
           }
 
           //PLAN 1 CHEACKQ2 BASICO ANUAL
-          if (seleccionPrice === "price_1NpwTeDCxZVJxL3fELqtn5cS" || "price_1O2XnDKuryBPUG9fJ2CgPVI0") {
+          if (seleccionPrice === "price_1O2XnDKuryBPUG9fJ2CgPVI0") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 4 * calcularDiferenciaMeses(createdSub, setDate);
@@ -597,10 +587,10 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 2 CHEACKQ2 STANDARD MENSUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fdZAGlnqQ" || "price_1O2XoVKuryBPUG9fBCTK4UOB") {
+          if (seleccionPrice === "price_1O2XoVKuryBPUG9fBCTK4UOB") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
-            let maxAns = 12 * calcularDiferenciaMeses(createdSub, setEnd);
+            let maxAns = 4 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               //console.log(maxAns)
               //console.log(index)
@@ -624,7 +614,7 @@ function Profile({ idPrice }) {
 
 
           //PLAN 2 CHEACKQ2 STANDARD ANUAL
-          if (seleccionPrice === "price_1NpwURDCxZVJxL3fYmpi0Iz4" || "price_1O2XoVKuryBPUG9fW2VVsSrX") {
+          if (seleccionPrice === "price_1O2XoVKuryBPUG9fW2VVsSrX") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();;
             let maxAns = 12 * calcularDiferenciaMeses(createdSub, setDate);
@@ -650,10 +640,10 @@ function Profile({ idPrice }) {
           }
 
           //PLAN 3 CHEACKQ2 PREMIUM MENSUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fJNHGpzm2" || "price_1O2XpZKuryBPUG9f9fQ7WBNf") {
+          if (seleccionPrice === "price_1O2XpZKuryBPUG9f9fQ7WBNf") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();
-            let maxAns = 24 * calcularDiferenciaMeses(createdSub, setEnd);
+            let maxAns = 8 * calcularDiferenciaMeses(createdSub, setEnd);
             if (index <= maxAns) {
               //console.log(maxAns)
               //console.log(index)
@@ -675,7 +665,7 @@ function Profile({ idPrice }) {
             }
           }
           //PLAN 3 CHEACKQ2 PREMIUM ANUAL
-          if (seleccionPrice === "price_1NpwVkDCxZVJxL3fC12Fuyki" || "price_1O2XpZKuryBPUG9fIFPqZ4oS") {
+          if (seleccionPrice === "price_1O2XpZKuryBPUG9fIFPqZ4oS") {
             context.handleSubscriptionOn();
             context.handleFreeTrialDone();
             let maxAns = 24 * calcularDiferenciaMeses(createdSub, setDate);
@@ -711,9 +701,10 @@ function Profile({ idPrice }) {
 
       const idUser = localStorage.getItem("idUser");
       if (idUser === record.id) {
+       
         if (record.state === "active") {
           seleccionPrice = record.idPrice;
-          //console.log(record.id);
+
           return (
             <Record3
               record={record}
@@ -724,6 +715,30 @@ function Profile({ idPrice }) {
             />
           );
         }
+
+      }
+    });
+  }
+
+  function recordCancelpayment() {
+    return sub.map((record, index) => {
+
+      const idUser = localStorage.getItem("idUser");
+      if (idUser === record.id) {
+        if (record.state === "cancel") {
+          seleccionPrice = record.idPrice;
+
+          return (
+            <RecordCancel
+              record={record}
+              numeroKey={index}
+              startDate={startSubPeriod}
+              endDate={endSubPeriod}
+              key={record._id}
+            />
+          );
+        }
+
       }
     });
   }
@@ -736,6 +751,8 @@ function Profile({ idPrice }) {
     navigate('/');
   }
 
+
+
   return (
 
     <Container className='profile-container'>
@@ -745,9 +762,9 @@ function Profile({ idPrice }) {
 
         {context.subscriptionOn
           ? <>
-            <Button className="chooseq-btn mx-3 mt-5" disabled={localStorage.getItem('calculoC1Disponibles') === '0'} as={Link} to='/questionnaire1'>CUESTIONARIO 1</Button>
-            <Button className="chooseq-btn mx-3 mt-5" disabled={localStorage.getItem('calculoC2Disponibles') === '0'} as={Link} to='/questionnaire2'>CUESTIONARIO 2</Button>
-            </>
+            <Button className="chooseq-btn mx-3 mt-5" disabled={localStorage.getItem('calculoC1Disponibles') === '0'} as={Link} to='/questionnaire1'>CUESTIONARIO ENTRENAMIENTO</Button>
+            <Button className="chooseq-btn mx-3 mt-5" disabled={localStorage.getItem('calculoC2Disponibles') === '0'} as={Link} to='/questionnaire2'>CUESTIONARIO PARTIDO</Button>
+          </>
           : <>
             <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/questionnaire1'>PRUEBA GRATIS AQUÍ</Button>
             <Button className="chooseq-btn mx-3 mt-5" as={Link} to='/subscriptions'>SUSCRIBIRSE</Button>
@@ -766,6 +783,7 @@ function Profile({ idPrice }) {
 
 
                 <th>PLAN ACTIVO</th>
+                <th>ESTADO</th>
                 <th>INICIO</th>
                 <th>RENOVACIÓN</th>
                 <th>CUESTIONARIOS DISPONIBLES</th>
@@ -776,6 +794,7 @@ function Profile({ idPrice }) {
             <tbody>{recordSuccesspayment()}</tbody>
           </Table>
         </div>
+
 
         <div className='scroll-container'>
           <Table className="profile-table" striped bordered hover>
@@ -795,7 +814,22 @@ function Profile({ idPrice }) {
 
           </Table>
         </div>
+        <div className='scroll-container'>
+          <Table className="profile-table" striped bordered hover>
+            <thead>
+              <tr className='profile-table-title'>
 
+
+                <th>PLAN CANCELADO</th>
+                <th>ESTADO</th>
+                <th>INICIO</th>
+
+
+              </tr>
+            </thead>
+            <tbody>{recordCancelpayment()}</tbody>
+          </Table>
+        </div>
 
       </SpinnerLoading>
 
