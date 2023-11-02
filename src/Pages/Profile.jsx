@@ -82,6 +82,9 @@ const Record2 = (props) => (
 );
 
 const Record3 = (props) => {
+  const idSubMDB = props.record.idSub
+  localStorage.setItem("idSubMDB", idSubMDB); // ID de la suscripción desde mongo
+
   const context = useContext(LoginContext)
   const { startDate, endDate } = props
   if (props.record.price) {
@@ -90,14 +93,10 @@ const Record3 = (props) => {
 
 
   const cancelSub = async (e) => {
-
-
-
     if (window.confirm("La suscripción se cancelará a partir del siguiente ciclo, por lo tanto, ya no se te realizará ningún cargo por su renovación. \n  \n¿Desea cancelar la suscripción? ") == true) {
       const { error } = await stripe.subscriptions.cancel(props.record.idSub);
       if (!error) {
         context.handleSubscriptionOff();
-
         const response = await fetch(`https://afectactic.xyz/pago/success/${props.record._id}`, {
           headers: {
             'Content-Type': 'application/json'
@@ -221,7 +220,7 @@ function Profile({ idPrice }) {
     };
   }, []);
 
-  const subscriptionId = localStorage.getItem("subscriptionID"); // ID de la suscripción
+  const subscriptionId = localStorage.getItem("idSubMDB"); // ID de la suscripción
 
   const context = useContext(LoginContext)
 
